@@ -1,0 +1,19 @@
+name: linting, testing, building
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+
+    steps:
+       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+
+
