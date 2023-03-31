@@ -52,6 +52,7 @@ module.exports = {
         '@typescript-eslint/prefer-nullish-coalescing': 'off', // Предупреждение, если не используется оператор объединения с null
         'react/display-name': 'off', // Предупреждение, если компонент не имеет отображаемого имени
         '@typescript-eslint/ban-ts-comment': 'warn',
-        '@typescript-eslint/prefer-ts-expect-error': 'off'
+        '@typescript-eslint/prefer-ts-expect-error': 'off',
+        '@typescript-eslint/triple-slash-reference': 'warn'
     }
 }
