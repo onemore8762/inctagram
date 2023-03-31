@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+    reactStrictMode: true,
+    build: {
+        postcss: null
+    }
 }
 
 module.exports = nextConfig

@@ -1,14 +1,14 @@
-//.Button {
-//    cursor: pointer;
-//    color: var(--primary-color);
-//    padding: 6px 15px;
-//
-//&:hover {
-//     opacity: 0.8;
-//     fill-opacity: 80%;
-//     stroke-opacity: 80%;
-// }
-//}
+.Button {
+    cursor: pointer;
+    color: var(--primary-color);
+    padding: 6px 15px;
+
+    &:hover {
+        opacity: 0.8;
+        fill-opacity: 0.8;
+        stroke-opacity: 0.8;
+    }
+}
 
 .clear,
 .clearInverted {
@@ -36,8 +36,8 @@
 
 .background {
     background: var(--bg-color);
-    color: var(--primary-color);
     border: none;
+    color: var(--primary-color);
 }
 
 .backgroundInverted {
