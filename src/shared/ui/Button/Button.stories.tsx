@@ -46,6 +46,9 @@ export const allButtons = (args) => (
             <Button {...args} size={ButtonSize.M} theme={ ButtonTheme.SECONDARY}>
                 Button text
             </Button>
+            <Button {...args} size={ButtonSize.M} theme={ ButtonTheme.OUTLINE}>
+                Button text
+            </Button>
         </div>
         <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
             <Button {...args} size={ButtonSize.L} theme={ ButtonTheme.TEXT_BUTTON}>
@@ -57,6 +60,9 @@ export const allButtons = (args) => (
             <Button {...args} size={ButtonSize.L} theme={ ButtonTheme.SECONDARY}>
                 Button text
             </Button>
+            <Button {...args} size={ButtonSize.L} theme={ ButtonTheme.OUTLINE}>
+                Button text
+            </Button>
         </div>
         <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
             <Button {...args} size={ButtonSize.XL} theme={ ButtonTheme.TEXT_BUTTON}>
@@ -66,6 +72,9 @@ export const allButtons = (args) => (
                 Button text
             </Button>
             <Button {...args} size={ButtonSize.XL} theme={ ButtonTheme.SECONDARY}>
+                Button text
+            </Button>
+            <Button {...args} size={ButtonSize.XL} theme={ ButtonTheme.OUTLINE}>
                 Button text
             </Button>
         </div>
