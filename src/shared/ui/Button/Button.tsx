@@ -22,7 +22,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean
     children?: ReactNode
     onClick?: React.MouseEventHandler<HTMLButtonElement>
-    block: boolean
+    block?: boolean
 }
 
 export const Button = memo((props: ButtonProps) => {
