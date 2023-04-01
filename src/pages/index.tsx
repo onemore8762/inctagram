@@ -14,7 +14,7 @@ export default function Home () {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Button theme={ButtonTheme.BACKGROUND}>Text</Button>
+                <Button theme={ButtonTheme.PRIMARY}>Text</Button>
             </main>
         </>
     )

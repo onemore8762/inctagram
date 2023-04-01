@@ -1,14 +1,12 @@
-import { type ButtonHTMLAttributes, memo, type ReactNode } from 'react'
+import React, { type ButtonHTMLAttributes, memo, type ReactNode } from 'react'
 import cls from './Button.module.scss'
 import clsx from 'clsx'
 
 export enum ButtonTheme {
-    CLEAR = 'clear',
-    CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
-    OUTLINE_RED = 'outline_red',
-    BACKGROUND = 'background',
-    BACKGROUND_INVERTED = 'backgroundInverted',
+    SECONDARY = 'secondary',
+    PRIMARY = 'primary',
+    TEXT_BUTTON = 'textButton'
 }
 
 export enum ButtonSize {
@@ -17,29 +15,31 @@ export enum ButtonSize {
     XL = 'size_xl',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
     theme?: ButtonTheme
-    square?: boolean
     size?: ButtonSize
     disabled?: boolean
     children?: ReactNode
+    onClick?: React.MouseEventHandler<HTMLButtonElement>
+    block: boolean
 }
 
 export const Button = memo((props: ButtonProps) => {
     const {
         className,
         children,
-        theme = ButtonTheme.OUTLINE,
+        theme = ButtonTheme.PRIMARY,
         size = ButtonSize.M,
-        square,
         disabled,
+        onClick,
+        block,
         ...otherProps
     } = props
 
     const mods = {
-        [cls.square]: square,
-        [cls.disabled]: disabled
+        [cls.disabled]: disabled,
+        [cls.block]: block
     }
 
     return (
@@ -47,6 +47,7 @@ export const Button = memo((props: ButtonProps) => {
                 type='button'
                 className={clsx(cls.Button, mods, [className, cls[size], cls[theme]])}
                 disabled={disabled}
+                onClick={onClick}
                 {...otherProps}
         >
             {children}
