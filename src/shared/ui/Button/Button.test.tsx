@@ -7,7 +7,7 @@ describe('buttons', () => {
         expect(screen.getByText('TEST')).toBeInTheDocument()
     })
     test('Test render2', () => {
-        const { getByText } = render(<Button theme={ButtonTheme.CLEAR}>TEST</Button>)
+        const { getByText } = render(<Button theme={ButtonTheme.TEXT_BUTTON}>TEST</Button>)
         expect(getByText('TEST')).toBeInTheDocument()
     })
 })

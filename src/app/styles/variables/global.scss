@@ -1,5 +1,5 @@
 :root {
-    --font-family-main: consolas, "Inter", serif;
+    --font-family-main: inter, sans-serif;
     --font-size-m: 16px;
     --font-line-m: 24px;
     --font-weight-m: 600;
@@ -23,4 +23,5 @@
     --overlay-color: rgba(0 0 0 / 60%);
     --red-light: #f00;
     --red-dark: #ce0505;
+    --modal-bg: #333
 }
