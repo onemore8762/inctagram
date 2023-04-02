@@ -12,8 +12,8 @@ module.exports = {
     framework: '@storybook/react',
     core: {
         builder: '@storybook/builder-webpack5'
-    },
-    typescript: {
-        reactDocgen: 'react-docgen'
     }
+    // typescript: {
+    //     reactDocgen: 'react-docgen'
+    // }
 }
