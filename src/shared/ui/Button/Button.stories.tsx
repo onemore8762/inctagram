@@ -1,5 +1,5 @@
 import React from 'react'
-import { type ComponentMeta } from '@storybook/react'
+import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { Button, ButtonSize, ButtonTheme } from './Button'
 
 export default {
@@ -23,18 +23,18 @@ export default {
         block: { control: 'boolean' }
     }
 } as ComponentMeta < typeof Button >
-export const TextButton = (args) => <Button {...args} />
-export const Primary = (args) => <Button {...args} />
-export const Secondary = (args) => <Button {...args} />
-export const Outline = (args) => <Button {...args} />
-export const WithBlock = (args) => <Button {...args} />
+export const TextButton: ComponentStory<typeof Button> = (args) => <Button {...args} />
+export const Primary: ComponentStory<typeof Button> = (args) => <Button {...args} />
+export const Secondary: ComponentStory<typeof Button> = (args) => <Button {...args} />
+export const Outline: ComponentStory<typeof Button> = (args) => <Button {...args} />
+export const WithBlock: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-export const TextButtonDisabled = (args) => <Button {...args} />
-export const PrimaryDisabled = (args) => <Button {...args} />
-export const SecondaryDisabled = (args) => <Button {...args} />
-export const OutlineDisabled = (args) => <Button {...args} />
+export const TextButtonDisabled: ComponentStory<typeof Button> = (args) => <Button {...args} />
+export const PrimaryDisabled: ComponentStory<typeof Button> = (args) => <Button {...args} />
+export const SecondaryDisabled: ComponentStory<typeof Button> = (args) => <Button {...args} />
+export const OutlineDisabled: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-export const allButtons = (args) => (
+export const allButtons: ComponentStory<typeof Button> = (args) => (
     <>
         <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
             <Button {...args} size={ButtonSize.M} theme={ ButtonTheme.TEXT_BUTTON}>
