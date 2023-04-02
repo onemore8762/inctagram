@@ -28,7 +28,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = memo((props: ButtonProps) => {
     const {
         className,
-        // children,
+        children,
         theme = ButtonTheme.PRIMARY,
         size = ButtonSize.M,
         disabled,
@@ -50,8 +50,7 @@ export const Button = memo((props: ButtonProps) => {
                 onClick={onClick}
                 {...otherProps}
         >
-            {/* {children} */}
-            {'gygyugyy'}
+            {children}
         </button>
     )
 }
