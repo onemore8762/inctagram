@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import IconArrow from 'shared/assets/icons/general/arrow-back.svg'
-import {Header} from "pages/components/header";
+import {Header} from "widgets/Header";
 
 const inter = Inter({ subsets: ['latin'] })
 

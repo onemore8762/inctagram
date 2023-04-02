@@ -1,3 +1,15 @@
 .Header {
-    position: static; /* заглушка чтобы stylelint не ругался */
+    box-sizing: border-box;
+    background: #0D0D0D;
+    border-bottom: 1px solid #333;
+
+    .HeaderText {
+        color: #FFF;
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 26px;
+        line-height: 36px;
+        padding: 12px 0 12px 60px;
+    }
 }
