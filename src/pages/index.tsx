@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
       <main>
         <Button theme={ButtonTheme.PRIMARY}>Text</Button>
-        <Input placeholder={'hello'} variant={'search'}/>
+        <Input placeholder={'Input search'} variant={'search'}/>
         <IconArrow/>
       </main>
     </>
