@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { Button } from 'shared/ui/Button/Button'
 import IconArrow from 'shared/assets/icons/general/arrow-back.svg'
 
 export default function Home () {
@@ -12,7 +12,7 @@ export default function Home () {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Button theme={ButtonTheme.PRIMARY}>Text</Button>
+                <Button>Text</Button>
                 <IconArrow/>
             </main>
         </>

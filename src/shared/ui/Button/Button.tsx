@@ -1,36 +1,23 @@
-import React, { type ButtonHTMLAttributes, memo, type ReactNode } from 'react'
+import React, { type ButtonHTMLAttributes, type ReactNode } from 'react'
 import cls from './Button.module.scss'
 import clsx from 'clsx'
 
-export enum ButtonTheme {
-    OUTLINE = 'outline',
-    SECONDARY = 'secondary',
-    PRIMARY = 'primary',
-    TEXT_BUTTON = 'textButton'
-}
-
-export enum ButtonSize {
-    M = 'size_m',
-    L = 'size_l',
-    XL = 'size_xl',
-}
-
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
-    theme?: ButtonTheme
-    size?: ButtonSize
+    theme?: 'outline' | 'secondary' | 'primary' | 'textButton'
+    size?: 'size_m' | 'size_l' | 'size_xl'
     disabled?: boolean
     children?: ReactNode
     onClick?: React.MouseEventHandler<HTMLButtonElement>
     block?: boolean
 }
 
-export const Button = memo((props: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
     const {
         className,
         children,
-        theme = ButtonTheme.PRIMARY,
-        size = ButtonSize.M,
+        theme = 'primary',
+        size = 'size_m',
         disabled,
         onClick,
         block,
@@ -54,4 +41,3 @@ export const Button = memo((props: ButtonProps) => {
         </button>
     )
 }
-)
