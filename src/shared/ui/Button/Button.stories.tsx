@@ -1,128 +1,119 @@
 import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { Button, ButtonSize, ButtonTheme } from './Button'
-
+import { Button } from './Button'
 export default {
     title: 'shared/Button',
     component: Button,
     argTypes: {
         children: { control: 'text' },
         size: {
-            options: ButtonSize,
+            options: ['size_m', 'size_l', 'size_xl'],
             control: {
                 type: 'radio'
             }
         },
         theme: {
-            options: ButtonTheme,
-            control: {
-                type: 'radio'
-            }
+            options: ['outline', 'secondary', 'primary', 'textButton'],
+            control: { type: 'radio' }
         },
         disabled: { control: 'boolean' },
         block: { control: 'boolean' }
     }
-} as ComponentMeta < typeof Button >
-export const TextButton: ComponentStory<typeof Button> = (args) => <Button {...args} />
-export const Primary: ComponentStory<typeof Button> = (args) => <Button {...args} />
-export const Secondary: ComponentStory<typeof Button> = (args) => <Button {...args} />
-export const Outline: ComponentStory<typeof Button> = (args) => <Button {...args} />
-export const WithBlock: ComponentStory<typeof Button> = (args) => <Button {...args} />
+} as ComponentMeta < typeof Button>
 
-export const TextButtonDisabled: ComponentStory<typeof Button> = (args) => <Button {...args} />
-export const PrimaryDisabled: ComponentStory<typeof Button> = (args) => <Button {...args} />
-export const SecondaryDisabled: ComponentStory<typeof Button> = (args) => <Button {...args} />
-export const OutlineDisabled: ComponentStory<typeof Button> = (args) => <Button {...args} />
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+
+export const TextButton = Template.bind({})
+TextButton.args = {
+    children: 'Button text',
+    theme: 'textButton'
+}
+export const Primary = Template.bind({})
+Primary.args = {
+    children: 'Button text'
+}
+export const Secondary = Template.bind({})
+Secondary.args = {
+    children: 'Button text',
+    theme: 'secondary'
+}
+export const Outline = Template.bind({})
+Outline.args = {
+    children: 'Button text',
+    theme: 'outline'
+}
+export const WithBlock = Template.bind({})
+WithBlock.args = {
+    children: 'Button text',
+    block: true
+}
+export const TextButtonDisabled = Template.bind({})
+TextButtonDisabled.args = {
+    children: 'Button text',
+    theme: 'textButton',
+    disabled: true
+}
+export const PrimaryDisabled = Template.bind({})
+PrimaryDisabled.args = {
+    children: 'Button text',
+    disabled: true
+}
+export const SecondaryDisabled = Template.bind({})
+SecondaryDisabled.args = {
+    children: 'Button text',
+    theme: 'secondary',
+    disabled: true
+}
+export const OutlineDisabled = Template.bind({})
+OutlineDisabled.args = {
+    children: 'Button text',
+    theme: 'outline',
+    disabled: true
+}
 
 export const allButtons: ComponentStory<typeof Button> = (args) => (
     <>
         <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
-            <Button {...args} size={ButtonSize.M} theme={ ButtonTheme.TEXT_BUTTON}>
+            <Button {...args} size={'size_m'} theme={'textButton'}>
                 Button text
             </Button>
-            <Button {...args} size={ButtonSize.M}>
+            <Button {...args} size={'size_m'}>
                 Button text
             </Button>
-            <Button {...args} size={ButtonSize.M} theme={ ButtonTheme.SECONDARY}>
+            <Button {...args} size={'size_m'} theme={'secondary'}>
                 Button text
             </Button>
-            <Button {...args} size={ButtonSize.M} theme={ ButtonTheme.OUTLINE}>
-                Button text
-            </Button>
-        </div>
-        <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
-            <Button {...args} size={ButtonSize.L} theme={ ButtonTheme.TEXT_BUTTON}>
-                Button text
-            </Button>
-            <Button {...args} size={ButtonSize.L}>
-                Button text
-            </Button>
-            <Button {...args} size={ButtonSize.L} theme={ ButtonTheme.SECONDARY}>
-                Button text
-            </Button>
-            <Button {...args} size={ButtonSize.L} theme={ ButtonTheme.OUTLINE}>
+            <Button {...args} size={'size_m'} theme={'outline'}>
                 Button text
             </Button>
         </div>
         <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
-            <Button {...args} size={ButtonSize.XL} theme={ ButtonTheme.TEXT_BUTTON}>
+            <Button {...args} size={'size_l'} theme={'outline'}>
                 Button text
             </Button>
-            <Button {...args} size={ButtonSize.XL}>
+            <Button {...args} size={'size_l'}>
                 Button text
             </Button>
-            <Button {...args} size={ButtonSize.XL} theme={ ButtonTheme.SECONDARY}>
+            <Button {...args} size={'size_l'} theme={'secondary'}>
                 Button text
             </Button>
-            <Button {...args} size={ButtonSize.XL} theme={ ButtonTheme.OUTLINE}>
+            <Button {...args} size={'size_l'} theme={'outline'}>
+                Button text
+            </Button>
+        </div>
+        <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
+            <Button {...args} size={'size_xl'} theme={'textButton'}>
+                Button text
+            </Button>
+            <Button {...args} size={'size_xl'}>
+                Button text
+            </Button>
+            <Button {...args} size={'size_xl'} theme={'secondary'}>
+                Button text
+            </Button>
+            <Button {...args} size={'size_xl'} theme={'outline'}>
                 Button text
             </Button>
         </div>
     </>
 )
-
-TextButton.args = {
-    children: 'Button text',
-    theme: ButtonTheme.TEXT_BUTTON
-}
-
-Primary.args = {
-    children: 'Button text'
-}
-
-Secondary.args = {
-    children: 'Button text',
-    theme: ButtonTheme.SECONDARY
-}
-
-Outline.args = {
-    children: 'Button text',
-    theme: ButtonTheme.OUTLINE
-}
-
-WithBlock.args = {
-    children: 'Button text',
-    block: true
-}
-TextButtonDisabled.args = {
-    children: 'Button text',
-    theme: ButtonTheme.TEXT_BUTTON,
-    disabled: true
-}
-
-PrimaryDisabled.args = {
-    children: 'Button text',
-    disabled: true
-}
-
-SecondaryDisabled.args = {
-    children: 'Button text',
-    theme: ButtonTheme.SECONDARY,
-    disabled: true
-}
-
-OutlineDisabled.args = {
-    children: 'Button text',
-    theme: ButtonTheme.OUTLINE,
-    disabled: true
-}
