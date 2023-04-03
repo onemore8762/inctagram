@@ -2,8 +2,12 @@ import Head from 'next/head'
 import { Button } from 'shared/ui/Button/Button'
 import IconArrow from 'shared/assets/icons/general/arrow-back.svg'
 import { ThemeSwitcher } from '../shared/ui/ThemeSwitcher/ThemeSwitcher'
+import { useTranslation } from 'next-i18next'
+import { LangSwitcher } from '../shared/ui/LangSwitcher/LangSwitcher'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export default function Home () {
+    const { t } = useTranslation()
     return (
         <>
             <Head>
@@ -16,7 +20,19 @@ export default function Home () {
                 <Button>Text</Button>
                 <IconArrow/>
                 <ThemeSwitcher/>
+                <LangSwitcher/>
+                <div style={{ backgroundColor: '#000000' }}>{t('Привет')}</div>
             </main>
         </>
     )
+}
+
+export async function getStaticProps ({ locale }: { locale: any }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale ?? 'en', [
+                'common'
+            ]))
+        }
+    }
 }
