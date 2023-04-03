@@ -7,7 +7,7 @@ export default {
     argTypes: {
         children: { control: 'text' },
         size: {
-            options: ['size_m', 'size_l', 'size_xl'],
+            options: ['small', 'medium', 'regular'],
             control: {
                 type: 'radio'
             }
@@ -74,44 +74,44 @@ OutlineDisabled.args = {
 export const allButtons: ComponentStory<typeof Button> = (args) => (
     <>
         <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
-            <Button {...args} size={'size_m'} theme={'textButton'}>
+            <Button {...args} size={'small'} theme={'textButton'}>
                 Button text
             </Button>
-            <Button {...args} size={'size_m'}>
+            <Button {...args} size={'small'}>
                 Button text
             </Button>
-            <Button {...args} size={'size_m'} theme={'secondary'}>
+            <Button {...args} size={'small'} theme={'secondary'}>
                 Button text
             </Button>
-            <Button {...args} size={'size_m'} theme={'outline'}>
-                Button text
-            </Button>
-        </div>
-        <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
-            <Button {...args} size={'size_l'} theme={'outline'}>
-                Button text
-            </Button>
-            <Button {...args} size={'size_l'}>
-                Button text
-            </Button>
-            <Button {...args} size={'size_l'} theme={'secondary'}>
-                Button text
-            </Button>
-            <Button {...args} size={'size_l'} theme={'outline'}>
+            <Button {...args} size={'small'} theme={'outline'}>
                 Button text
             </Button>
         </div>
         <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
-            <Button {...args} size={'size_xl'} theme={'textButton'}>
+            <Button {...args} size={'medium'} theme={'textButton'}>
                 Button text
             </Button>
-            <Button {...args} size={'size_xl'}>
+            <Button {...args} size={'medium'}>
                 Button text
             </Button>
-            <Button {...args} size={'size_xl'} theme={'secondary'}>
+            <Button {...args} size={'medium'} theme={'secondary'}>
                 Button text
             </Button>
-            <Button {...args} size={'size_xl'} theme={'outline'}>
+            <Button {...args} size={'medium'} theme={'outline'}>
+                Button text
+            </Button>
+        </div>
+        <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
+            <Button {...args} size={'regular'} theme={'textButton'}>
+                Button text
+            </Button>
+            <Button {...args} size={'regular'}>
+                Button text
+            </Button>
+            <Button {...args} size={'regular'} theme={'secondary'}>
+                Button text
+            </Button>
+            <Button {...args} size={'regular'} theme={'outline'}>
                 Button text
             </Button>
         </div>
