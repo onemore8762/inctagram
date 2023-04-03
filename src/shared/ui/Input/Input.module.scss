@@ -5,8 +5,10 @@
 }
 
 .outline {
+    display: block;
     border: none;
     border-bottom: 1px solid var(--dark-300-color);
+    width: 279px;
 
     &:hover {
         border-bottom: 1px solid var(--light-900-color);
@@ -21,7 +23,7 @@
         color: var(--light-900-color);
         border: 1px solid var(--primary-color);
     }
-  
+
     &:invalid {
         color: var(--light-100-color);
         border: 1px solid var(--danger-500-color);
@@ -31,6 +33,14 @@
 .outline.disabled {
     color: var(--dark-100-color);
     border: 1px solid var(--dark-100-color);
+}
+
+.password {
+    background: transparent url("../../assets/icons/dark/eye-outline.svg") no-repeat right center;
+
+    &:focus {
+        background: transparent url("../../assets/icons/dark/eye-off-outline.svg") no-repeat right center;
+    }
 }
 
 .search {
@@ -64,7 +74,7 @@
         color: var(--light-100-color);
         border: 1px solid var(--danger-500-color);
     }
-  
+
 }
 
 .search.disabled {

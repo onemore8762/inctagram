@@ -18,6 +18,8 @@ export default function Home() {
       <main>
         <Button theme={ButtonTheme.PRIMARY}>Text</Button>
         <Input placeholder={'Input search'} variant={'search'}/>
+        <Input placeholder={'Input search'} variant={'outline'} type={'password'}/>
+        <Input placeholder={'Input search'} variant={'outline'} type={'text'}/>
         <IconArrow/>
       </main>
     </>

@@ -3,7 +3,8 @@ import cls from './Input.module.scss'
 import clsx from 'clsx'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  variant?: string
+  type?: string  /*text or password*/
+  variant?: string  /*outline or search*/
   placeholder?: string
   className?: string
   disabled?: boolean
@@ -19,20 +20,24 @@ export const Input = (props: InputProps) => {
     disabled,
     variant,
     placeholder,
+    type,
     ...otherProps
   } = props
 
   const mods = {
-    [cls.disabled]: disabled
+    [cls.disabled]: disabled,
   }
+
+  const typeStyle = type === 'password' ? 'password' : ''
 
   return (
     <input
-      type={'text'}
-      className={clsx(cls.Input, mods, [className, cls[variant]])}
+      type={type}
+      className={clsx(cls.Input, mods, [className, cls[variant], cls[typeStyle]])}
       disabled={disabled}
       onChange={onChange}
       placeholder={placeholder}
+      {...otherProps}
     >
       {children}
     </input>
