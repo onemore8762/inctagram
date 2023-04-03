@@ -1,0 +1,29 @@
+@import "src/app/styles/mixins/mixins";
+
+.container {
+  @include flex(column, center, center);
+  background-color: var(--dark-700-color);
+  width: 100vw;
+  height: 100vh; //пока так, потом отнять размер хэдера
+}
+
+.title {
+  font: var(--font-h1);
+  padding-bottom: 15px;
+}
+
+.text {
+  max-width: 294px;
+  text-align: center;
+  font: var(--font-regular-400);
+}
+
+.button {
+  min-width: 182px;
+  padding: 40px 0;
+}
+
+.image{
+  width: 432px;
+  height: 300px;
+}
