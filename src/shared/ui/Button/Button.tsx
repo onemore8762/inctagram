@@ -1,4 +1,4 @@
-import React, { type ButtonHTMLAttributes, type ReactNode } from 'react'
+import React, { type ButtonHTMLAttributes, memo, type ReactNode } from 'react'
 import cls from './Button.module.scss'
 import clsx from 'clsx'
 
@@ -12,7 +12,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     block?: boolean
 }
 
-export const Button = (props: ButtonProps) => {
+export const Button = memo((props: ButtonProps) => {
     const {
         className,
         children,
@@ -41,3 +41,4 @@ export const Button = (props: ButtonProps) => {
         </button>
     )
 }
+)
