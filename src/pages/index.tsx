@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Button } from 'shared/ui/Button/Button'
 import IconArrow from 'shared/assets/icons/general/arrow-back.svg'
+import { ThemeSwitcher } from '../shared/ui/ThemeSwitcher/ThemeSwitcher'
 
 export default function Home () {
     return (
@@ -14,6 +15,7 @@ export default function Home () {
             <main>
                 <Button>Text</Button>
                 <IconArrow/>
+                <ThemeSwitcher/>
             </main>
         </>
     )

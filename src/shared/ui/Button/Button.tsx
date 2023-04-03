@@ -4,7 +4,7 @@ import clsx from 'clsx'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
-    theme?: 'outline' | 'secondary' | 'primary' | 'textButton'
+    theme?: 'outline' | 'secondary' | 'primary' | 'textButton' | 'clear'
     size?: 'size_m' | 'size_l' | 'size_xl'
     disabled?: boolean
     children?: ReactNode

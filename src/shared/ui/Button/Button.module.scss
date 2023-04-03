@@ -5,11 +5,19 @@
     font-weight: 600;
 }
 
-.outline {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+.clear {
+    font-size: 0;
+    padding: 0;
+    border: none;
     background: none;
-    
+    outline: none;
+}
+
+.outline {
+    border: 1px solid var(--primary-500-color);
+    color: var(--primary-500-color);
+    background: none;
+
     &:hover {
         border: 1px solid var(--primary-100-color);
         color: var(--primary-100-color);
@@ -48,9 +56,9 @@
 }
 
 .primary {
-    background: var(--primary-color);
+    background: var(--primary-500-color);
     border: none;
-    color: var(--light-color);
+    color: var(--light-100-color);
 
     &:hover {
         background: var(--primary-100-color);
@@ -70,7 +78,7 @@
 .textButton {
     background: transparent;
     border: none;
-    color: var(--primary-color);
+    color: var(--primary-500-color);
 
     &:hover {
         color: var(--primary-100-color);
@@ -92,18 +100,15 @@
 }
 
 .size_m {
-    font-weight: var(--font-weight-m);
-    font-size: var(--font-size-m);
-    font-family: var(--font-family-main);
-    line-height: var(--font-line-m);
+    font: var(--font-h3);
 }
 
 .size_l {
-    font: var(--font-l);
+    font: var(--font-h3);
 }
 
 .size_xl {
-    font: var(--font-xl);
+    font: var(--font-h3);
 }
 
 .block {
