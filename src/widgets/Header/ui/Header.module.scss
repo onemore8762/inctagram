@@ -1,11 +1,11 @@
 .Header {
     box-sizing: border-box;
-    background: #0D0D0D;
-    border-bottom: 1px solid #333;
+    background: var(--dark-700-color);
+    border-bottom: 1px solid var(--dark-300-color);
 
     .HeaderText {
-        color: #FFF;
-        font-family: Inter, sans-serif;
+        color: var(--light-color);
+        font-family: var(--font-family-main);
         font-style: normal;
         font-weight: 600;
         font-size: 26px;
