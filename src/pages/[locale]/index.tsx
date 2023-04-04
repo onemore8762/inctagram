@@ -4,7 +4,6 @@ import { AppLink } from '../../shared/ui/AppLink/AppLink'
 import { Input } from 'shared/ui/Input/Input'
 import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
 
-
 export default function Home () {
     return (
         <>
