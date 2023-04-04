@@ -1,83 +1,67 @@
-.Input {
-    font: var(--font-m);
-    font-weight: 400;
-    color: var(--light-900-color);
-}
+@import "app/styles/mixins/mixins";
 
-.outline {
-    display: block;
-    border: none;
-    border-bottom: 1px solid var(--dark-300-color);
-    width: 279px;
+.wrapper {
+    position: relative;
 
-    &:hover {
-        border-bottom: 1px solid var(--light-900-color);
-    }
+    @include flex($align:center);
 
-    &:active {
-        color: var(--light-100-color);
-        border-bottom: 1px solid var(--light-100-color);
-    }
-
-    &:focus {
+    .input {
+        font: var(--font-m);
+        font-weight: 400;
         color: var(--light-900-color);
-        border: 1px solid var(--primary-color);
+        background: none;
+        width: 100%;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--card-entity-bg);
+        border-radius: 2px;
+
+        &.error {
+            border-bottom: 1px solid var(--danger-500-color);
+        }
+
+        &.search {
+            padding-left: 40px;
+            border: none;
+            border-radius: 2px;
+            outline: 1px solid var(--card-entity-bg);
+
+            &.error {
+                outline: 1px solid var(--danger-500-color);
+            }
+        }
+
+        &.password {
+            padding-right: 40px;
+        }
+
+        &.disabled {
+            cursor: not-allowed;
+            user-select: none;
+            color:  var(--dark-100-color);
+        }
+
+        &:focus {
+            outline: 2px solid #2F68CC;
+            border: none;
+        }
+
     }
 
-    &:invalid {
-        color: var(--light-100-color);
-        border: 1px solid var(--danger-500-color);
+    button {
+        width: 24px;
+        height: 24px;
+        right: 0;
+
+        @include position(absolute)
+    }
+
+    .icon {
+        transform: translate(50%, 50%);
+
+        @include position(absolute, 0, 50%, 0, 0);
     }
 }
 
-.outline.disabled {
-    color: var(--dark-100-color);
-    border: 1px solid var(--dark-100-color);
-}
-
-.password {
-    background: transparent url("../../assets/icons/dark/eye-outline.svg") no-repeat right center;
-
-    &:focus {
-        background: transparent url("../../assets/icons/dark/eye-off-outline.svg") no-repeat right center;
-    }
-}
-
-.search {
-    display: block;
-    border: 1px solid var(--dark-300-color);
-    border-radius: 2px;
-    align-items: center;
-    height: 36px;
-    font: var(--font-m);
-    width: 277px;
-    padding: 9px 4px 9px 40px;
-    color: var(--light-900-color);
-    background: transparent url("../../assets/icons/general/search.svg") no-repeat 11px center;
-
-    &:hover {
-        border: 1px solid var(--light-900-color);
-        background: transparent url("../../assets/icons/general/search.svg") no-repeat 11px center;
-    }
-
-    &:active {
-        color: var(--light-100-color);
-        border: 1px solid var(--light-100-color);
-    }
-
-    &:focus {
-        color: var(--light-900-color);
-        border: 1px solid var(--primary-color);
-    }
-
-    &:invalid {
-        color: var(--light-100-color);
-        border: 1px solid var(--danger-500-color);
-    }
-
-}
-
-.search.disabled {
-    color: var(--dark-100-color);
-    border: 1px solid var(--dark-100-color);
+.error {
+    color: var(--danger-500-color);
 }

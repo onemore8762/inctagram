@@ -9,6 +9,8 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import languageDetector from '../../shared/lib/languageDetector'
 import i18nextConfig from '../../../next-i18next.config'
+import { Input } from 'shared/ui/Input/Input'
+import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
 
 const getStaticProps = makeStaticProps(['common'])
 export { getStaticPaths, getStaticProps }
@@ -31,6 +33,9 @@ export default function Home () {
                 <Button>{t('Привет')}</Button>
                 <IconArrow/>
                 <ThemeSwitcher/>
+                <FormWrapper>
+                    <Input type={'password'}/>
+                </FormWrapper>
                 {i18nextConfig.i18n.locales.map((locale) => {
                     if (locale === currentLocale) return null
                     return (
