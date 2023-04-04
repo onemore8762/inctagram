@@ -10,7 +10,7 @@ interface InfoPageProps {
     buttonText: string
 }
 
-export default function Info (props: InfoPageProps) {
+export function Info (props: InfoPageProps) {
     const {
         title,
         text,

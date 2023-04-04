@@ -1,7 +1,7 @@
 import VerificationImg from 'shared/assets/images/verification.png'
 import { useTranslation } from 'next-i18next'
 import { makeStaticProps, getStaticPaths } from 'shared/lib/getStatic'
-import Info from 'entities/Info/Info'
+import { Info } from '../../entities/Info'
 
 const getStaticProps = makeStaticProps(['common'])
 export { getStaticPaths, getStaticProps }
