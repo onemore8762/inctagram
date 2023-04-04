@@ -1,4 +1,4 @@
-@import "src/app/styles/mixins/mixins";
+@import "../../app/styles/mixins/mixins";
 
 .container {
     @include flex(column, center, center);
@@ -26,4 +26,19 @@
 .image {
     width: 432px;
     height: 300px;
+}
+
+@media screen and (max-width: 500px) {
+    .title {
+        font: var(--font-h3);
+    }
+
+    .text {
+        font: var(--font-medium-400);
+    }
+
+    .image {
+        width: 270px;
+        height: 170px;
+    }
 }

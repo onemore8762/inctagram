@@ -1,10 +1,9 @@
 @import "src/app/styles/mixins/mixins";
 
-.AppLink {
+.AppLink{
     color: var(--light-100-color);
     text-decoration: none;
     display: flex;
-    font: var(--font-medium-500);
 }
 
 .icon {

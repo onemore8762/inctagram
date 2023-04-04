@@ -1,6 +1,6 @@
 import { Button } from 'shared/ui/Button/Button'
 import Image, { type StaticImageData } from 'next/image'
-import cls from './InfoPage.module.scss'
+import cls from './Info.module.scss'
 import clsx from 'clsx'
 
 interface InfoPageProps {
@@ -10,7 +10,7 @@ interface InfoPageProps {
     buttonText: string
 }
 
-export default function InfoPage (props: InfoPageProps) {
+export default function Info (props: InfoPageProps) {
     const {
         title,
         text,
