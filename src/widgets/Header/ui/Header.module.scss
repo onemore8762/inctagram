@@ -2,14 +2,11 @@
     box-sizing: border-box;
     background: var(--dark-700-color);
     border-bottom: 1px solid var(--dark-300-color);
+    height: var(--header-height);
 
     .HeaderText {
         color: var(--light-color);
-        font-family: var(--font-family-main);
-        font-style: normal;
-        font-weight: 600;
-        font-size: 26px;
-        line-height: 36px;
+        font: var(--font-large);
         padding: 12px 0 12px 60px;
     }
 }
