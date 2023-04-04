@@ -4,6 +4,7 @@
     @include flex(column, center, center);
 
     background-color: var(--dark-700-color);
+    height: 100%;
 }
 
 .title {
