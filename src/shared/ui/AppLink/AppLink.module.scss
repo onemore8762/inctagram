@@ -1,3 +1,21 @@
+@import "src/app/styles/mixins/mixins";
+
 .AppLink {
-    position: static; /* заглушка чтобы stylelint не ругался */
+    color: var(--light-100-color);
+    text-decoration: none;
+    display: flex;
+    font: var(--font-medium-500);
+}
+
+.icon {
+    margin-right: 12px;
+    fill: var(--light-100-color);
+    width: 24px;
+    height: 24px;
+}
+
+.active {
+    fill: var(--primary-500-color);
+    color: var(--primary-500-color);
+    font: var(--font-medium-700);
 }

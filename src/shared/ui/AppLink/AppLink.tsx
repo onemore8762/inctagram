@@ -1,15 +1,31 @@
 import cls from './AppLink.module.scss'
 import clsx from 'clsx'
+import Link from 'next/link'
+import React from 'react'
 
 interface AppLinkProps {
-    className?: string
+    Icon: typeof React.Component
+    text: string
+    href: string
+    active?: boolean
 }
 
 export const AppLink = (props: AppLinkProps) => {
-    const { className } = props
-    return (
-        <div className={clsx(cls.AppLink, {}, [className])}>
+    const {
+        Icon,
+        text,
+        href,
+        active = false,
+        ...otherProps
+    } = props
 
-        </div>
+    const mods = {
+        [cls.active]: active
+    }
+    return (
+        <Link href={href} className={clsx(cls.AppLink, mods)} {...otherProps}>
+            <Icon className={clsx(cls.icon, mods)}/>
+            {text}
+        </Link>
     )
 }

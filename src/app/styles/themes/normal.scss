@@ -1,27 +1,51 @@
 :root { // .app.light
-    --bg-color: #e8e8ea;
-    --inverted-bg-color: #090949;
-    --primary-color: #397DF6;
-    --primary-100-color: #73A5FF;
-    --primary-700-color: #2F68CC;
-    --primary-900-color: #234E99;
-    --light-color: #fff;
-    --light-700-color: #D5DAE0;
-    --light-900-color: #BDC1C7;
-    --dark-color: #000;
-    --dark-100-color: #4C4C4C;
-    --dark-300-color: #333;
-    --dark-700-color: #0D0D0D;
+    // custom color
     --secondary-color: #0449e0;
-    --inverted-primary-color: #04ff04;
-    --inverted-secondary-color: #049604;
 
     // skeleton
+    --skeleton-color: #E1E1E1;
+    --skeleton-shadow: #BDBDBD;
 
-    --skeleton-color: #fff;
-    --skeleton-shadow: rgba(0 0 0 / 20%);
+    // light color theme palette
+    --light-100-color: #fff;
+    --light-300-color: #F2F2F2;
+    --light-500-color: #E0E0E0;
+    --light-700-color: #BDBDBD;
+    --light-900-color: #8E8E8E;
 
-    // code
+    // dark
+    --dark-color: #000;
+    --dark-100-color: #444;
+    --dark-300-color: #666;
+    --dark-500-color: #9E9E9E;
+    --dark-700-color: #BDBDBD;
+    --dark-900-color: #D1D1D1;
 
-    --code-bg: #fff;
+    // accent
+    --primary-100-color: #8C9EFF;
+    --primary-300-color: #536DFE;
+    --primary-500-color: #3D5AFE;
+    --primary-700-color: #304FFE;
+    --primary-900-color: #213E9E;
+
+    // success
+    --success-100-color:#B2FF59;
+    --success-300-color:#76FF03;
+    --success-500-color:#64DD17;
+    --success-700-color:#43A047;
+    --success-900-color:#1B5E20;
+
+    // warning
+    --warning-100-color:#FFE082;
+    --warning-300-color:#FFB300;
+    --warning-500-color:#FFA000;
+    --warning-700-color:#F57C00;
+    --warning-900-color:#E65100;
+
+    // danger
+    --danger-100-color:#FF8A80;
+    --danger-300-color:#FF5252;
+    --danger-500-color:#FF1744;
+    --danger-700-color:#D50000;
+    --danger-900-color:#B71C1C;
 }
