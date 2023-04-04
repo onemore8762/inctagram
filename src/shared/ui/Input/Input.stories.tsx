@@ -7,11 +7,17 @@ export default {
     title: 'shared/Input',
     component: Input,
     argTypes: {
-        backgroundColor: { control: 'color' }
+      type: {
+        options: ['text', 'password']
+      },
+      variant: {
+        options: ['outline', 'search']
+      },
+      disabled: { control: 'boolean' },
     }
 } as ComponentMeta<typeof Input>
 
-const Template: ComponentStory<typeof Input> = () => <Input/>
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args}/>
 
 export const Normal = Template.bind({})
 Normal.args = {}
