@@ -1,20 +1,40 @@
 :root {
-    --font-family-main: consolas, "Inter", sans-serif;
-    --font-size-m: 16px;
-    --font-line-m: 24px;
-    --font-weight-m: 600;
-    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
-    --font-size-l: 20px;
-    --font-line-l: 28px;
-    --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main) ;
-    --font-size-xl: 22px;
-    --font-line-xl: 34px;
-    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+    --font-family-main: inter, sans-serif;
+
+    // small text
+    --font-size-small: 12px;
+    --font-line-small: 16px;
+    --font-small-400: 400 var(--font-size-small) / var(--font-line-small) var(--font-family-main) ;
+    --font-small-600: 600 var(--font-size-small) / var(--font-line-small) var(--font-family-main) ;
+
+    // medium text
+    --font-size-medium: 14px;
+    --font-line-medium: 24px;
+    --font-medium-400: 400 var(--font-size-medium) / var(--font-line-medium) var(--font-family-main) ;
+    --font-medium-500: 500 var(--font-size-medium) / var(--font-line-medium) var(--font-family-main) ;
+    --font-medium-700: 700 var(--font-size-medium) / var(--font-line-medium) var(--font-family-main) ;
+
+    // regular text
+    --font-size-regular: 16px;
+    --font-line-regular: 24px;
+    --font-regular-400: 400 var(--font-size-regular) / var(--font-line-regular) var(--font-family-main) ;
+    --font-regular-700: 700 var(--font-size-regular) / var(--font-line-regular) var(--font-family-main) ;
+
+    // links
+    --font-small-link: 400 var(--font-size-small) / var(--font-line-small) var(--font-family-main) ;
+    --font-regular-link: 400 var(--font-size-medium) / var(--font-line-medium) var(--font-family-main) ;
+
+
+    // H
+    --font-h1: 700 20px / 36px var(--font-family-main) ;
+    --font-h2: 700 18px / 24px var(--font-family-main) ;
+    --font-h3: 600 16px / 24px var(--font-family-main) ;
+
+    // Large
+    --font-large: 600 26px / 36px var(--font-family-main) ;
 
     // Размеры
     --navbar-height: 50px;
-    --sidebar-width: 300px;
-    --sidebar-width-collapsed: 80px;
 
     // z  - индексы
     --modal-z-index: 10;
@@ -23,4 +43,5 @@
     --overlay-color: rgba(0 0 0 / 60%);
     --red-light: #f00;
     --red-dark: #ce0505;
+    --modal-bg: #333
 }
