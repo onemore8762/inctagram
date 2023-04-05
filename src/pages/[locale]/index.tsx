@@ -11,6 +11,7 @@ import languageDetector from '../../shared/lib/languageDetector'
 import i18nextConfig from '../../../next-i18next.config'
 import { Input } from 'shared/ui/Input/Input'
 import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
+import { useForm } from 'react-hook-form'
 
 const getStaticProps = makeStaticProps(['common'])
 export { getStaticPaths, getStaticProps }
@@ -19,7 +20,6 @@ export default function Home () {
     const { t, i18n } = useTranslation()
     const router = useRouter()
     const currentLocale = router.query.locale || i18nextConfig.i18n.defaultLocale
-    console.log(i18n.language)
     return (
         <>
             <Head>
@@ -34,7 +34,7 @@ export default function Home () {
                 <IconArrow/>
                 <ThemeSwitcher/>
                 <FormWrapper>
-                    <Input type={'password'}/>
+                    <Input />
                 </FormWrapper>
                 {i18nextConfig.i18n.locales.map((locale) => {
                     if (locale === currentLocale) return null
