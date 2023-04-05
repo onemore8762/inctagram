@@ -3,11 +3,11 @@
     background: var(--dark-700-color);
     border-bottom: 1px solid var(--dark-300-color);
     height: var(--header-height);
+    padding: 12px 0;
 
     .HeaderText {
         text-decoration: none;
         color: var(--light-color);
         font: var(--font-large);
-        padding: 12px 0 12px 60px;
     }
 }

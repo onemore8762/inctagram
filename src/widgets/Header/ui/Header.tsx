@@ -1,7 +1,7 @@
 import cls from './Header.module.scss'
 import clsx from 'clsx'
-import React from 'react'
 import { AppLink } from '../../../shared/ui/AppLink/AppLink'
+import { Container } from 'shared/ui/Container/Container'
 
 interface HeaderProps {
     className?: string
@@ -10,10 +10,10 @@ interface HeaderProps {
 export const Header = (props: HeaderProps) => {
     const { className } = props
     return (
-        <div className={clsx(cls.Header, {}, [className])}>
-            <p className={cls.HeaderText}>
-                <AppLink href={'/'}>Inctagram</AppLink>
-            </p>
-        </div>
+        <header className={clsx(cls.Header, [className])}>
+            <Container>
+                <AppLink className={cls.HeaderText} href={'/'}>Inctagram</AppLink>
+            </Container>
+        </header>
     )
 }
