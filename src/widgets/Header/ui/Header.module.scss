@@ -5,6 +5,7 @@
     height: var(--header-height);
 
     .HeaderText {
+        text-decoration: none;
         color: var(--light-color);
         font: var(--font-large);
         padding: 12px 0 12px 60px;

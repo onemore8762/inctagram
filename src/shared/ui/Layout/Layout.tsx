@@ -1,4 +1,4 @@
-import { type FC, type PropsWithChildren } from 'react'
+import { type FC, type PropsWithChildren, Suspense } from 'react'
 import { Header } from 'widgets/Header'
 import cls from './Layout.module.scss'
 import { Container } from 'shared/ui/Container/Container'
@@ -9,7 +9,9 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
             <Header />
             <main className={cls.main}>
                 <Container>
-                    {children}
+                    <Suspense fallback={<div>Loading...</div>}>
+                        {children}
+                    </Suspense>
                 </Container>
             </main>
         </div>

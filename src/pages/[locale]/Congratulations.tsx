@@ -1,11 +1,17 @@
 import CongratulationsImg from 'shared/assets/images/congratulations.png'
-import InfoPage from '../../shared/components/infoPage/InfoPage'
+import { useTranslation } from 'next-i18next'
+import { makeStaticProps, getStaticPaths } from '../../shared/lib/getStatic'
+import { Info } from '../../entities/Info'
+
+const getStaticProps = makeStaticProps(['common'])
+export { getStaticPaths, getStaticProps }
 
 export default function Congratulations () {
+    const { t } = useTranslation()
     return (
-        <InfoPage title={'Congratulations!'}
-                  text={'Your email has been confirmed'}
-                  buttonText={'Sign in'}
-                  image={CongratulationsImg} />
+        <Info title={t('congratulations-title')} // Поздравляю!
+              text={t('congratulations-text')} // Ваше сообщение было подтверждено
+              buttonText={t('congratulations-button')} // Войти
+              image={CongratulationsImg} />
     )
 }
