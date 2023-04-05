@@ -1,10 +1,22 @@
 import Head from 'next/head'
-import { makeStaticProps, getStaticPaths } from '../../shared/lib/getStatic'
-import { AppLink } from '../../shared/ui/AppLink/AppLink'
-import { Input } from 'shared/ui/Input/Input'
-import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
+import { getStaticPaths, makeStaticProps } from '@/shared/lib/getStatic'
+import { AppLink } from '@/shared/ui/AppLink/AppLink'
+import { Input } from '@/shared/ui/Input/Input'
+import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
 
 export default function Home () {
+    // useEffect(() => {
+    //     AuthService.me()
+    //     // .then(() => {
+    //     //     AuthService.refresh()
+    //     // })
+    // }, [])
+    // const onClickHandlerLogOut = () => {
+    //     AuthService.logout()
+    // }
+    // const onClickHandlerLogin = () => {
+    //     AuthService.login()
+    // }
     return (
         <>
             <Head>
@@ -19,6 +31,8 @@ export default function Home () {
                 <FormWrapper>
                     <Input type={'password'} />
                 </FormWrapper>
+                {/* <Button onClick={onClickHandlerLogOut}>Logout</Button> */}
+                {/* <Button onClick={onClickHandlerLogin}>login</Button> */}
             </main>
         </>
     )
