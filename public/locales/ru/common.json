@@ -5,5 +5,6 @@
   "verification-button":"Повторно отправить ссылку для подтверждения",
   "congratulations-title": "Поздравляю!",
   "congratulations-text":"Ваше сообщение было подтверждено",
-  "congratulations-button":"Войти"
+  "congratulations-button":"Войти",
+  "login-error":"Вы ввели неверный пароль или адрес электронной почты. Пожалуйста, попробуйте еще раз"
 }

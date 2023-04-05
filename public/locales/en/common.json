@@ -5,5 +5,6 @@
   "verification-button":"Resend verification link",
   "congratulations-title": "Congratulations!",
   "congratulations-text":"Your email has been confirmed",
-  "congratulations-button":"Sign in"
+  "congratulations-button":"Sign in",
+  "login-error": "The password or email you entered is incorrect. Please try again"
 }
