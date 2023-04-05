@@ -16,6 +16,7 @@ export default function Home () {
             <main>
                 <AppLink href={'/Congratulations'}>Congratulations</AppLink>
                 <AppLink href={'/Verification'}>Verification</AppLink>
+                <AppLink href={'/features/[signIn]'}>Sign In</AppLink>
                 <FormWrapper>
                     <Input type={'password'}/>
                 </FormWrapper>

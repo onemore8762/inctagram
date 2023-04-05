@@ -1,0 +1,33 @@
+.signIn {
+    flex-direction: column;
+  
+    .icons {
+        color: black;
+    }
+
+    .inputBlock {
+        display: block;
+    }
+
+    .forgotPassword {
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    }
+
+
+    .button {
+        display: block;
+    }
+
+    .text {
+        display: flex;
+    }
+
+    .signUp {
+        a {
+            text-decoration: none;
+        }
+    }
+}
