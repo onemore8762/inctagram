@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
+    reactStrictMode: false,
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     webpack (config) {
         const fileLoaderRule = config.module.rules.find((rule) =>
