@@ -1,8 +1,17 @@
-.signIn {
+.signInBlock {
+    display: flex;
     flex-direction: column;
-  
+    background-color: var(--dark-500-color);
+
+    .signInText {
+        font: var(--font-h1);
+        text-align: center;
+    }
+
     .icons {
-        color: black;
+        display: flex;
+        padding: 13px 123px 22px;
+        justify-content: space-between;
     }
 
     .inputBlock {
@@ -11,7 +20,7 @@
 
     .forgotPassword {
         a {
-            color: black;
+            color: var(--light-900-color);
             text-decoration: none;
         }
     }
@@ -28,6 +37,7 @@
     .signUp {
         a {
             text-decoration: none;
+            color: var(--primary-500-color);
         }
     }
 }

@@ -1,18 +1,19 @@
 import React, {useState} from 'react';
-import {Modal} from "../../../shared/ui/Modal/Modal";
 import {Input} from "../../../shared/ui/Input/Input";
 import {FormWrapper} from "../../../shared/ui/FormWrapper/FormWrapper";
 import {Button} from "../../../shared/ui/Button/Button";
 import cls from './SignIn.module.scss'
+import GoogleIcon from '../../../shared/assets/icons/general/google.svg'
+import FacebookIcon from '../../../shared/assets/icons/general/facebook.svg'
 
 export default function SignIn() {
-  const [open, isOpen] = useState(true)
 
   return (
-      <FormWrapper className={cls.signIn}>
-        <div><p>Sign In</p></div>
+      <FormWrapper className={cls.signInBlock}>
+        <div className={cls.signInText}><p>Sign In</p></div>
         <div className={cls.icons}>
-          <img src="" alt=""/>
+          <GoogleIcon/>
+          <FacebookIcon/>
         </div>
 
         <div className={cls.inputBlock}>
