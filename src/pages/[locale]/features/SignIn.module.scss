@@ -15,29 +15,46 @@
     }
 
     .inputBlock {
-        display: block;
+        .inputEmail {
+            margin-bottom: 30px;
+        }
+
+        .inputPassword {
+            margin-top: 0;
+        }
     }
 
     .forgotPassword {
+        margin: 0 4px 24px 0;
+
         a {
+            float: right;
             color: var(--light-900-color);
             text-decoration: none;
+            font: var(--font-medium-400);
         }
     }
 
 
     .button {
-        display: block;
+        font: var(--font-h3);
     }
 
     .text {
         display: flex;
+        justify-content: center;
+        margin: 18px 0 12px;
+        font: var(--font-regular-400);
     }
 
     .signUp {
+        text-align: center;
+        margin-bottom: 6px;
+
         a {
             text-decoration: none;
             color: var(--primary-500-color);
+            font: var(--font-h3);
         }
     }
 }
