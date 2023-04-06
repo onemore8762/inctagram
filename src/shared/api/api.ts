@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-export const API_URL = 'http://176.57.217.107:5000/api/'
+export const API_URL = 'https://blogs-nest-torm.vercel.app/' // 'http://176.57.217.107:5000/api/' основной
 
-interface AuthResponse {
+interface RefreshTokenResponse {
     'accessToken': 'string'
 }
 
-const $api = axios.create({
+export const $api = axios.create({
     withCredentials: true,
     baseURL: API_URL
 })
@@ -23,7 +23,9 @@ $api.interceptors.response.use((config) => {
     if (error.response.status === 401 && error.config && !error.config._isRetry) {
         originalRequest._isRetry = true
         try {
-            const response = await axios.get<AuthResponse>(`${API_URL}/auth/refresh-token`, { withCredentials: true })
+            const response = await axios.get<RefreshTokenResponse>(
+                `${API_URL}auth/refresh-token`, { withCredentials: true }
+            )
             localStorage.setItem('token', response.data.accessToken)
             return await $api.request(originalRequest)
         } catch (e) {
@@ -32,50 +34,3 @@ $api.interceptors.response.use((config) => {
     }
     throw error
 })
-
-export const AuthService = {
-    async me () {
-        return await $api.get('auth/me')
-            .catch((e) => { console.log('error') })
-    },
-    async refresh () {
-        return await $api.post('auth/refresh-token', {
-            accessToken: localStorage.getItem('token')
-        })
-            .catch((e) => { console.log('error') })
-    },
-    async login () {
-        await $api.post('auth/login', {
-            loginOrEmail: 'Deniska',
-            password: 'Deniska'
-        }).then((response) => {
-            localStorage.setItem('token', response.data.accessToken)
-        })
-    },
-    async logout () {
-        await $api.post('auth/logout').then(() => {
-            localStorage.removeItem('token')
-        }).catch((e) => { console.log('error') })
-    },
-    async registration () {
-        return await $api.post('auth/registration', {
-            email: 'denis.churkin.afikei@mail.ru',
-            login: 'Deniska',
-            password: 'Deniska'
-        }).catch((e) => { console.log('error') })
-    },
-    async registrationConfirm () {
-        return await $api.post('auth/registration-confirmation', {
-            code: '08e3d51c-7536-4c7e-be25-c3049c82a266'
-        }).catch((e) => { console.log('error') })
-    },
-    async checkAuth () {
-        try {
-            const response = await axios.post<AuthResponse>('auth/refresh-token')
-            localStorage.setItem('token', response.data.accessToken)
-        } catch (e) {
-            // @ts-ignore
-            console.log(e.response?.data?.message)
-        }
-    }
-}

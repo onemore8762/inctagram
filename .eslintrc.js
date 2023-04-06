@@ -54,6 +54,8 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'warn',
         '@typescript-eslint/prefer-ts-expect-error': 'off',
         '@typescript-eslint/triple-slash-reference': 'warn',
-        '@typescript-eslint/no-misused-promises': 'off'
+        '@typescript-eslint/no-misused-promises': 'off',
+        '@typescript-eslint/promise-function-async': 'off',
+        '@typescript-eslint/return-await': 'off'
     }
 }
