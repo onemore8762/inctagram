@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const API_URL = 'https://blogs-nest-torm.vercel.app/'
+export const API_URL = 'http://176.57.217.107:5000/api/'
 
 interface AuthResponse {
     'accessToken': 'string'
@@ -16,23 +16,22 @@ $api.interceptors.request.use((config) => {
     return config
 })
 
-// $api.interceptors.response.use((config) => {
-//     return config
-// }, async (error) => {
-//     const originalRequest = error.config
-//     console.log(error)
-//     if (error.response?.status === 401 && error.config && !error.config._isRetry) {
-//         originalRequest._isRetry = true
-//         try {
-//             const response = await $api.post<AuthResponse>('/auth/refresh-token', { withCredentials: true })
-//             localStorage.setItem('token', response.data.accessToken)
-//             return await $api.request(originalRequest)
-//         } catch (e) {
-//             console.log('НЕ АВТОРИЗОВАН')
-//         }
-//     }
-//     throw error
-// })
+$api.interceptors.response.use((config) => {
+    return config
+}, async (error) => {
+    const originalRequest = error.config
+    if (error.response.status === 401 && error.config && !error.config._isRetry) {
+        originalRequest._isRetry = true
+        try {
+            const response = await axios.get<AuthResponse>(`${API_URL}/auth/refresh-token`, { withCredentials: true })
+            localStorage.setItem('token', response.data.accessToken)
+            return await $api.request(originalRequest)
+        } catch (e) {
+            console.log('НЕ АВТОРИЗОВАН')
+        }
+    }
+    throw error
+})
 
 export const AuthService = {
     async me () {
@@ -55,7 +54,7 @@ export const AuthService = {
     },
     async logout () {
         await $api.post('auth/logout').then(() => {
-            localStorage.clear()
+            localStorage.removeItem('token')
         }).catch((e) => { console.log('error') })
     },
     async registration () {
@@ -69,14 +68,14 @@ export const AuthService = {
         return await $api.post('auth/registration-confirmation', {
             code: '08e3d51c-7536-4c7e-be25-c3049c82a266'
         }).catch((e) => { console.log('error') })
+    },
+    async checkAuth () {
+        try {
+            const response = await axios.post<AuthResponse>('auth/refresh-token')
+            localStorage.setItem('token', response.data.accessToken)
+        } catch (e) {
+            // @ts-ignore
+            console.log(e.response?.data?.message)
+        }
     }
-    // async checkAuth () {
-    //     try {
-    //         const response = await axios.post<AuthResponse>('auth/refresh-token')
-    //         localStorage.setItem('token', response.data.accessToken)
-    //     } catch (e) {
-    //         // @ts-ignore
-    //         console.log(e.response?.data?.message)
-    //     }
-    // }
 }

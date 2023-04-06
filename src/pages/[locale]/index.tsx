@@ -1,8 +1,28 @@
 import Head from 'next/head'
 import { getStaticPaths, makeStaticProps } from '@/shared/lib/getStatic'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
+import { Input } from '@/shared/ui/Input/Input'
+import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
+import { useEffect } from 'react'
+import { AuthService } from '@/shared/api/api'
+import { Button } from '@/shared/ui/Button/Button'
 
 export default function Home () {
+    useEffect(() => {
+        // if (localStorage.getItem('token')) {
+        //     void AuthService.checkAuth()
+        // }
+        void AuthService.me()
+    }, [])
+    const onClickHandlerLogOut = () => {
+        void AuthService.logout()
+    }
+    const onClickHandlerLogin = () => {
+        void AuthService.login()
+    }
+    const onClickHandlerReg = () => {
+        void AuthService.registration()
+    }
     return (
         <>
             <Head>
@@ -14,6 +34,12 @@ export default function Home () {
             <main>
                 <AppLink href={'/Congratulations'}>Congratulations</AppLink>
                 <AppLink href={'/Verification'}>Verification</AppLink>
+                <FormWrapper>
+                    <Input type={'password'} />
+                </FormWrapper>
+                <Button onClick={onClickHandlerLogOut}>Logout</Button>
+                <Button onClick={onClickHandlerLogin}>login</Button>
+                <Button onClick={onClickHandlerReg}>registration</Button>
             </main>
         </>
     )
