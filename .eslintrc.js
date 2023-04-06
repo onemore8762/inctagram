@@ -53,6 +53,7 @@ module.exports = {
         'react/display-name': 'off', // Предупреждение, если компонент не имеет отображаемого имени
         '@typescript-eslint/ban-ts-comment': 'warn',
         '@typescript-eslint/prefer-ts-expect-error': 'off',
-        '@typescript-eslint/triple-slash-reference': 'warn'
+        '@typescript-eslint/triple-slash-reference': 'warn',
+        '@typescript-eslint/no-misused-promises': 'off'
     }
 }

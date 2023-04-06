@@ -20,7 +20,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         className,
         variant = 'standard',
         children,
-        onChange,
         disabled,
         error,
         errorText,
@@ -48,20 +47,21 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const isPassword = type === 'password' && !isVisible ? 'password' : 'text'
 
     return (
-        <>
+        <div className={clsx(cls.field, className)}>
             <div className={clsx(cls.wrapper, mod, cls[variant])}>
                 <input
                     ref={ref}
                     type={type !== 'password' ? type : isPassword}
-                    className={clsx(cls.input, mods, [className, cls[type]])}
+                    className={clsx(cls.input, mods, [cls[type]])}
                     disabled={disabled}
                     placeholder={placeholder}
+                    autoComplete={type === 'password' ? 'new-password' : ''}
                     {...otherProps}
                 />
                 {type === 'password' && <Eye isVisible={isVisible} onClick={onClickChangeVisible}/>}
                 {type === 'search' && <Search className={cls.icon}/>}
             </div>
-            {errorText && <span className={cls.error}>{errorText}</span>}
-        </>
+            {!!errorText && <span className={clsx(cls.message)}>{errorText}</span>}
+        </div>
     )
 })
