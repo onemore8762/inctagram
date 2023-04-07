@@ -7,6 +7,8 @@ import { Button } from '@/shared/ui/Button/Button'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
 import { SocialIcons } from '@/shared/ui/SocialIcons/SocialIcons'
 import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
+import {useMutation, useQuery } from '@tanstack/react-query'
+import {registrationRequest} from "@/services/registrationRequest";
 
 interface RegisterValidation {
     login: string
@@ -23,17 +25,25 @@ export const RegisterForm: FC = () => {
     const emailError = errors?.email && errors.email.message
     const loginError = errors?.login && errors.login.message
     const passwordError = errors?.password && errors.password.message
+    const {mutate: registration, error} = useMutation({
+        mutationFn:registrationRequest
+    })
+    console.log(error)
     // const passwordConfirmError = errors?.confPassword && errors.confPassword.message
-
     const onSubmit = (data: RegisterValidation): void => {
-        console.log(data)
+
+     registration(data)
+
     }
     return (
         <FormWrapper className={cls.register} onSubmit={handleSubmit(onSubmit)}>
             <h2 className={cls.title}>Sign Up</h2>
             <SocialIcons/>
             <Input
-                {...register('login', { required: 'Login is required!' })}
+                {...register('login', { required: 'Login is required!', minLength:{
+                    value:3,
+                        message:"login must be longer than or equal to 3 characters"
+                    } })}
                 type={'text'}
                 placeholder={'Login'}
                 error={!!loginError}
