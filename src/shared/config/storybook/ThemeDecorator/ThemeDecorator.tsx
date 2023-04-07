@@ -6,9 +6,7 @@ import { type ReactElement } from 'react'
 export const ThemeDecorator = (theme: Theme) => function StoryComponent (StoryComponent: Story): ReactElement {
     return (
         <ThemeProvider initialTheme={theme}>
-            <div className={`app ${theme}`}>
-                <StoryComponent/>
-            </div>
+            <StoryComponent/>
         </ThemeProvider>
     )
 }

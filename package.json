@@ -34,6 +34,7 @@
     "react-i18next": "^12.2.0",
     "shared": "^0.2.0",
     "socket.io": "^4.6.1",
+    "storybook-addon-next-router": "^4.0.2",
     "typescript": "*",
     "zustand": "^4.3.6"
   },

@@ -6,9 +6,8 @@ import { useRouter } from 'next/router'
 
 interface AppLinkProps {
     className?: string
-    Icon?: typeof React.Component
+    Icon?: any
     text?: string
-    variant?: 'clear'
     href?: string
     locale?: string | string[]
     active?: boolean
@@ -23,7 +22,6 @@ export const AppLink = (props: AppLinkProps) => {
         text,
         active = false,
         children,
-        variant = '',
         ...rest
     } = props
     let {
@@ -46,7 +44,7 @@ export const AppLink = (props: AppLinkProps) => {
     }
     return (
         <Link href={href} legacyBehavior>
-            <a className={clsx(cls.AppLink, cls[variant], mods, className)} {...rest}>{children}</a>
+            <a className={clsx(cls.AppLink, mods, className)} {...rest}>{children}</a>
         </Link>
     )
 }
