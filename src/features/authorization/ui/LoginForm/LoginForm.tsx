@@ -36,10 +36,10 @@ export const LoginForm: FC = () => {
                 error={!!passwordError}
                 errorText={passwordError}
                 className={cls.input}/>
-            <p className={cls.link}><AppLink href={'/auth/registration'}>Forgot Password</AppLink></p>
+            <p className={cls.link}><AppLink href={'/auth/forgot'}>Forgot Password</AppLink></p>
             <Button type={'submit'} size={'regular'} className={cls.button}>Sign In</Button>
             <p className={cls.text}>Don’t have an account?</p>
-            <AppLink active className={'active'} href={'auth/loginPage'}>Sign Up</AppLink>
+            <AppLink active className={'active'} href={'/auth/registration'}>Sign Up</AppLink>
         </FormWrapper>
     )
 }
