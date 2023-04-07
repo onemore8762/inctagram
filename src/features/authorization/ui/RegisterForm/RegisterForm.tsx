@@ -1,4 +1,3 @@
-import { type FC } from 'react'
 import clsx from 'clsx'
 import cls from 'features/authorization/ui/RegisterForm/RegisterForm.module.scss'
 import { useForm } from 'react-hook-form'
@@ -7,9 +6,11 @@ import { Button } from '@/shared/ui/Button/Button'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
 import { SocialIcons } from '@/shared/ui/SocialIcons/SocialIcons'
 import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
-import {useMutation, useQuery } from '@tanstack/react-query'
+import {useMutation} from '@tanstack/react-query'
 import {registrationRequest} from "@/services/registrationRequest";
-import router, { useRouter } from 'next/router'
+import router from 'next/router'
+import {PageLoader} from "@/shared/ui/PageLoader/PageLoader";
+
 
 interface RegisterValidation {
     login: string
@@ -18,7 +19,7 @@ interface RegisterValidation {
     confPassword: string
 }
 
-export const RegisterForm: FC = () => {
+export const RegisterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<RegisterValidation>({
         mode: 'onChange'
     })
@@ -26,14 +27,17 @@ export const RegisterForm: FC = () => {
     const emailError = errors?.email && errors.email.message
     const loginError = errors?.login && errors.login.message
     const passwordError = errors?.password && errors.password.message
-    const {mutate: registration, error} = useMutation({
+    const {mutate: registration, error, isError, isLoading} = useMutation({
         mutationFn:registrationRequest,
         retry:false,
         onSuccess:()=>{
             router.push('/login')
         }
     })
-    console.log(error)
+    if (isLoading)return  <PageLoader/>
+   if (isError) {
+       return <div>{isError}</div>
+   }
     // const passwordConfirmError = errors?.confPassword && errors.confPassword.message
     const onSubmit = (data: RegisterValidation): void => {
      registration(data)
@@ -81,6 +85,7 @@ export const RegisterForm: FC = () => {
             {/*    errorText={passwordConfirmError}*/}
             {/*    placeholder={'Password confirmation'}*/}
             {/*    className={clsx(cls.input, cls.confirmation)}/>*/}
+
             <Button type={'submit'} size={'regular'} className={cls.button}>Sign Up</Button>
             <p className={cls.text}>Do you have an account?</p>
             <AppLink active className={'active'} href={'/auth/loginPage'}>Sign In</AppLink>
