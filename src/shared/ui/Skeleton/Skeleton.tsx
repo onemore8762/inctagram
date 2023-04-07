@@ -1,24 +1,27 @@
 import cls from './Skeleton.module.scss'
+import { type CSSProperties } from 'react'
 import clsx from 'clsx'
 
 interface SkeletonProps {
     className?: string
-    width: number
-    height: number
-    borderRadius: number
+    height?: string | number
+    width?: string | number
+    border?: string
 }
 
 export const Skeleton = (props: SkeletonProps) => {
     const {
         className,
         width,
-        height,
-        borderRadius
+        border,
+        height
     } = props
-    return (
-        <div className={clsx(cls.Skeleton, [className, cls[width], cls[height], cls[borderRadius]])}
-             style={{ width: `${width}px`, height: `${height}px` }}>
-            <div className={clsx(cls.animation)}></div>
-        </div>
-    )
+
+    const styles: CSSProperties = {
+        width,
+        height,
+        borderRadius: border
+    }
+
+    return <div className={clsx(cls.Skeleton, {}, [className])} style={styles}></div>
 }
