@@ -19,9 +19,9 @@ export const AuthRedirect: React.FC<PropsWithChildren> = ({children}) => {
     if (isLoading) {
         return <div>loading...</div>
     }
-    if (isError && pathname !== '/ru/auth/login' &&  pathname !== '/ru/auth/registration') {
-        push('/ru/auth/login')
-    }
+    // if (isError && pathname !== '/ru/auth/login' &&  pathname !== '/ru/auth/registration') {
+    //     push('/ru/auth/login')
+    // }
 
     return <>{children}</>
 }
