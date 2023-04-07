@@ -6,24 +6,33 @@ import { SocialIcons } from '@/shared/ui/SocialIcons/SocialIcons'
 import { Input } from '@/shared/ui/Input/Input'
 import { Button } from '@/shared/ui/Button/Button'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
+import {useMutation, useQueryClient } from '@tanstack/react-query'
+import {AuthService} from "@/features/authorization";
+import {UserLoginModel} from "@/features/authorization/model/types/UserAuthSchema";
 
 export const LoginForm: FC = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm<{ email: string, password: string }>({
+    const { register, handleSubmit, formState: { errors } } = useForm<{ loginOrEmail: string, password: string }>({
         mode: 'onChange'
     })
 
-    const emailError = errors?.email && errors.email.message
+    const emailError = errors?.loginOrEmail && errors.loginOrEmail.message
     const passwordError = errors?.password && errors.password.message
-
-    const onSubmit = (data: any): void => {
-        console.log(data)
+    const queryClient = useQueryClient()
+    const {mutate: login} = useMutation({
+        mutationFn:AuthService.login,
+        onSuccess:()=>{
+            queryClient.invalidateQueries(['me'])
+        }
+    })
+    const onSubmit = (data: UserLoginModel): void => {
+        login(data)
     }
     return (
         <FormWrapper className={cls.login} onSubmit={handleSubmit(onSubmit)}>
             <h2 className={cls.title}>Sign In</h2>
             <SocialIcons/>
             <Input
-                {...register('email', { required: 'Email is required!' })}
+                {...register('loginOrEmail', { required: 'Email is required!' })}
                 type={'email'}
                 placeholder={'Email'}
                 error={!!emailError}

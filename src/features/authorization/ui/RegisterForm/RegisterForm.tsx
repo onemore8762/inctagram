@@ -29,7 +29,7 @@ export const RegisterForm = () => {
         mutationFn: registrationRequest,
         retry: false,
         onSuccess: () => {
-            void router.push('/login')
+            void router.push('/ru/auth/login')
         }
     })
     if (isLoading) return <PageLoader/>
