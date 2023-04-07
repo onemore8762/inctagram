@@ -56,6 +56,7 @@ module.exports = {
         '@typescript-eslint/triple-slash-reference': 'warn',
         '@typescript-eslint/no-misused-promises': 'off',
         '@typescript-eslint/promise-function-async': 'off',
-        '@typescript-eslint/return-await': 'off'
+        '@typescript-eslint/return-await': 'off',
+        'react/prop-types': 'off'
     }
 }
