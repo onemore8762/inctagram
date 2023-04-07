@@ -9,6 +9,7 @@ import { SocialIcons } from '@/shared/ui/SocialIcons/SocialIcons'
 import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
 import {useMutation, useQuery } from '@tanstack/react-query'
 import {registrationRequest} from "@/services/registrationRequest";
+import router, { useRouter } from 'next/router'
 
 interface RegisterValidation {
     login: string
@@ -26,14 +27,16 @@ export const RegisterForm: FC = () => {
     const loginError = errors?.login && errors.login.message
     const passwordError = errors?.password && errors.password.message
     const {mutate: registration, error} = useMutation({
-        mutationFn:registrationRequest
+        mutationFn:registrationRequest,
+        retry:false,
+        onSuccess:()=>{
+            router.push('/login')
+        }
     })
     console.log(error)
     // const passwordConfirmError = errors?.confPassword && errors.confPassword.message
     const onSubmit = (data: RegisterValidation): void => {
-
      registration(data)
-
     }
     return (
         <FormWrapper className={cls.register} onSubmit={handleSubmit(onSubmit)}>
