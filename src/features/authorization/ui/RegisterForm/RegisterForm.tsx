@@ -23,7 +23,7 @@ export const RegisterForm: FC = () => {
     const emailError = errors?.email && errors.email.message
     const loginError = errors?.login && errors.login.message
     const passwordError = errors?.password && errors.password.message
-    const passwordConfirmError = errors?.confPassword && errors.confPassword.message
+    // const passwordConfirmError = errors?.confPassword && errors.confPassword.message
 
     const onSubmit = (data: RegisterValidation): void => {
         console.log(data)
@@ -47,19 +47,27 @@ export const RegisterForm: FC = () => {
                 errorText={emailError}
                 className={cls.input}/>
             <Input
-                {...register('password', { required: 'Password is required!' })}
+                {...register('password', { required: 'Password is required!',
+                    minLength:{
+                    value: 6,
+                        message:'password length should be more 5 letters'
+                    },
+                    maxLength:{
+                    value: 20,
+                        message: "password length must be less than 21 characters"
+                    } })}
                 type={'password'}
                 placeholder={'Password'}
                 error={!!passwordError}
                 errorText={passwordError}
                 className={cls.input}/>
-            <Input
-                {...register('confPassword', { required: 'Password confirmation is required!' })}
-                type={'password'}
-                error={!!passwordConfirmError}
-                errorText={passwordConfirmError}
-                placeholder={'Password confirmation'}
-                className={clsx(cls.input, cls.confirmation)}/>
+            {/*<Input*/}
+            {/*    {...register('confPassword', { required: 'Password confirmation is required!' })}*/}
+            {/*    type={'password'}*/}
+            {/*    error={!!passwordConfirmError}*/}
+            {/*    errorText={passwordConfirmError}*/}
+            {/*    placeholder={'Password confirmation'}*/}
+            {/*    className={clsx(cls.input, cls.confirmation)}/>*/}
             <Button type={'submit'} size={'regular'} className={cls.button}>Sign Up</Button>
             <p className={cls.text}>Do you have an account?</p>
             <AppLink active className={'active'} href={'/auth/loginPage'}>Sign In</AppLink>
