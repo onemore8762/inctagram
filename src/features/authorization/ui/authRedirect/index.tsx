@@ -5,6 +5,7 @@ import { type PropsWithChildren } from 'react'
 
 // eslint-disable-next-line react/prop-types
 export const AuthRedirect: React.FC<PropsWithChildren> = ({ children }) => {
+    // debugger
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ['me'],
         queryFn: AuthService.me,
@@ -20,12 +21,8 @@ export const AuthRedirect: React.FC<PropsWithChildren> = ({ children }) => {
     if (isLoading) {
         return <div>loading...</div>
     }
-    if (isError) {
-        if (pathname === '/ru/auth/login' || pathname !== '/ru/auth/registration') {
-            console.log(error)
-        } else {
-            void router.push('/ru/auth/login')
-        }
+    if (isError && pathname !== '/[locale]/auth/login' && pathname !== '/[locale]/auth/registration') {
+        void router.push('/ru/auth/login')
     }
 
     return <>{children}</>

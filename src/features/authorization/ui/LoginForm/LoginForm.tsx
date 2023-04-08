@@ -10,6 +10,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { AuthService } from '@/features/authorization'
 import { type UserLoginModel } from '@/features/authorization/model/types/UserAuthSchema'
 import { useRouter } from 'next/router'
+import { PageLoader } from '@/shared/ui/PageLoader/PageLoader'
 
 export const LoginForm: FC = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<{ loginOrEmail: string, password: string }>({
@@ -20,12 +21,13 @@ export const LoginForm: FC = () => {
     const passwordError = errors?.password && errors.password.message
     const queryClient = useQueryClient()
     const { push } = useRouter()
-    const { mutate: login, isError, error } = useMutation({
+    const { mutate: login, isError, isLoading } = useMutation({
         mutationFn: AuthService.login,
-        onSuccess: () => {
-            void queryClient.invalidateQueries(['me']).then((res) => push('/ru/profile/createProfile'))
+        onSuccess: async () => {
+            await queryClient.invalidateQueries(['me']).then((res) => push('/ru/profile/createProfile'))
         }
     })
+    if (isLoading) return <PageLoader/>
     if (isError) {
         console.log('The password or the email or Username are incorrect. Try again, please')
     }
