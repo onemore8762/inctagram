@@ -6,9 +6,10 @@ import { SocialIcons } from '@/shared/ui/SocialIcons/SocialIcons'
 import { Input } from '@/shared/ui/Input/Input'
 import { Button } from '@/shared/ui/Button/Button'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
-import {useMutation, useQueryClient } from '@tanstack/react-query'
-import {AuthService} from "@/features/authorization";
-import {UserLoginModel} from "@/features/authorization/model/types/UserAuthSchema";
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { AuthService } from '@/features/authorization'
+import { type UserLoginModel } from '@/features/authorization/model/types/UserAuthSchema'
+import { useRouter } from 'next/router'
 
 export const LoginForm: FC = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<{ loginOrEmail: string, password: string }>({
@@ -18,12 +19,16 @@ export const LoginForm: FC = () => {
     const emailError = errors?.loginOrEmail && errors.loginOrEmail.message
     const passwordError = errors?.password && errors.password.message
     const queryClient = useQueryClient()
-    const {mutate: login} = useMutation({
-        mutationFn:AuthService.login,
-        onSuccess:()=>{
-            queryClient.invalidateQueries(['me'])
+    const { push } = useRouter()
+    const { mutate: login, isError, error } = useMutation({
+        mutationFn: AuthService.login,
+        onSuccess: () => {
+            void queryClient.invalidateQueries(['me']).then((res) => push('/ru/profile/createProfile'))
         }
     })
+    if (isError) {
+        console.log('The password or the email or Username are incorrect. Try again, please')
+    }
     const onSubmit = (data: UserLoginModel): void => {
         login(data)
     }
