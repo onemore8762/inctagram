@@ -9,6 +9,7 @@ import { useMutation } from '@tanstack/react-query'
 import { registrationRequest } from '@/services/registrationRequest'
 import router from 'next/router'
 import { PageLoader } from '@/shared/ui/PageLoader/PageLoader'
+import { type FC } from 'react'
 
 interface RegisterValidation {
     login: string
@@ -17,7 +18,7 @@ interface RegisterValidation {
     confPassword: string
 }
 
-export const RegisterForm = () => {
+export const RegisterForm: FC = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<RegisterValidation>({
         mode: 'onChange'
     })
@@ -25,7 +26,7 @@ export const RegisterForm = () => {
     const emailError = errors?.email && errors.email.message
     const loginError = errors?.login && errors.login.message
     const passwordError = errors?.password && errors.password.message
-    const { mutate: registration, error, isError, isLoading } = useMutation({
+    const { mutate: registration, isError, isLoading } = useMutation({
         mutationFn: registrationRequest,
         retry: false,
         onSuccess: () => {
