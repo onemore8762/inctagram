@@ -2,6 +2,11 @@
     width: 10.5em;
 }
 
+.Icon {
+    fill: var(--light-900-color);
+    width: 25px;
+}
+
 .DropDownHeader {
     background-color: var(--dark-700-color);
     border: 1px solid var(--dark-100-color);
@@ -43,10 +48,10 @@
         border: 1px solid var(--dark-100-color);
         color: var(--dark-100-color);
     }
+}
 
-    .Icon {
-        display: none;
-    }
+.disabled.Icon {
+    display: none;
 }
 
 .active {
@@ -61,10 +66,6 @@
     }
 }
 
-.Icon {
-    fill: var(--light-900-color);
-    width: 25px;
-}
 
 .DropDownList {
     background-color: var(--dark-500-color);
