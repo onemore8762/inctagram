@@ -10,6 +10,7 @@ import { registrationRequest } from '@/services/registrationRequest'
 import router from 'next/router'
 import { PageLoader } from '@/shared/ui/PageLoader/PageLoader'
 import { type FC } from 'react'
+import { SelectSetEmail, useAuth } from '@/features/authorization/store'
 
 interface RegisterValidation {
     login: string
@@ -22,24 +23,26 @@ export const RegisterForm: FC = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<RegisterValidation>({
         mode: 'onChange'
     })
-
+    const setEmail = useAuth(SelectSetEmail)
     const emailError = errors?.email && errors.email.message
     const loginError = errors?.login && errors.login.message
     const passwordError = errors?.password && errors.password.message
+
     const { mutate: registration, isError, isLoading } = useMutation({
         mutationFn: registrationRequest,
         retry: false,
         onSuccess: () => {
-            void router.push('/ru/auth/login')
+            void router.push('/ru/auth/confirm-message')
         }
     })
     if (isLoading) return <PageLoader/>
     if (isError) {
-        return <div>{isError}</div>
+        // return <div>{isError}</div> //снекбар
     }
     // const passwordConfirmError = errors?.confPassword && errors.confPassword.message
     const onSubmit = (data: RegisterValidation): void => {
         registration(data)
+        setEmail(data.email)
     }
     return (
         <FormWrapper className={cls.register} onSubmit={handleSubmit(onSubmit)}>

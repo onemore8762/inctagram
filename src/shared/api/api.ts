@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const API_URL = 'http://176.57.217.107:5000/api/' // '' 'https://blogs-nest-torm.vercel.app/'доп
+export const API_URL = 'https://inctagram.vercel.app/' // '' 'https://blogs-nest-torm.vercel.app/'доп
 
 interface RefreshTokenResponse {
     'accessToken': 'string'
