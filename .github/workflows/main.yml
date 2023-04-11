@@ -16,11 +16,28 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  pipeline:
+  testing:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
+      - name: Staring Node.js 17
+        uses: actions/setup-node@v1
+        with:
+          node-version: '17'
+      - name: install modules
+        run: npm install
+      - name: linting typescript
+        run: npm run lint:ts
+      - name: linting css
+        run: npm run lint:scss
+      - name: unit testing
+        run: npm run test:unit
+
+  builds:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Staring Node.js 17
         uses: actions/setup-node@v1
         with:
           node-version: '17'
@@ -28,18 +45,13 @@ jobs:
         run: npm install
       - name: build production project
         run: npm run build
-      - name: linting typescript
-        run: npm run lint:ts
-      - name: linting css
-        run: npm run lint:scss
-      - name: unit testing
-        run: npm run test:unit
       - name: build storybook
         run: npm run storybook:build
 
   # Build job
-  build:
+  build-gh-pages:
     runs-on: ubuntu-latest
+    needs: [testing, builds]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -95,7 +107,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: build-gh-pags
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
@@ -107,6 +119,7 @@ jobs:
       name: deploy-production
       url: https://inctagram.online
     runs-on: ubuntu-latest
+    needs: [testing, builds]
     steps:
       - name: SSH to server
         uses: appleboy/ssh-action@v0.1.4
