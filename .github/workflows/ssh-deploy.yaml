@@ -1,0 +1,28 @@
+name: Deployment Workflow
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH to server
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: inctagram.online
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/apps/inctagram
+            eval `ssh-agent -s`
+            ssh-add ~/.ssh/id_ed25519
+            git pull origin main
+            git status
+            export PATH=/home/${{ secrets.SSH_USERNAME }}/.nvm/versions/node/v16.19.1/bin:/usr/bin:/bin;
+            yarn install
+            rm -rf .next
+            yarn build
+            pm2 restart next
