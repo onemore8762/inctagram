@@ -33,6 +33,32 @@ jobs:
       - name: unit testing
         run: npm run test:unit
 
+  build-prod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Staring Node.js 17
+        uses: actions/setup-node@v1
+        with:
+          node-version: '17'
+      - name: install modules
+        run: npm install
+      - name: build production project
+        run: npm run build
+
+  build-storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Staring Node.js 17
+        uses: actions/setup-node@v1
+        with:
+          node-version: '17'
+      - name: install modules
+        run: npm install
+      - name: build storybook
+        run: npm run storybook:build
+
   builds:
     runs-on: ubuntu-latest
     steps:
@@ -47,7 +73,6 @@ jobs:
         run: npm run build
       - name: build storybook
         run: npm run storybook:build
-
   # Build job
   build-gh-pages:
     runs-on: ubuntu-latest
