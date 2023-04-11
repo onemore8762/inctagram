@@ -18,16 +18,12 @@ concurrency:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 17.x ]
-
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '17'
       - name: install modules
         run: npm install
       - name: build production project
@@ -72,19 +68,13 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
         with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
       - name: Restore cache
         uses: actions/cache@v3
         with:
           path: |
             .next/cache
-          # Generate a new cache whenever packages or source files change.
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
@@ -112,7 +102,10 @@ jobs:
         uses: actions/deploy-pages@v2
 
   deploy-production:
-    name: Deploy
+    name: deploy-production
+    environment:
+      name: deploy-production
+      url: https://inctagram.online
     runs-on: ubuntu-latest
     steps:
       - name: SSH to server
