@@ -16,6 +16,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
+            whoami
             cd /home/apps/inctagram
             eval `ssh-agent -s`
             ssh-add ~/.ssh/id_rsa
