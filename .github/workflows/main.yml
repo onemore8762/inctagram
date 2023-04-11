@@ -30,22 +30,16 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm install
-        if: always()
       - name: build production project
         run: npm run build
-        if: always()
       - name: linting typescript
         run: npm run lint:ts
-        if: always()
       - name: linting css
         run: npm run lint:scss
-        if: always()
       - name: unit testing
         run: npm run test:unit
-        if: always()
       - name: build storybook
         run: npm run storybook:build
-        if: always()
 
   # Build job
   build:
@@ -105,7 +99,8 @@ jobs:
           path: ./out
 
   # Deployment job
-  deploy:
+  deploy-gh-pages:
+    name: github-pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -115,3 +110,26 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+
+  deploy-production:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH to server
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: inctagram.online
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            whoami
+            cd /home/apps/inctagram
+            eval `ssh-agent -s`
+            ssh-add ~/.ssh/id_rsa
+            git pull origin main
+            git status
+            export PATH=/home/${{ secrets.SSH_USERNAME }}/.nvm/versions/node/v16.19.1/bin:/usr/bin:/bin;
+            yarn install
+            yarn build
+            pm2 restart next
