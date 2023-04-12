@@ -1,4 +1,4 @@
-import NotFoundImg from 'shared/assets/images/404error.png'
+import NotFoundImg from '@/shared/assets/images/404error.png'
 import { Info } from '@/entities/Info'
 
 export default function NotFound () {

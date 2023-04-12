@@ -1,20 +1,6 @@
 import router from 'next/router'
+import languageDetector from '@/shared/lib/i18n/languageDetector'
 
-interface routerPushProps {
-    href?: string
-    locale?: string | string[]
-    skipLocaleHandling?: any
+export const routerPush = (href: string) => {
+    void router.push(`/${languageDetector.detect() || ''}${href}`)
 }
-
-const routerPush = (props: routerPushProps) => {
-    const locale = props.locale || router.query.locale || ''
-    let href = props.href || router.asPath
-    if (href.indexOf('http') === 0) props.skipLocaleHandling = true
-    if (locale && !props.skipLocaleHandling) {
-        href = href
-            ? `/${locale as string}${href}`
-            : router.pathname.replace('[locale]', locale as string)
-    }
-    void router.push(href)
-}
-// не работает в данный момент

@@ -1,3 +1,7 @@
+export { ConfirmModal } from './ui/ConfirmModal/ConfirmModal'
+
+export { AuthRedirect } from './ui/AuthRedirect/AuthRedirect'
+
 export { useConfirmModal } from './model/store/modalStore'
 
 export { AuthService } from './model/service/authService'

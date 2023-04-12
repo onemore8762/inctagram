@@ -5,7 +5,7 @@ import { Modal } from '@/shared/ui/Modal/Modal'
 import { useConfirmModal } from '../../model/store/modalStore'
 import { SelectEmail, useAuth } from '@/entities/User'
 import { Button } from '@/shared/ui/Button/Button'
-import cls from './confirmModal.module.scss'
+import cls from './ConfirmModal.module.scss'
 interface confirmModalProps {
     className?: string
 }

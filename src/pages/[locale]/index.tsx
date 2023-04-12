@@ -1,10 +1,11 @@
 import Head from 'next/head'
-import { getStaticPaths, makeStaticProps } from '@/shared/lib/i18n/getStatic'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
+import { AppRoutes } from '@/shared/config/routeConfig/path'
+import { AuthRedirect } from '@/features/authorization'
 
 export default function Home () {
     return (
-        <>
+        <AuthRedirect>
             <Head>
                 <title>Inctagram</title>
                 <meta name="description" content="Inctagram" />
@@ -13,15 +14,12 @@ export default function Home () {
             </Head>
             <main>
                 <>
-                    <AppLink href={'/Congratulations'}>Congratulations</AppLink>
-                    <AppLink href={'/Verification'}>Verification</AppLink>
-                    <AppLink href={'/auth/registration'}>registration</AppLink>
+                    <AppLink href={AppRoutes.AUTH.CONGRATULATIONS}>Congratulations</AppLink>
+                    <AppLink href={AppRoutes.AUTH.VERIFICATION}>Verification</AppLink>
+                    <AppLink href={AppRoutes.AUTH.REGISTRATION}>registration</AppLink>
                 </>
 
             </main>
-        </>
+        </AuthRedirect>
     )
 }
-
-const getStaticProps = makeStaticProps(['common'])
-export { getStaticPaths, getStaticProps }

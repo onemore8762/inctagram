@@ -6,12 +6,13 @@ import { AppLink } from '@/shared/ui/AppLink/AppLink'
 import { SocialIcons } from '@/shared/ui/SocialIcons/SocialIcons'
 import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
 import { useMutation } from '@tanstack/react-query'
-import router from 'next/router'
 import { type FC } from 'react'
 import { AuthService, useConfirmModal } from '@/features/authorization'
 import { type AxiosError } from 'axios'
 import { type UserRegistrationModel } from '@/features/authorization/model/types/UserAuthSchema'
 import { SelectSetEmail, useAuth } from '@/entities/User'
+import { AppRoutes } from '@/shared/config/routeConfig/path'
+import { routerPush } from '@/shared/lib/routerPush/routerPush'
 
 interface RegisterValidation {
     login: string
@@ -34,8 +35,7 @@ export const RegisterForm: FC = () => {
             mutationFn: AuthService.registration,
             retry: false,
             onSuccess: () => {
-                // void router.push('/ru/auth/confirm-message')
-                void router.push('/ru/auth/login')
+                routerPush(AppRoutes.AUTH.LOGIN)
                 setIsOpen(true)
             }
         })
@@ -99,7 +99,7 @@ export const RegisterForm: FC = () => {
 
             <Button disabled={isLoading} type={'submit'} size={'regular'} className={cls.button}>Sign Up</Button>
             <p className={cls.text}>Do you have an account?</p>
-            <AppLink active className={'active'} href={'/auth/loginPage'}>Sign In</AppLink>
+            <AppLink active className={'active'} href={AppRoutes.AUTH.LOGIN}>Sign In</AppLink>
         </FormWrapper>
     )
 }

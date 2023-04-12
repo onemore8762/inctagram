@@ -6,7 +6,7 @@ import { Info } from '@/entities/Info'
 const getStaticProps = makeStaticProps(['common'])
 export { getStaticPaths, getStaticProps }
 
-export default function Verification () {
+export default function verification () {
     const { t } = useTranslation()
     return (
         <Info title={t('verification-title')} // Срок действия ссылки для подтверждения электронной почты истек!

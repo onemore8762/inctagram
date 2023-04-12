@@ -3,6 +3,7 @@ export const AppRoutes = {
         LOGIN: '/auth/login',
         REGISTRATION: '/auth/registration',
         NEW_PASSWORD: '/auth/create-new-password',
+        FORGOT_PASSWORD: '/auth/forgot-password',
         CONGRATULATIONS: '/auth/congratulations',
         VERIFICATION: '/auth/verification'
     },
