@@ -4,6 +4,7 @@ import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator
 import { Theme } from '../../src/app/providers/ThemeProvider'
 import React from 'react'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
+import { QueryDecorator } from '../../src/shared/config/storybook/QueryDecorator/QueryDecorator'
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -21,3 +22,4 @@ export const parameters = {
 
 addDecorator(StyleDecorator)
 addDecorator(ThemeDecorator(Theme.LIGHT))
+addDecorator(QueryDecorator())

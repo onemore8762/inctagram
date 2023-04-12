@@ -11,6 +11,7 @@ import { AuthService } from '@/features/authorization'
 import { type UserLoginModel } from '@/features/authorization/model/types/UserAuthSchema'
 import { useRouter } from 'next/router'
 import { PageLoader } from '@/shared/ui/PageLoader/PageLoader'
+import { Avatar } from '@/shared/ui/Avatar/Avatar'
 
 export const LoginForm: FC = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<{ loginOrEmail: string, password: string }>({
@@ -36,6 +37,7 @@ export const LoginForm: FC = () => {
     }
     return (
         <FormWrapper className={cls.login} onSubmit={handleSubmit(onSubmit)}>
+            <Avatar size={50}/>
             <h2 className={cls.title}>Sign In</h2>
             <SocialIcons/>
             <Input

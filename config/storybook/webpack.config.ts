@@ -1,3 +1,4 @@
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path')
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -21,7 +22,13 @@ module.exports = async ({ config }: { config: typeof Configuration }) => {
 
     config.module?.rules?.push({
         test: /\.svg$/i,
+        type: 'asset',
+        resourceQuery: /url/
+    })
+    config.module?.rules?.push({
+        test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] },
         use: ['@svgr/webpack']
     })
     // @ts-ignore
