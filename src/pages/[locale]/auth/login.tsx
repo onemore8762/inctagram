@@ -1,5 +1,4 @@
-import { LoginForm } from '@/features/authorization'
-import { ConfirmModal } from '@/features/authorization/ui/confirmModal/ConfirmModal'
+import { ConfirmModal, LoginForm } from '@/features/authorization'
 
 export default function Login () {
     return <>

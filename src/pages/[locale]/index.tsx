@@ -18,7 +18,6 @@ export default function Home () {
                     <AppLink href={AppRoutes.AUTH.VERIFICATION}>Verification</AppLink>
                     <AppLink href={AppRoutes.AUTH.REGISTRATION}>registration</AppLink>
                 </>
-
             </main>
         </AuthRedirect>
     )
