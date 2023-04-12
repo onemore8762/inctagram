@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { getStaticPaths, makeStaticProps } from '@/shared/lib/getStatic'
+import { getStaticPaths, makeStaticProps } from '@/shared/lib/i18n/getStatic'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
 
 export default function Home () {

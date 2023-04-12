@@ -6,11 +6,12 @@ import { AppLink } from '@/shared/ui/AppLink/AppLink'
 import { SocialIcons } from '@/shared/ui/SocialIcons/SocialIcons'
 import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
 import { useMutation } from '@tanstack/react-query'
-import { registrationRequest } from '@/services/registrationRequest'
 import router from 'next/router'
-import { PageLoader } from '@/shared/ui/PageLoader/PageLoader'
 import { type FC } from 'react'
-import { SelectSetEmail, useAuth } from '@/features/authorization/store'
+import { AuthService, useConfirmModal } from '@/features/authorization'
+import { type AxiosError } from 'axios'
+import { type UserRegistrationModel } from '@/features/authorization/model/types/UserAuthSchema'
+import { SelectSetEmail, useAuth } from '@/entities/User'
 
 interface RegisterValidation {
     login: string
@@ -27,21 +28,24 @@ export const RegisterForm: FC = () => {
     const emailError = errors?.email && errors.email.message
     const loginError = errors?.login && errors.login.message
     const passwordError = errors?.password && errors.password.message
-
-    const { mutate: registration, isError, isLoading } = useMutation({
-        mutationFn: registrationRequest,
-        retry: false,
-        onSuccess: () => {
-            void router.push('/ru/auth/confirm-message')
-        }
-    })
-    if (isLoading) return <PageLoader/>
+    const { setIsOpen } = useConfirmModal()
+    const { mutate: registration, isError, isLoading, error } =
+        useMutation<any, AxiosError, UserRegistrationModel, unknown>({
+            mutationFn: AuthService.registration,
+            retry: false,
+            onSuccess: () => {
+                // void router.push('/ru/auth/confirm-message')
+                void router.push('/ru/auth/login')
+                setIsOpen(true)
+            }
+        })
     if (isError) {
         // return <div>{isError}</div> //снекбар
     }
+    console.log(error?.response)
     // const passwordConfirmError = errors?.confPassword && errors.confPassword.message
     const onSubmit = (data: RegisterValidation): void => {
-        registration(data)
+        registration({ ...data, frontendLink: 'http://localhost:3000/ru/auth/confirm-email' })
         setEmail(data.email)
     }
     return (
@@ -93,7 +97,7 @@ export const RegisterForm: FC = () => {
             {/*    placeholder={'Password confirmation'} */}
             {/*    className={clsx(cls.input, cls.confirmation)}/> */}
 
-            <Button type={'submit'} size={'regular'} className={cls.button}>Sign Up</Button>
+            <Button disabled={isLoading} type={'submit'} size={'regular'} className={cls.button}>Sign Up</Button>
             <p className={cls.text}>Do you have an account?</p>
             <AppLink active className={'active'} href={'/auth/loginPage'}>Sign In</AppLink>
         </FormWrapper>

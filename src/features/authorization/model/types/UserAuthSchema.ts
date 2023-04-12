@@ -13,4 +13,5 @@ export interface UserRegistrationModel {
     login: string
     email: string
     password: string
+    frontendLink: string
 }

@@ -1,21 +1,29 @@
 import { Portal } from 'shared/ui/Portal/Portal'
-import { type FC, type PropsWithChildren } from 'react'
+import { type ReactNode } from 'react'
 import { ModalLayout } from 'shared/ui/ModalLayout/ModalLayout'
 
 interface ModalProps {
-    title: string
-    isOpen: boolean
-    onClose: () => void
+    title?: string
+    isOpen?: boolean
+    onClose?: () => void
+    className?: string
+    children?: ReactNode
 }
 
-export const Modal: FC<PropsWithChildren<ModalProps>> = ({ isOpen, onClose, title, children }) => {
+export const Modal = (props: ModalProps) => {
+    const {
+        children,
+        isOpen,
+        ...restProps
+    } = props
+
     if (!isOpen) {
         return null
     }
 
     return (
         <Portal>
-            <ModalLayout title={title} onClose={onClose}>
+            <ModalLayout {...restProps}>
                 {children}
             </ModalLayout>
         </Portal>

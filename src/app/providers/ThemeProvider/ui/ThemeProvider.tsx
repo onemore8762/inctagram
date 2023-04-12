@@ -15,7 +15,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
     }
     useEffect(() => {
         if (!initialTheme) {
-            setTheme(localStorage?.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT)
+            setTheme(localStorage?.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.DARK)
         }
     }, [])
 

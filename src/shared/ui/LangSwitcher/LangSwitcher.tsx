@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { Button } from 'shared/ui/Button/Button'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import languageDetector from '../../lib/languageDetector'
+import languageDetector from '../../lib/i18n/languageDetector'
 import i18nextConfig from '../../../../next-i18next.config'
 
 interface LangSwitcherProps {

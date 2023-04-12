@@ -1,2 +1,2 @@
-import { Redirect } from '@/shared/lib/redirect'
+import { Redirect } from '@/shared/lib/i18n/redirect'
 export default Redirect

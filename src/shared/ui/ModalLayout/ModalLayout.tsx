@@ -4,15 +4,15 @@ import CloseIcon from 'shared/assets/icons/dark/cross.svg'
 import clsx from 'clsx'
 
 interface ModalLayoutProps {
-    title: string
+    title?: string
     className?: string
-    onClose: () => void
+    onClose?: () => void
 }
 
 export const ModalLayout: FC<PropsWithChildren<ModalLayoutProps>> = ({ onClose, title, className, children }) => {
     useEffect(() => {
         const handleEscape = (event: KeyboardEvent): void => {
-            event.key === 'Escape' && onClose()
+            event.key === 'Escape' && onClose?.()
         }
         window.addEventListener('keydown', handleEscape)
         return () => {

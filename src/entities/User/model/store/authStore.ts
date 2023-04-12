@@ -1,11 +1,12 @@
 import create from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
-interface StateType {
+export interface useAuthStateType {
     email: string
+    isAuth: boolean
     setEmail: (email: string) => void
 }
-export const useAuth = create(immer<StateType>((set) => ({
+export const useAuth = create(immer<useAuthStateType>((set) => ({
     email: '',
     isAuth: false,
     setEmail: (email: string) => {
@@ -14,6 +15,3 @@ export const useAuth = create(immer<StateType>((set) => ({
         })
     }
 })))
-
-export const SelectEmail = (state: StateType): string => state.email
-export const SelectSetEmail = (state: StateType) => state.setEmail
