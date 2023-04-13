@@ -19,6 +19,7 @@ export default function Home () {
                     <AppLink href={AppRoutes.AUTH.REGISTRATION}>registration</AppLink>
                 </>
             </main>
+
         </AuthRedirect>
     )
 }

@@ -11,13 +11,11 @@ import { AuthService } from '@/features/authorization'
 import { type UserLoginModel } from '@/features/authorization/model/types/UserAuthSchema'
 import { useRouter } from 'next/router'
 import { PageLoader } from '@/shared/ui/PageLoader/PageLoader'
-import { Avatar } from '@/shared/ui/Avatar/Avatar'
 
 export const LoginForm: FC = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<{ loginOrEmail: string, password: string }>({
         mode: 'onChange'
     })
-
     const emailError = errors?.loginOrEmail && errors.loginOrEmail.message
     const passwordError = errors?.password && errors.password.message
     const queryClient = useQueryClient()
@@ -37,7 +35,6 @@ export const LoginForm: FC = () => {
     }
     return (
         <FormWrapper className={cls.login} onSubmit={handleSubmit(onSubmit)}>
-            <Avatar size={50}/>
             <h2 className={cls.title}>Sign In</h2>
             <SocialIcons/>
             <Input
@@ -58,6 +55,7 @@ export const LoginForm: FC = () => {
             <Button type={'submit'} size={'regular'} className={cls.button}>Sign In</Button>
             <p className={cls.text}>Don’t have an account?</p>
             <AppLink active className={'active'} href={'/auth/registration'}>Sign Up</AppLink>
+
         </FormWrapper>
     )
 }

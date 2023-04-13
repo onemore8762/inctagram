@@ -40,7 +40,7 @@ module.exports = {
         'react/button-has-type': 'error', // Предупреждение, если кнопка не имеет типа
         'react/jsx-props-no-spreading': 'off', // Отключить правило, которое предупреждает о распространении пропсов
         'react/function-component-definition': 'off', // Отключить правило, которое требует, чтобы функциональные компоненты были определены как стрелочные функции или функции
-        '@typescript-eslint/explicit-function-return-type': 'warn', // Предупреждение, если функция не возвращает тип
+        '@typescript-eslint/explicit-function-return-type': 'off', // Предупреждение, если функция не возвращает тип
         'no-shadow': 'off', // Отключить правило, которое запрещает объявлять переменные с тем же именем, что и переменные, определенные во внешней области видимости
         'import/extensions': 'off', // Отключить правило, которое требует, чтобы импорты имели расширения
         'import/no-extraneous-dependencies': 'warn', // Отключить правило, которое запрещает импортировать модули, которые не указаны в package.json
@@ -57,6 +57,7 @@ module.exports = {
         '@typescript-eslint/no-misused-promises': 'off',
         '@typescript-eslint/promise-function-async': 'off',
         '@typescript-eslint/return-await': 'off',
-        'react/prop-types': 'off'
+        'react/prop-types': 'off',
+        '@typescript-eslint/no-var-requires': 'off'
     }
 }

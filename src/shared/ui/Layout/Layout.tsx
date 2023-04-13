@@ -4,6 +4,7 @@ import cls from './Layout.module.scss'
 import { Container } from 'shared/ui/Container/Container'
 import { Inter } from 'next/font/google'
 import clsx from 'clsx'
+import { SnackBar } from '@/widgets/SnackBar'
 
 const font = Inter({
     subsets: ['latin'],
@@ -19,6 +20,7 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
                         {children}
                     </Suspense>
                 </Container>
+                <SnackBar />
             </main>
         </div>
     )
