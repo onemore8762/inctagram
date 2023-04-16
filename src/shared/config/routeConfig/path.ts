@@ -7,7 +7,9 @@ export const AppRoutes = {
         CONGRATULATIONS: '/auth/congratulations',
         VERIFICATION: '/auth/verification'
     },
-    PROFILE: {
-        CREATE_PROFILE: '/profile/create-profile'
-    }
+    PROFILE: '/profile',
+    HOME: '/home',
+    CREATE: '/create',
+    STATISTICS: '/statistics',
+    FAVORITES: '/favorites'
 }

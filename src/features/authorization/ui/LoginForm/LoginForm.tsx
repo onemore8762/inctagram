@@ -11,6 +11,7 @@ import { AuthService } from '@/features/authorization'
 import { type UserLoginModel } from '@/features/authorization/model/types/UserAuthSchema'
 import { useRouter } from 'next/router'
 import { PageLoader } from '@/shared/ui/PageLoader/PageLoader'
+import { AppRoutes } from '@/shared/config/routeConfig/path'
 
 export const LoginForm: FC = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<{ loginOrEmail: string, password: string }>({
@@ -54,7 +55,7 @@ export const LoginForm: FC = () => {
             <p className={cls.link}><AppLink href={'/auth/forgot'}>Forgot Password</AppLink></p>
             <Button type={'submit'} size={'regular'} className={cls.button}>Sign In</Button>
             <p className={cls.text}>Don’t have an account?</p>
-            <AppLink active className={'active'} href={'/auth/registration'}>Sign Up</AppLink>
+            <AppLink active className={'active'} href={AppRoutes.AUTH.REGISTRATION}>Sign Up</AppLink>
 
         </FormWrapper>
     )
