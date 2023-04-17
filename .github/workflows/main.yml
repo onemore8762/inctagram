@@ -147,6 +147,7 @@ jobs:
             git pull
             git status
             export PATH=/home/${{ secrets.SSH_USERNAME }}/.nvm/versions/node/v16.19.1/bin:/usr/bin:/bin;
+            rm -r .next
             yarn install
             yarn build
             pm2 restart next
