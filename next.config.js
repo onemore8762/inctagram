@@ -27,7 +27,9 @@ const nextConfig = {
 
         return config
     },
-    ignoreDuringBuilds: true
+    eslint: {
+        ignoreDuringBuilds: true
+    }
 }
 
 module.exports = nextConfig
