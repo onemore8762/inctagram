@@ -1,10 +1,10 @@
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import clsx from 'clsx'
-import { Modal } from '@/shared/ui/Modal/Modal'
-import { useConfirmModal } from '@/features/authorization'
-import { SelectEmail, useAuth } from '@/entities/User'
-import { Button } from '@/shared/ui/Button/Button'
+import { Modal } from 'shared/ui/Modal/Modal'
+import { useConfirmModal } from '../../model/store/modalStore'
+import { SelectEmail, useAuth } from 'entities/User'
+import { Button } from 'shared/ui/Button/Button'
 import cls from './ConfirmModal.module.scss'
 interface confirmModalProps {
     className?: string
@@ -14,7 +14,7 @@ export const ConfirmModal: FC<confirmModalProps> = ({ className }) => {
     const { t } = useTranslation()
     const { isOpen, setIsOpen } = useConfirmModal()
     const email = useAuth(SelectEmail)
-    const onCloseHandler = (): void => { setIsOpen(false) }
+    const onCloseHandler = () => { setIsOpen(false) }
     return (
         <Modal
             isOpen={isOpen}

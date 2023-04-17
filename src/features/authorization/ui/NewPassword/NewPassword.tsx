@@ -1,10 +1,10 @@
 import { type FC } from 'react'
 import clsx from 'clsx'
-import cls from 'features/authorization/ui/NewPassword/NewPassword.module.scss'
-import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
-import { Input } from '@/shared/ui/Input/Input'
-import { Button } from '@/shared/ui/Button/Button'
-import { useValidationForm } from '@/features/authorization/model/hooks/useValidationForm'
+import cls from './NewPassword.module.scss'
+import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
+import { Input } from 'shared/ui/Input/Input'
+import { Button } from 'shared/ui/Button/Button'
+import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
 
 interface NewPasswordValidation {
     password: string
@@ -38,7 +38,7 @@ export const NewPassword: FC = () => {
                 errorText={confPasswordError}
                 className={clsx(cls.input, cls.confirmation)}
             />
-            <Button type={'submit'} size={'regular'}>Create new
+            <Button type={'submit'}>Create new
                 password</Button>
         </FormWrapper>
     )

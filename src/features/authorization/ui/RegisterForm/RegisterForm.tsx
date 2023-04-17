@@ -1,21 +1,21 @@
 import cls from './RegisterForm.module.scss'
-import { Input } from '@/shared/ui/Input/Input'
-import { Button } from '@/shared/ui/Button/Button'
-import { AppLink } from '@/shared/ui/AppLink/AppLink'
-import { SocialIcons } from '@/shared/ui/SocialIcons/SocialIcons'
-import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
+import { Input } from 'shared/ui/Input/Input'
+import { Button } from 'shared/ui/Button/Button'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { SocialIcons } from 'shared/ui/SocialIcons/SocialIcons'
+import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
 import { useMutation } from '@tanstack/react-query'
 import { type FC, memo, useCallback, useMemo } from 'react'
-import { AuthService, useConfirmModal } from '@/features/authorization'
+import { AuthService, useConfirmModal } from 'features/authorization'
 import { type AxiosError } from 'axios'
 import {
     type UserRegistrationError,
     type UserRegistrationModel
-} from '@/features/authorization/model/types/UserAuthSchema'
-import { SelectSetEmail, useAuth } from '@/entities/User'
-import { AppRoutes } from '@/shared/config/routeConfig/path'
-import { routerPush } from '@/shared/lib/routerPush/routerPush'
-import { useValidationForm } from '@/features/authorization/model/hooks/useValidationForm'
+} from 'features/authorization/model/types/UserAuthSchema'
+import { SelectSetEmail, useAuth } from 'entities/User'
+import { AppRoutes } from 'shared/config/routeConfig/path'
+import { routerPush } from 'shared/lib/routerPush/routerPush'
+import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
 import clsx from 'clsx'
 
 interface RegisterValidation {
@@ -88,7 +88,7 @@ export const RegisterForm: FC = memo(() => {
                 placeholder={'Password confirmation'}
                 className={clsx(cls.input, cls.confirmation)}/>
 
-            <Button disabled={isLoading} type={'submit'} size={'regular'} className={cls.button}>Sign Up</Button>
+            <Button disabled={isLoading} type={'submit'} className={cls.button}>Sign Up</Button>
             <p className={cls.text}>Do you have an account?</p>
             <AppLink active className={'active'} href={AppRoutes.AUTH.LOGIN}>Sign In</AppLink>
         </FormWrapper>

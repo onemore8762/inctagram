@@ -1,7 +1,9 @@
 .container {
+    display: flex;
     padding: 0 15px;
     margin: 0 auto;
     height: 100%;
+    width: 100%;
 
     &.large {
         max-width: 1190px;

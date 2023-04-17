@@ -1,5 +1,5 @@
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// @ts-ignore
 const path = require('path')
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { RuleSetRule, Configuration } = require('webpack')
@@ -19,7 +19,6 @@ module.exports = async ({ config }: { config: typeof Configuration }) => {
         }
         return rule
     })
-
     config.module?.rules?.push({
         test: /\.svg$/i,
         type: 'asset',

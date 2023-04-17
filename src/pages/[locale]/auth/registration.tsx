@@ -1,4 +1,4 @@
-import { RegisterForm } from '@/features/authorization'
+import { RegisterForm } from 'features/authorization'
 
 export default function Registration () {
     return <RegisterForm/>
