@@ -31,6 +31,10 @@
         display: flex;
     }
 
+    .icon{
+        transition: fill 0.5s;
+    }
+
     .active{
         .icon{
             fill:  var(--primary-500-color);

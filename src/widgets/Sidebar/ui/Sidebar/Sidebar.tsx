@@ -105,10 +105,9 @@ export const Sidebar = (props: SidebarProps) => {
             <Button theme={'clear'}
                 // disabled={isLoading}
                     className={cls.button}
-                    style={{ color: 'white' }}
                 // onClick={clickHandler}
             >
-                <IconLogOut className={cls.logout} fill={fill} />
+                <IconLogOut className={cls.icon} fill={fill} />
                 <span className={cls.link}>
                     Log Out
                 </span>

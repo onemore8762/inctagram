@@ -34,7 +34,6 @@ export const Header = (props: HeaderProps) => {
                     <Button theme={'clear'}
                             disabled={isLoading}
                             className={cls.button}
-                            style={{ color: 'white' }}
                             onClick={clickHandler}>
                         <IconLogOut className={cls.icon} />
                         Log Out
