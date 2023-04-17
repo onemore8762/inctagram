@@ -74,44 +74,44 @@ OutlineDisabled.args = {
 export const allButtons: ComponentStory<typeof Button> = (args) => (
     <>
         <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
-            <Button {...args} size={'small'} theme={'textButton'}>
+            <Button {...args} theme={'textButton'}>
                 Button text
             </Button>
-            <Button {...args} size={'small'}>
+            <Button {...args}>
                 Button text
             </Button>
-            <Button {...args} size={'small'} theme={'secondary'}>
+            <Button {...args} theme={'secondary'}>
                 Button text
             </Button>
-            <Button {...args} size={'small'} theme={'outline'}>
-                Button text
-            </Button>
-        </div>
-        <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
-            <Button {...args} size={'medium'} theme={'textButton'}>
-                Button text
-            </Button>
-            <Button {...args} size={'medium'}>
-                Button text
-            </Button>
-            <Button {...args} size={'medium'} theme={'secondary'}>
-                Button text
-            </Button>
-            <Button {...args} size={'medium'} theme={'outline'}>
+            <Button {...args} theme={'outline'}>
                 Button text
             </Button>
         </div>
         <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
-            <Button {...args} size={'regular'} theme={'textButton'}>
+            <Button {...args} theme={'textButton'}>
                 Button text
             </Button>
-            <Button {...args} size={'regular'}>
+            <Button {...args} >
                 Button text
             </Button>
-            <Button {...args} size={'regular'} theme={'secondary'}>
+            <Button {...args} theme={'secondary'}>
                 Button text
             </Button>
-            <Button {...args} size={'regular'} theme={'outline'}>
+            <Button {...args} theme={'outline'}>
+                Button text
+            </Button>
+        </div>
+        <div style={{ paddingBottom: 10, display: 'flex', gap: 10 }}>
+            <Button {...args} theme={'textButton'}>
+                Button text
+            </Button>
+            <Button {...args} >
+                Button text
+            </Button>
+            <Button {...args} theme={'secondary'}>
+                Button text
+            </Button>
+            <Button {...args} theme={'outline'}>
                 Button text
             </Button>
         </div>
