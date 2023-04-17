@@ -6,8 +6,8 @@ import { useAuth } from '@/entities/User'
 import { AppRoutes } from '@/shared/config/routeConfig/path'
 import { routerPush } from '@/shared/lib/routerPush/routerPush'
 
-export const AuthRedirect = ({ children }: any) => {
-    const { data, isLoading, isError } = useQuery({
+export const AuthRedirect = ({ children, authOff }: any) => {
+    const { isLoading, isError } = useQuery({
         queryKey: ['me'],
         queryFn: AuthService.me,
         retry: false,
@@ -17,23 +17,11 @@ export const AuthRedirect = ({ children }: any) => {
         refetchOnMount: false,
         refetchOnReconnect: false
     })
-    const { pathname, push } = useRouter()
+    const { pathname } = useRouter()
     const { isAuth } = useAuth()
     if (isLoading) {
         return <PageLoader/>
     }
-    // if (isError && !pathname.includes('/[locale]/auth/login') && !pathname.includes('/[locale]/auth/registration')) {
-    //     void push('/ru/auth/login')
-    // }
-    if (!isAuth && isError &&
-        pathname !== `/[locale]${AppRoutes.AUTH.LOGIN}` &&
-        pathname !== `/[locale]${AppRoutes.AUTH.REGISTRATION}` &&
-        pathname !== `/[locale]${AppRoutes.AUTH.CONGRATULATIONS}` &&
-        pathname !== `/[locale]${AppRoutes.AUTH.VERIFICATION}`
-
-    ) {
-        routerPush(AppRoutes.AUTH.LOGIN)
-    }
-
+    if (!authOff && !isAuth && isError && !pathname.includes('auth')) routerPush(AppRoutes.AUTH.LOGIN)
     return <>{children}</>
 }

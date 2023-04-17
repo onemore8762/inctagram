@@ -5,7 +5,6 @@ import clsx from 'clsx'
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
     theme?: 'outline' | 'secondary' | 'primary' | 'textButton' | 'clear'
-    size?: 'small' | 'medium' | 'regular'
     disabled?: boolean
     children?: ReactNode
     onClick?: React.MouseEventHandler<HTMLButtonElement>
@@ -17,7 +16,6 @@ export const Button = memo((props: ButtonProps) => {
         className,
         children,
         theme = 'primary',
-        size = 'medium',
         disabled,
         onClick,
         block,
@@ -32,7 +30,7 @@ export const Button = memo((props: ButtonProps) => {
     return (
         <button
                 type='button'
-                className={clsx(cls.Button, mods, [className, cls[size], cls[theme]])}
+                className={clsx(cls.Button, mods, [className, cls[theme]])}
                 disabled={disabled}
                 onClick={onClick}
                 {...otherProps}

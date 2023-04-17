@@ -1,11 +1,10 @@
 import Head from 'next/head'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
 import { AppRoutes } from '@/shared/config/routeConfig/path'
-import { AuthRedirect } from '@/features/authorization'
 
 export default function Home () {
     return (
-        <AuthRedirect>
+        <>
             <Head>
                 <title>Inctagram</title>
                 <meta name="description" content="Inctagram" />
@@ -20,6 +19,6 @@ export default function Home () {
                 </>
             </main>
 
-        </AuthRedirect>
+        </>
     )
 }

@@ -3,7 +3,7 @@
     cursor: pointer;
     border-radius: 2px;
     padding: 6px 24px;
-    font-weight: 600;
+    font: var(--font-h3);
     transition: all .3s ease;
 }
 
@@ -99,18 +99,6 @@
 .textButton.disabled {
     color: var(--primary-900-color);
     cursor: default;
-}
-
-.small {
-    font: var(--font-small-600);
-}
-
-.medium {
-    font: var(--font-medium-700);
-}
-
-.regular {
-    font: var(--font-regular-700);
 }
 
 .block {

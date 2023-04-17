@@ -16,8 +16,11 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
             <Header />
             <main className={cls.main}>
                 <Container>
+                    {/* <Sidebar/> */}
                     <Suspense fallback={<div>Loading...</div>}>
-                        {children}
+                        <div style={{ width: '100%' }}>
+                            {children}
+                        </div>
                     </Suspense>
                 </Container>
                 <SnackBar />
