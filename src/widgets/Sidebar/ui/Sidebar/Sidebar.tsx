@@ -105,7 +105,6 @@ export const Sidebar = (props: SidebarProps) => {
             <Button theme={'clear'}
                 // disabled={isLoading}
                     className={cls.button}
-                // onClick={clickHandler}
             >
                 <IconLogOut className={cls.icon} fill={fill} />
                 <span className={cls.link}>
