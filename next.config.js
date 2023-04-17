@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-const path = require('path')
 const nextConfig = {
     reactStrictMode: false,
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
