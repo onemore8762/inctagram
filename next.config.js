@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const path = require('path')
 const nextConfig = {
     reactStrictMode: false,
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -6,7 +7,6 @@ const nextConfig = {
         const fileLoaderRule = config.module.rules.find((rule) =>
             rule.test?.test?.('.svg')
         )
-
         config.module.rules.push(
             {
                 ...fileLoaderRule,

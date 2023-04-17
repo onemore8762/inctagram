@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import { AppLink } from '@/shared/ui/AppLink/AppLink'
-import { AppRoutes } from '@/shared/config/routeConfig/path'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { AppRoutes } from 'shared/config/routeConfig/path'
 
 export default function Home () {
     return (
