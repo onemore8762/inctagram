@@ -144,7 +144,7 @@ jobs:
             cd /home/apps/inctagram
             eval `ssh-agent -s`
             ssh-add ~/.ssh/id_rsa
-            git pull origin main
+            git pull
             git status
             export PATH=/home/${{ secrets.SSH_USERNAME }}/.nvm/versions/node/v16.19.1/bin:/usr/bin:/bin;
             yarn install
