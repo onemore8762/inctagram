@@ -3,7 +3,7 @@ import axios from 'axios'
 export const API_URL = 'https://inctagram.vercel.app/'
 
 interface RefreshTokenResponse {
-    'accessToken': 'string'
+    accessToken: string
 }
 
 export const $api = axios.create({

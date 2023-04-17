@@ -5,7 +5,12 @@
     padding: 6px 24px;
     font-weight: 600;
     transition: all .3s ease;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
 }
+
 
 .clear {
     font: var(--font-regular-400);
@@ -54,7 +59,6 @@
 .secondary.disabled {
     background: var(--light-900-color);
     color: var(--dark-100-color);
-    cursor: default;
 }
 
 .primary {
@@ -74,7 +78,6 @@
 .primary.disabled {
     background: var(--primary-900-color);
     color: var(--light-900-color);
-    cursor: default;
 }
 
 .textButton {
@@ -98,7 +101,6 @@
 
 .textButton.disabled {
     color: var(--primary-900-color);
-    cursor: default;
 }
 
 .small {
