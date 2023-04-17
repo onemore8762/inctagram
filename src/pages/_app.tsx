@@ -2,19 +2,26 @@ import 'app/styles/index.scss'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 import { appWithTranslation } from 'next-i18next'
-import { Layout } from 'shared/ui/Layout/Layout'
 import AdminMenu from 'shared/ui/AdminMenu/AdminMenu'
-import { QueryClient } from '@tanstack/query-core'
-import { QueryClientProvider } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
+import { Hydrate } from '@tanstack/react-query'
+import { type ReactElement, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { type NextPage } from 'next'
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
 import { AuthRedirect } from 'features/authorization'
 
-function App ({ Component, pageProps }: AppProps) {
-    const [queryClient] = useState(() => new QueryClient())
+export type NextPageWithLayout<P = Record<string, unknown>> = NextPage<P> & {
+    getLayout?: (page: ReactElement) => ReactElement
+}
+
+type AppPropsWithLayout = AppProps & {
+    Component: NextPageWithLayout
+}
+
+function App ({ Component, pageProps }: AppPropsWithLayout) {
     const router = useRouter()
     const [pageLoading, setPageLoading] = useState<boolean>(false)
+
     useEffect(() => {
         const handleStart = () => { setPageLoading(true) }
         const handleComplete = () => { setPageLoading(false) }
@@ -24,20 +31,25 @@ function App ({ Component, pageProps }: AppProps) {
         router.events.on('routeChangeError', handleComplete)
     }, [router])
 
+    const getLayout = Component.getLayout ?? ((page) => page)
+
     return (
-        <QueryClientProvider client={queryClient}>
+        getLayout(
             <ThemeProvider>
-                <Layout>
-                    <AuthRedirect>
-                        <AdminMenu/>
-                        {pageLoading
-                            ? (<PageLoader/>)
-                            : <Component {...pageProps} />
-                        }
-                    </AuthRedirect>
-                </Layout>
+                <AuthRedirect>
+                    <AdminMenu/>
+                    {pageLoading
+                        ? (<PageLoader/>)
+                        : (
+                            <Hydrate state={pageProps.dehydrateState}>
+                                <Component {...pageProps} />
+                            </Hydrate>
+                        )
+                    }
+                </AuthRedirect>
             </ThemeProvider>
-        </QueryClientProvider>
+
+        )
     )
 }
 

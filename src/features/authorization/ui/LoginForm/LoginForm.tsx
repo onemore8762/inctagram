@@ -14,8 +14,8 @@ import { AppRoutes } from 'shared/config/routeConfig/path'
 import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
 
 export const LoginForm: FC = () => {
-    const { register, handleSubmit, validErrors: { passwordError, emailError } } =
-        useValidationForm(['email', 'password'])
+    const { register, handleSubmit, validErrors: { passwordError, loginError } } =
+        useValidationForm(['login', 'password'])
 
     const queryClient = useQueryClient()
     const { push } = useRouter()
@@ -23,7 +23,7 @@ export const LoginForm: FC = () => {
     const { mutate: login, isLoading } = useMutation({
         mutationFn: AuthService.login,
         onSuccess: async () => {
-            await queryClient.invalidateQueries(['me']).then(() => push('/ru/profile/createProfile'))
+            await queryClient.invalidateQueries(['me']).then(() => push('[locale]/profile/createProfile'))
         }
     })
 
@@ -36,11 +36,11 @@ export const LoginForm: FC = () => {
             <h2 className={cls.title}>Sign In</h2>
             <SocialIcons/>
             <Input
-                {...register('email')}
-                type={'email'}
-                placeholder={'Email'}
-                error={!!emailError}
-                errorText={emailError}
+                {...register('login')}
+                type={'text'}
+                placeholder={'Email or Login'}
+                error={!!loginError}
+                errorText={loginError}
                 className={cls.input}/>
             <Input
                 {...register('password')}
