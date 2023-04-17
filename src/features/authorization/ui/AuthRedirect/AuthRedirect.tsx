@@ -5,9 +5,10 @@ import { PageLoader } from '@/shared/ui/PageLoader/PageLoader'
 import { useAuth } from '@/entities/User'
 import { AppRoutes } from '@/shared/config/routeConfig/path'
 import { routerPush } from '@/shared/lib/routerPush/routerPush'
+import { type FC, type PropsWithChildren } from 'react'
 
-export const AuthRedirect = ({ children }: any) => {
-    const { data, isLoading, isError } = useQuery({
+export const AuthRedirect: FC<PropsWithChildren> = ({ children }) => {
+    const { isLoading, isError } = useQuery({
         queryKey: ['me'],
         queryFn: AuthService.me,
         retry: false,
@@ -17,14 +18,14 @@ export const AuthRedirect = ({ children }: any) => {
         refetchOnMount: false,
         refetchOnReconnect: false
     })
-    const { pathname, push } = useRouter()
+    const { pathname } = useRouter()
+
     const { isAuth } = useAuth()
+
     if (isLoading) {
         return <PageLoader/>
     }
-    // if (isError && !pathname.includes('/[locale]/auth/login') && !pathname.includes('/[locale]/auth/registration')) {
-    //     void push('/ru/auth/login')
-    // }
+
     if (!isAuth && isError &&
         pathname !== `/[locale]${AppRoutes.AUTH.LOGIN}` &&
         pathname !== `/[locale]${AppRoutes.AUTH.REGISTRATION}` &&

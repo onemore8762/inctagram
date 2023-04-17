@@ -5,7 +5,7 @@ import { AppLink } from '@/shared/ui/AppLink/AppLink'
 import { SocialIcons } from '@/shared/ui/SocialIcons/SocialIcons'
 import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
 import { useMutation } from '@tanstack/react-query'
-import { type FC, memo, useCallback } from 'react'
+import { type FC, memo, useCallback, useMemo } from 'react'
 import { AuthService, useConfirmModal } from '@/features/authorization'
 import { type AxiosError } from 'axios'
 import {
@@ -42,16 +42,18 @@ export const RegisterForm: FC = memo(() => {
           }
       })
 
-    const responseError = error?.response?.data?.errorsMessages.reduce((accum, item) => {
-        accum[item.field] = item.message
-        return accum
-    }, {} as Record<string, string>)
+    const responseError = useMemo(() => {
+        return error?.response?.data?.errorsMessages.reduce((accum, item) => {
+            accum[item.field] = item.message
+            return accum
+        }, {} as Record<string, string>)
+    }, [error])
 
     const onSubmit = useCallback((data: RegisterValidation): void => {
         const { confPassword, ...registerData } = data
         registration({ ...registerData, frontendLink: 'http://localhost:3000/ru/auth/confirm-email' })
         setEmail(data.email)
-    }, [])
+    }, [error])
 
     return (
         <FormWrapper className={cls.register} onSubmit={handleSubmit(onSubmit)}>
