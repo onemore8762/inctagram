@@ -15,10 +15,14 @@ export interface UserRegistrationModel {
     password: string
     frontendLink: string
 }
-
 export interface UserRegistrationError {
     errorsMessages: Array<{
         field: string
         message: string
     }>
+}
+
+export interface UserCreatePasswordModel {
+    recoveryCode: string
+    newPassword: string
 }
