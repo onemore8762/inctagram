@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import CloseEye from 'shared/assets/icons/dark/eye-off-outline.svg'
-import OpenEye from 'shared/assets/icons/dark/eye-outline.svg'
+import CloseEye from 'shared/assets/icons/outline/eye-off-outline.svg'
+import OpenEye from 'shared/assets/icons/outline/eye-outline.svg'
 
 interface EyeProps {
     onClick: () => void

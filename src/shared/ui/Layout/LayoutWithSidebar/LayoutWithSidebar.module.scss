@@ -1,0 +1,9 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+
+    .children {
+        background-color: var(--dark-700-color);
+        height: calc(100vh - 60px);
+    }
+}

@@ -1,4 +1,4 @@
-import { forwardRef, type InputHTMLAttributes, type ReactNode, useState } from 'react'
+import { forwardRef, type InputHTMLAttributes, memo, type ReactNode, useState } from 'react'
 import cls from './Input.module.scss'
 import clsx from 'clsx'
 import { Eye } from 'shared/ui/Eye/Eye'
@@ -15,7 +15,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     children?: ReactNode
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+export const Input = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const {
         className,
         variant = 'standard',
@@ -64,4 +64,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             {!!errorText && <span className={clsx(cls.message)}>{errorText}</span>}
         </div>
     )
-})
+}))

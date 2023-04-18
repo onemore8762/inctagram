@@ -1,4 +1,4 @@
-import { Button } from '@/shared/ui/Button/Button'
+import { Button } from 'shared/ui/Button/Button'
 import Image, { type StaticImageData } from 'next/image'
 import cls from './Info.module.scss'
 import clsx from 'clsx'

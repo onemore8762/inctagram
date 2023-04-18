@@ -5,7 +5,7 @@ export interface UserAuthModel {
 }
 
 export interface UserLoginModel {
-    loginOrEmail: string
+    email: string
     password: string
 }
 
@@ -14,6 +14,12 @@ export interface UserRegistrationModel {
     email: string
     password: string
     frontendLink: string
+}
+export interface UserRegistrationError {
+    errorsMessages: Array<{
+        field: string
+        message: string
+    }>
 }
 
 export interface UserCreatePasswordModel {
