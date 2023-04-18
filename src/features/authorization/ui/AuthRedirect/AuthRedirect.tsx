@@ -8,9 +8,17 @@ import { routerPush } from 'shared/lib/routerPush/routerPush'
 import { type PropsWithChildren } from 'react'
 
 export const AuthRedirect = ({ children }: PropsWithChildren) => {
+    const { pathname } = useRouter()
+    const { isAuth, setAuth } = useAuth()
     const { isLoading, isError } = useQuery({
         queryKey: ['me'],
         queryFn: AuthService.me,
+        onSuccess: () => {
+            setAuth(true)
+        },
+        onError: () => {
+            setAuth(false)
+        },
         retry: false,
         refetchInterval: false,
         refetchIntervalInBackground: false,
@@ -18,8 +26,6 @@ export const AuthRedirect = ({ children }: PropsWithChildren) => {
         refetchOnMount: false,
         refetchOnReconnect: false
     })
-    const { pathname } = useRouter()
-    const { isAuth } = useAuth()
 
     if (isLoading) {
         return <PageLoader/>

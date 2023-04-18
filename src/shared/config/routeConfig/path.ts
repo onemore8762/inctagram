@@ -8,8 +8,9 @@ export const AppRoutes = {
         VERIFICATION: '/auth/verification'
     },
     PROFILE: '/profile',
+    CREATE_PROFILE: '/profile/create-profile',
     HOME: '/home',
     CREATE: '/create',
     STATISTICS: '/statistics',
     FAVORITES: '/favorites'
-}
+} as const

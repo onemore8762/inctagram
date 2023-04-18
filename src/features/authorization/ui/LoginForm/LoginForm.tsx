@@ -8,27 +8,25 @@ import { Button } from 'shared/ui/Button/Button'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { AuthService } from 'features/authorization'
-import { type UserLoginModel } from 'features/authorization/model/types/UserAuthSchema'
-import { useRouter } from 'next/router'
 import { AppRoutes } from 'shared/config/routeConfig/path'
 import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
+import { routerPush } from 'shared/lib/routerPush/routerPush'
 
 export const LoginForm: FC = () => {
     const { register, handleSubmit, validErrors: { passwordError, loginError } } =
         useValidationForm(['login', 'password'])
 
     const queryClient = useQueryClient()
-    const { push } = useRouter()
 
     const { mutate: login, isLoading } = useMutation({
         mutationFn: AuthService.login,
         onSuccess: async () => {
-            await queryClient.invalidateQueries(['me']).then(() => push('[locale]/profile/createProfile'))
+            await queryClient.invalidateQueries(['me']).then(() => { routerPush(AppRoutes.CREATE_PROFILE) })
         }
     })
 
-    const onSubmit = (data: UserLoginModel): void => {
-        login(data)
+    const onSubmit = (data: { login: string, password: string }): void => {
+        login({ password: data.password, loginOrEmail: data.login })
     }
 
     return (
