@@ -2,16 +2,16 @@ import { type FC } from 'react'
 import clsx from 'clsx'
 import cls from 'features/authorization/ui/NewPasswordForm/NewPasswordForm.module.scss'
 import { useForm } from 'react-hook-form'
-import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
-import { Input } from '@/shared/ui/Input/Input'
-import { Button } from '@/shared/ui/Button/Button'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { AuthService } from '../../model/service/authService'
 
-import { routerPush } from '@/shared/lib/routerPush/routerPush'
-import { AppRoutes } from '@/shared/config/routeConfig/path'
-import { PageLoader } from '@/shared/ui/PageLoader/PageLoader'
 import { useRouter } from 'next/router'
+import { AuthService } from 'features/authorization/model/service/authService'
+import { AppRoutes } from 'shared/config/routeConfig/path'
+import { routerPush } from 'shared/lib/routerPush/routerPush'
+import { Button } from 'shared/ui/Button/Button'
+import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
+import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
+import { Input } from 'shared/ui/Input/Input'
 
 interface NewPasswordValidation {
     password: string
@@ -81,7 +81,7 @@ export const NewPasswordForm: FC = () => {
                 errorText={passwordConfirmError}
                 className={clsx(cls.input, cls.confirmation)}
             />
-            <Button type={'submit'} size={'regular'}>Create new
+            <Button type={'submit'}>Create new
                 password</Button>
         </FormWrapper>
     )
