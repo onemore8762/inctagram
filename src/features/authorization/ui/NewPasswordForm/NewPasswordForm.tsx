@@ -1,17 +1,24 @@
 import { type FC } from 'react'
 import clsx from 'clsx'
-import cls from 'features/authorization/ui/NewPassword/NewPassword.module.scss'
+import cls from 'features/authorization/ui/NewPasswordForm/NewPasswordForm.module.scss'
 import { useForm } from 'react-hook-form'
 import { FormWrapper } from '@/shared/ui/FormWrapper/FormWrapper'
 import { Input } from '@/shared/ui/Input/Input'
 import { Button } from '@/shared/ui/Button/Button'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { AuthService } from '../../model/service/authService'
+
+import { routerPush } from '@/shared/lib/routerPush/routerPush'
+import { AppRoutes } from '@/shared/config/routeConfig/path'
+import { PageLoader } from '@/shared/ui/PageLoader/PageLoader'
+import { useRouter } from 'next/router'
 
 interface NewPasswordValidation {
     password: string
     confirmPassword: string
 }
 
-export const NewPassword: FC = () => {
+export const NewPasswordForm: FC = () => {
     const {
         register,
         handleSubmit,
@@ -23,9 +30,21 @@ export const NewPassword: FC = () => {
 
     const passwordError = errors?.password && errors.password.message
     const passwordConfirmError = errors?.confirmPassword && errors.confirmPassword.message
-
+    const { query } = useRouter()
+    const { code } = query
+    const queryClient = useQueryClient()
+    const { mutate: createPassword, isError, isLoading } = useMutation({
+        mutationFn: AuthService.createPassword,
+        onSuccess: async () => {
+            await queryClient.invalidateQueries(['me']).then((res) => { routerPush(AppRoutes.AUTH.LOGIN) })
+        }
+    })
+    if (isLoading) return <PageLoader/>
+    if (isError) {
+        console.log('Something went wrong. Please try again')
+    }
     const onSubmit = (data: NewPasswordValidation): void => {
-        // Обработчик отправки формы
+        createPassword({ recoveryCode: String(code), newPassword: data.password })
     }
 
     return (

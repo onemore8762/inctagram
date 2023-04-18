@@ -1,6 +1,9 @@
 import { type AxiosError, type AxiosResponse } from 'axios'
 import { $api } from '@/shared/api/api'
-import { type UserAuthModel, type UserLoginModel, type UserRegistrationModel } from '../types/UserAuthSchema'
+import {
+    type UserCreatePasswordModel, type UserAuthModel,
+    type UserLoginModel, type UserRegistrationModel
+} from '../types/UserAuthSchema'
 
 export const AuthService = {
     me () {
@@ -27,5 +30,11 @@ export const AuthService = {
             .catch((e: AxiosError<{ message: string }>) => {
                 console.log(e.response?.data.message)// "User already exists"
             })
+    },
+    createPassword (params: UserCreatePasswordModel) {
+        console.log(params)
+        return $api.post('/auth/new-password', params).catch((e: AxiosError<{ message: string }>) => {
+            console.log(e.response?.data.message)
+        })
     }
 }

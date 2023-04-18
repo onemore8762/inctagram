@@ -15,3 +15,8 @@ export interface UserRegistrationModel {
     password: string
     frontendLink: string
 }
+
+export interface UserCreatePasswordModel {
+    recoveryCode: string
+    newPassword: string
+}
