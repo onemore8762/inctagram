@@ -1,9 +1,10 @@
 import { type AxiosError, type AxiosResponse } from 'axios'
-import { $api } from '@/shared/api/api'
+
 import {
     type UserCreatePasswordModel, type UserAuthModel,
     type UserLoginModel, type UserRegistrationModel
 } from '../types/UserAuthSchema'
+import { $api } from 'shared/api/api'
 
 export const AuthService = {
     me () {
