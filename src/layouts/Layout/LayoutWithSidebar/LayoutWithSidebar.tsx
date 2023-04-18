@@ -1,4 +1,4 @@
-import { Layout } from 'shared/ui/Layout/Layout'
+import { Layout } from '../Layout'
 import { type NextPage } from 'next'
 import { type PropsWithChildren, type ReactElement, Suspense } from 'react'
 import { Sidebar } from 'widgets/Sidebar'

@@ -1,5 +1,5 @@
 import { RegisterForm } from 'features/authorization'
-import { getAuthLayout } from 'shared/ui/Layout/AuthLayout/AuthLayout'
+import { getAuthLayout } from 'layouts/Layout/AuthLayout/AuthLayout'
 
 export default function Registration () {
     return <RegisterForm/>
