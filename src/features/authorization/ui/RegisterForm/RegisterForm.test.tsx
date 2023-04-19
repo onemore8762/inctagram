@@ -4,8 +4,9 @@ import userEvent from '@testing-library/user-event'
 import { RegisterForm } from './RegisterForm'
 import { AuthService } from '../../model/service/authService'
 import { renderWithQueryClient } from '../../../../../config/jest/renderWithQueryClient'
+import { type UserRegistrationModel } from '../../model/types/UserAuthSchema'
 
-jest.mock('next/router', () => require('./__mocks__/next_router'))
+jest.mock('next/router', () => require('../../../../../config/jest/__mocks__/next_router'))
 jest.mock('shared/lib/routerPush/routerPush', () => ({
     routerPush: jest.fn()
 }))
@@ -43,7 +44,7 @@ describe('RegisterForm', () => {
                 email: 'test@example.com',
                 password: 'testpasswordQ1q**',
                 frontendLink: 'http://localhost:3000/ru/auth/confirm-email'
-            })
+            } as UserRegistrationModel)
         })
     })
 

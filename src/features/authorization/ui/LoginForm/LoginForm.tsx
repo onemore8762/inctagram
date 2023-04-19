@@ -15,7 +15,7 @@ import { SocialIcons } from 'shared/ui/SocialIcons/SocialIcons'
 
 export const LoginForm: FC = () => {
     const { register, handleSubmit, validErrors: { passwordError, loginError } } =
-      useValidationForm(['login', 'password'])
+    useValidationForm(['login', 'password'])
 
     const queryClient = useQueryClient()
 
@@ -53,7 +53,8 @@ export const LoginForm: FC = () => {
                 className={cls.input}/>
             <p className={cls.link}><AppLink href={'/auth/forgot'}>Forgot Password</AppLink></p>
             {error?.response?.data.message && <p className={cls.error}>{error.response.data.message}</p>}
-            <Button disabled={isLoading} type={'submit'} className={cls.button}>Sign In</Button>
+            <Button data-testid='sign-in-submit' disabled={isLoading} type={'submit'}
+                    className={cls.button}>Sign In</Button>
             <p className={cls.text}>Don’t have an account?</p>
             <AppLink active className={'active'} href={AppRoutes.AUTH.REGISTRATION}>Sign Up</AppLink>
 
