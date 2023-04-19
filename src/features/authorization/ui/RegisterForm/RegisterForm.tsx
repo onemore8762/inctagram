@@ -88,7 +88,9 @@ export const RegisterForm: FC = memo(() => {
                 placeholder={'Password confirmation'}
                 className={clsx(cls.input, cls.confirmation)}/>
 
-            <Button disabled={isLoading} type={'submit'} className={cls.button}>Sign Up</Button>
+            <Button data-testid='sign-up-submit' disabled={isLoading} type={'submit'} className={cls.button}>
+                Sign Up
+            </Button>
             <p className={cls.text}>Do you have an account?</p>
             <AppLink active className={'active'} href={AppRoutes.AUTH.LOGIN}>Sign In</AppLink>
         </FormWrapper>
