@@ -2,7 +2,7 @@ import VerificationImg from 'shared/assets/images/verification.png'
 import { useTranslation } from 'next-i18next'
 import { makeStaticProps, getStaticPaths } from 'shared/lib/i18n/getStatic'
 import { Info } from 'entities/Info'
-import { getAuthLayout } from 'shared/ui/Layout/AuthLayout/AuthLayout'
+import { getAuthLayout } from 'layouts/Layout/AuthLayout/AuthLayout'
 
 const getStaticProps = makeStaticProps(['common'])
 export { getStaticPaths, getStaticProps }

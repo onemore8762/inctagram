@@ -25,7 +25,7 @@ $api.interceptors.response.use((config) => {
         try {
             const response = await axios.post<RefreshTokenResponse>(
                 `${API_URL}auth/refresh-token`,
-                null,
+                {},
                 { withCredentials: true })
 
             localStorage.setItem('token', response.data.accessToken)

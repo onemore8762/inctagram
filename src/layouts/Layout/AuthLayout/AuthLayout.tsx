@@ -1,6 +1,6 @@
-import { Layout } from 'shared/ui/Layout/Layout'
 import { type NextPage } from 'next'
 import { type PropsWithChildren, type ReactElement } from 'react'
+import { Layout } from '../Layout'
 
 export const AuthLayout: NextPage<PropsWithChildren> = ({ children }) => {
     return (
