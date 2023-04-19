@@ -15,7 +15,7 @@ import { SocialIcons } from 'shared/ui/SocialIcons/SocialIcons'
 
 export const LoginForm: FC = () => {
     const { register, handleSubmit, validErrors: { passwordError, loginError } } =
-    useValidationForm(['login', 'password'])
+      useValidationForm(['login', 'password'])
 
     const queryClient = useQueryClient()
 
