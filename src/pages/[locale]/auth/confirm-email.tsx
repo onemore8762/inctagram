@@ -10,7 +10,8 @@ import { useEffect } from 'react'
 export default function ConfirmEmail () {
     const { query } = useRouter()
 
-    const { mutate } = useMutation(AuthService.confirmEmail, {
+    const { mutate: confirmEmail } = useMutation(AuthService.confirmEmail, {
+        mutationKey: ['confirm-email'],
         onSuccess: () => {
             routerPush(AppRoutes.AUTH.CONGRATULATIONS)
         },
@@ -20,9 +21,10 @@ export default function ConfirmEmail () {
     })
     useEffect(() => {
         if (query.code) {
-            mutate(query.code as string)
+            confirmEmail(query.code as string)
         }
     }, [])
+
     return <PageLoader/>
 }
 

@@ -17,6 +17,7 @@ import { routerPush } from 'shared/lib/routerPush/routerPush'
 import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
 import clsx from 'clsx'
 import { SocialIcons } from 'shared/ui/SocialIcons/SocialIcons'
+import { confirmEmailLink } from 'shared/constants/confirm-email'
 
 interface RegisterValidation {
     login: string
@@ -51,7 +52,7 @@ export const RegisterForm: FC = memo(() => {
 
     const onSubmit = useCallback((data: RegisterValidation): void => {
         const { confPassword, ...registerData } = data
-        registration({ ...registerData, frontendLink: 'http://localhost:3000/ru/auth/confirm-email' })
+        registration({ ...registerData, frontendLink: confirmEmailLink })
         setEmail(data.email)
     }, [error])
 
