@@ -32,7 +32,6 @@ export const LoginForm: FC = () => {
     return (
         <FormWrapper className={cls.login} onSubmit={handleSubmit(onSubmit)}>
             <h2 className={cls.title}>Sign In</h2>
-            <SocialIcons/>
             <Input
                 {...register('login')}
                 type={'text'}
