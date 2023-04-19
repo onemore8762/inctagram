@@ -25,6 +25,10 @@ module.exports = {
                 configFile: path.resolve(__dirname, '../../tsconfig.json')
             })
         )
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            'next-i18next': 'react-i18next'
+        }
 
         return config
     }
