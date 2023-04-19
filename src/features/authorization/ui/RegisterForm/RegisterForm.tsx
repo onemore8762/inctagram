@@ -2,7 +2,6 @@ import cls from './RegisterForm.module.scss'
 import { Input } from 'shared/ui/Input/Input'
 import { Button } from 'shared/ui/Button/Button'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
-import { SocialIcons } from 'shared/ui/SocialIcons/SocialIcons'
 import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
 import { useMutation } from '@tanstack/react-query'
 import { type FC, memo, useCallback, useMemo } from 'react'
@@ -17,6 +16,7 @@ import { AppRoutes } from 'shared/config/routeConfig/path'
 import { routerPush } from 'shared/lib/routerPush/routerPush'
 import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
 import clsx from 'clsx'
+import { SocialIcons } from 'shared/ui/SocialIcons/SocialIcons'
 
 interface RegisterValidation {
     login: string
