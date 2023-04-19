@@ -40,19 +40,14 @@ function App ({ Component, pageProps }: AppPropsWithLayout) {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <AuthRedirect>
+            {getLayout(<AuthRedirect>
                 <ThemeProvider>
                     <AdminMenu/>
-                    {pageLoading
-                        ? (<PageLoader/>)
-                        : (
-                            <Hydrate state={pageProps.dehydrateState}>
-                                {getLayout(<Component {...pageProps} />)}
-                            </Hydrate>
-                        )
-                    }
+                    <Hydrate state={pageProps.dehydrateState}>
+                        <Component {...pageProps} />
+                    </Hydrate>
                 </ThemeProvider>
-            </AuthRedirect>
+            </AuthRedirect>)}
         </QueryClientProvider>
     )
 }
