@@ -5,6 +5,7 @@ import { AuthService } from '../../model/service/authService'
 import { renderWithQueryClient } from '../../../../../config/jest/renderWithQueryClient'
 import { routerPush } from '../../../../shared/lib/routerPush/routerPush'
 import { AppRoutes } from '../../../../shared/config/routeConfig/path'
+import { type UserLoginModel } from '../../model/types/UserAuthSchema'
 
 jest.mock('next/router', () => require('../../../../../config/jest/__mocks__/next_router'))
 jest.mock('../../model/service/authService', () => ({
@@ -35,7 +36,7 @@ describe('LoginForm', () => {
             expect(AuthService.login).toHaveBeenCalledWith({
                 loginOrEmail: 'testuser',
                 password: 'testpasswordQ1q**'
-            })
+            } as UserLoginModel)
             expect(routerPush).toHaveBeenCalledWith(AppRoutes.CREATE_PROFILE)
         })
     })
