@@ -1,5 +1,6 @@
 import NotFoundImg from 'shared/assets/images/404error.png'
 import { Info } from 'entities/Info'
+import { getAuthLayout } from 'layouts/Layout/AuthLayout/AuthLayout'
 
 export default function NotFound () {
     return (
@@ -11,3 +12,5 @@ export default function NotFound () {
         />
     )
 }
+
+NotFound.getLayout = getAuthLayout

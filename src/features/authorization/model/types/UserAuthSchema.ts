@@ -5,7 +5,7 @@ export interface UserAuthModel {
 }
 
 export interface UserLoginModel {
-    email: string
+    loginOrEmail: string
     password: string
 }
 

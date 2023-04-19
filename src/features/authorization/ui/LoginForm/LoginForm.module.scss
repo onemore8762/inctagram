@@ -45,4 +45,12 @@
             margin-bottom: 12px;
         }
     }
+
+    .error {
+        color: var(--danger-500-color);
+
+        &:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
 }

@@ -26,11 +26,8 @@ export const AuthService = {
         return $api.post<null, AxiosResponse, UserRegistrationModel>('auth/registration', params)
     },
 
-    registrationConfirm (code: string) {
-        return $api.post<{ code: string }>('auth/registration-confirmation', { code })
-            .catch((e: AxiosError<{ message: string }>) => {
-                console.log(e.response?.data.message)// "User already exists"
-            })
+    confirmEmail (code: string) {
+        return $api.post('auth/confirm-email', { code })
     },
     createPassword (params: UserCreatePasswordModel) {
         console.log(params)

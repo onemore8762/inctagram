@@ -5,6 +5,7 @@ export interface useAuthStateType {
     email: string
     isAuth: boolean
     setEmail: (email: string) => void
+    setAuth: (isAuth: boolean) => void
 }
 export const useAuth = create(immer<useAuthStateType>((set) => ({
     email: '',
@@ -12,6 +13,11 @@ export const useAuth = create(immer<useAuthStateType>((set) => ({
     setEmail: (email: string) => {
         set(state => {
             state.email = email
+        })
+    },
+    setAuth: (isAuth: boolean) => {
+        set(state => {
+            state.isAuth = isAuth
         })
     }
 })))

@@ -2,33 +2,35 @@ import { type FC } from 'react'
 import cls from './LoginForm.module.scss'
 
 import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
-import { SocialIcons } from 'shared/ui/SocialIcons/SocialIcons'
 import { Input } from 'shared/ui/Input/Input'
 import { Button } from 'shared/ui/Button/Button'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { AuthService } from 'features/authorization'
-import { type UserLoginModel } from 'features/authorization/model/types/UserAuthSchema'
-import { useRouter } from 'next/router'
 import { AppRoutes } from 'shared/config/routeConfig/path'
 import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
+import { routerPush } from 'shared/lib/routerPush/routerPush'
+import { type AxiosError } from 'axios'
+import { SocialIcons } from 'shared/ui/SocialIcons/SocialIcons'
 
 export const LoginForm: FC = () => {
     const { register, handleSubmit, validErrors: { passwordError, loginError } } =
-        useValidationForm(['login', 'password'])
+      useValidationForm(['login', 'password'])
 
     const queryClient = useQueryClient()
-    const { push } = useRouter()
 
-    const { mutate: login, isLoading } = useMutation({
+    const { mutate: login, isLoading, error } = useMutation<any, AxiosError<{ message: string }>, any>({
         mutationFn: AuthService.login,
+        retry: false,
         onSuccess: async () => {
-            await queryClient.invalidateQueries(['me']).then(() => push('[locale]/profile/createProfile'))
+            await queryClient.invalidateQueries(['me']).then(() => {
+                routerPush(AppRoutes.CREATE_PROFILE)
+            })
         }
     })
 
-    const onSubmit = (data: UserLoginModel): void => {
-        login(data)
+    const onSubmit = (data: { login: string, password: string }): void => {
+        login({ password: data.password, loginOrEmail: data.login })
     }
 
     return (
@@ -50,6 +52,7 @@ export const LoginForm: FC = () => {
                 errorText={passwordError}
                 className={cls.input}/>
             <p className={cls.link}><AppLink href={'/auth/forgot'}>Forgot Password</AppLink></p>
+            {error?.response?.data.message && <p className={cls.error}>{error.response.data.message}</p>}
             <Button disabled={isLoading} type={'submit'} className={cls.button}>Sign In</Button>
             <p className={cls.text}>Don’t have an account?</p>
             <AppLink active className={'active'} href={AppRoutes.AUTH.REGISTRATION}>Sign Up</AppLink>
