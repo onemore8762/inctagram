@@ -7,5 +7,9 @@ export { useConfirmModal } from './model/store/modalStore'
 export { AuthService } from './model/service/authService'
 
 export { RegisterForm } from './ui/RegisterForm/RegisterForm'
+
 export { NewPasswordForm } from './ui/NewPasswordForm/NewPasswordForm'
+
+export { PasswordRecoveryForm } from './ui/PasswordRecoveryForm/PasswordRecoveryForm'
+
 export { LoginForm } from './ui/LoginForm/LoginForm'

@@ -14,6 +14,7 @@ export const ConfirmModal: FC<confirmModalProps> = ({ className }) => {
     const { t } = useTranslation()
     const { isOpen, setIsOpen } = useConfirmModal()
     const email = useAuth(SelectEmail)
+
     const onCloseHandler = () => { setIsOpen(false) }
     return (
         <Modal

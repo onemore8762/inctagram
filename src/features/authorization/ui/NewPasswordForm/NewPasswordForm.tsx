@@ -31,7 +31,7 @@ export const NewPasswordForm: FC = () => {
     const passwordError = errors?.password && errors.password.message
     const passwordConfirmError = errors?.confirmPassword && errors.confirmPassword.message
     const { query } = useRouter()
-    const { code } = query
+    const { recoveryCode } = query
     const queryClient = useQueryClient()
     const { mutate: createPassword, isError, isLoading } = useMutation({
         mutationFn: AuthService.createPassword,
@@ -44,7 +44,7 @@ export const NewPasswordForm: FC = () => {
         console.log('Something went wrong. Please try again')
     }
     const onSubmit = (data: NewPasswordValidation): void => {
-        createPassword({ recoveryCode: String(code), newPassword: data.password })
+        createPassword({ recoveryCode: String(recoveryCode), newPassword: data.password })
     }
 
     return (
