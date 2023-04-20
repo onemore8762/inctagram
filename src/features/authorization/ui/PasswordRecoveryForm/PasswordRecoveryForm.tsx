@@ -39,8 +39,6 @@ export const PasswordRecoveryForm = () => {
         }
     })
 
-    console.log({ error })
-
     if (isLoading) return <PageLoader/>
 
     const onSubmit = (data: PasswordRecoveryValidation) => {
