@@ -1,6 +1,7 @@
 import { type AxiosError, type AxiosResponse } from 'axios'
 
 import {
+    type PasswordRecoveryModel,
     type UserCreatePasswordModel, type UserAuthModel,
     type UserLoginModel, type UserRegistrationModel
 } from '../types/UserAuthSchema'
@@ -34,5 +35,9 @@ export const AuthService = {
         return $api.post('/auth/new-password', params).catch((e: AxiosError<{ message: string }>) => {
             console.log(e.response?.data.message)
         })
+    },
+
+    passwordRecovery (params: PasswordRecoveryModel) {
+        return $api.post('auth/password-recovery', params)
     }
 }
