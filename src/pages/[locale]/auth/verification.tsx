@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router'
+
 import VerificationImg from 'shared/assets/images/verification.png'
 import { useTranslation } from 'next-i18next'
 import { makeStaticProps, getStaticPaths } from 'shared/lib/i18n/getStatic'

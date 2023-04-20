@@ -51,7 +51,7 @@ export const LoginForm: FC = () => {
                 error={!!passwordError}
                 errorText={passwordError}
                 className={cls.input}/>
-            <p className={cls.link}><AppLink href={'/auth/forgot'}>Forgot Password</AppLink></p>
+            <p className={cls.link}><AppLink href={'/auth/password-recovery'}>Forgot Password</AppLink></p>
             {error?.response?.data.message && <p className={cls.error}>{error.response.data.message}</p>}
             <Button data-testid='sign-in-submit' disabled={isLoading} type={'submit'}
                     className={cls.button}>Sign In</Button>
