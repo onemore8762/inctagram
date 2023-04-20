@@ -27,6 +27,11 @@ export interface UserCreatePasswordModel {
     newPassword: string
 }
 
+export interface UseResendLinkModel {
+    email: string
+    frontendLink: string
+}
+
 export interface PasswordRecoveryModel {
     email: string
     frontendLink: string
