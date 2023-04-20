@@ -11,7 +11,7 @@ import {
     type UserRegistrationError,
     type UserRegistrationModel
 } from 'features/authorization/model/types/UserAuthSchema'
-import { SelectSetEmail, useAuth } from 'entities/User'
+import { SelectEmail, SelectSetEmail, useAuth } from 'entities/User'
 import { AppRoutes } from 'shared/config/routeConfig/path'
 import { routerPush } from 'shared/lib/routerPush/routerPush'
 import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
@@ -31,6 +31,7 @@ export const RegisterForm: FC = memo(() => {
       useValidationForm(['email', 'password', 'login', 'confPassword'])
 
     const setEmail = useAuth(SelectSetEmail)
+    const email = useAuth(SelectEmail)
     const { setIsOpen } = useConfirmModal()
 
     const { mutate: registration, isLoading, error } =
@@ -40,6 +41,7 @@ export const RegisterForm: FC = memo(() => {
           onSuccess: () => {
               routerPush(AppRoutes.AUTH.LOGIN)
               setIsOpen(true)
+              localStorage.setItem('email', email)
           }
       })
 
