@@ -37,5 +37,12 @@ export const AuthService = {
     },
     resendEmail (params: UseResendLinkModel) {
         return $api.post('/auth/registration-email-resending', params)
+    },
+    uploadAvatar (file: FormData) {
+        return $api.post('/users/avatar', file, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
     }
 }
