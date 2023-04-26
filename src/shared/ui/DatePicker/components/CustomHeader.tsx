@@ -23,20 +23,13 @@ export const CustomHeader = ({
 }: ReactDatePickerCustomHeaderProps & CustomHeaderType) => {
     const { theme } = useTheme()
     const fill = theme === Theme.LIGHT ? '#000000' : '#ffffff'
-    const classNames = {
-        header: cls.header,
-        buttonBox: cls.buttonBox,
-        button: cls.button,
-        selectBlock: cls.selectBlock,
-        select: cls.selectStyle
-    }
 
     const headerText = format(date, 'LLLL Y')
 
     return (
         <div className={cls.header} {...rest} >
             <div>{headerText}</div>
-            <div className={classNames.buttonBox}>
+            <div className={cls.buttonBox}>
                 <button type="button" className={cls.button} style={{ color: fill }} onClick={decreaseMonth}>
                     {'<'}
                 </button>
