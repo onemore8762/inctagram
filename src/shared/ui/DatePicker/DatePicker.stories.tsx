@@ -14,6 +14,6 @@ const Template: ComponentStory<typeof DatePicker> = (args) => <DatePicker {...ar
 
 export const DefaultDatePicker = Template.bind({})
 DefaultDatePicker.args = {
-    placeholder: 'Date-picker',
+    value: '2023-04-10T16:20:10.847Z',
     onChange: () => {}
 }
