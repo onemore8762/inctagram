@@ -1,0 +1,49 @@
+import { Theme, useTheme } from 'app/providers/ThemeProvider'
+
+import { format, getMonth } from 'date-fns'
+import { type ReactDatePickerCustomHeaderProps } from 'react-datepicker'
+import cls from './CustomHeader.module.scss'
+export const capitalizeFirstLetter = (text: string) => {
+    return text[0].toUpperCase() + text.slice(1)
+}
+
+interface CustomHeaderType {
+    years: number[]
+    months: string[]
+}
+export const CustomHeader = ({
+    date,
+    decreaseMonth,
+    increaseMonth,
+    changeMonth,
+    changeYear,
+    years,
+    months,
+    ...rest
+}: ReactDatePickerCustomHeaderProps & CustomHeaderType) => {
+    const { theme } = useTheme()
+    const fill = theme === Theme.LIGHT ? '#000000' : '#ffffff'
+    const classNames = {
+        header: cls.header,
+        buttonBox: cls.buttonBox,
+        button: cls.button,
+        selectBlock: cls.selectBlock,
+        select: cls.selectStyle
+    }
+
+    const headerText = format(date, 'LLLL Y')
+
+    return (
+        <div className={cls.header} {...rest} >
+            <div>{headerText}</div>
+            <div className={classNames.buttonBox}>
+                <button type="button" className={cls.button} style={{ color: fill }} onClick={decreaseMonth}>
+                    {'<'}
+                </button>
+                <button type="button" className={cls.button} style={{ color: fill }} onClick={increaseMonth}>
+                    {'>'}
+                </button>
+            </div>
+        </div>
+    )
+}
