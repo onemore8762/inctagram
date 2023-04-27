@@ -7,6 +7,15 @@ import { RouterContext } from 'next/dist/shared/lib/router-context'
 import { QueryDecorator } from '../../src/shared/config/storybook/QueryDecorator/QueryDecorator'
 import { I18nDecorator } from '../../src/shared/config/storybook/I18nDecorator/I18nDecorator'
 import i18n from '../../src/shared/config/storybook/I18nDecorator/i18next'
+import * as NextImage from 'next/image'
+
+const OriginalNextImage = NextImage.default
+
+// eslint-disable-next-line no-import-assign
+Object.defineProperty(NextImage, 'default', {
+    configurable: true,
+    value: (props) => <OriginalNextImage {...props} unoptimized />
+})
 
 export const globalTypes = {
     locale: {
