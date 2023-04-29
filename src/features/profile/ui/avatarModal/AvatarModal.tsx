@@ -3,7 +3,7 @@ import React, {
     type ChangeEvent, type FC, useState, type FormEvent,
     type Dispatch, type SetStateAction
 } from 'react'
-import { AuthService, useConfirmModal } from '../../../../features/authorization'
+import { useConfirmModal } from '../../../authorization'
 import { useMutation } from '@tanstack/react-query'
 import { Modal } from '../../../../shared/ui/Modal/Modal'
 import cls from './AvatarModal.module.scss'
@@ -13,9 +13,10 @@ import clsx from 'clsx'
 import dynamic from 'next/dynamic'
 import { type AxiosError } from 'axios'
 import { useSnackbar } from '../../../../widgets/SnackBar/model/store/snackbarStore'
+import { profileService } from '../../model/service/profileService'
 
 const AvatarDynamicImport =
-    dynamic(() => import('../../../../features/profile/uploadAvatar/AvatarDynamicImport'), { ssr: false })
+    dynamic(() => import('../uploadAvatar/AvatarDynamicImport'), { ssr: false })
 interface confirmModalProps {
     className?: string
     setAvatar: Dispatch<SetStateAction<string | undefined>>
@@ -28,7 +29,7 @@ export const AvatarModal: FC<confirmModalProps> = ({ className, setAvatar }) => 
     const onOpen = useSnackbar((state) => state.onOpen)
     const onCloseHandler = () => { setIsOpen(false) }
     const fileReader = new FileReader()
-    const { mutate: uploadAvatar } = useMutation(AuthService.uploadAvatar, {
+    const { mutate: uploadAvatar } = useMutation(profileService.uploadAvatar, {
         mutationKey: ['uploadAvatar'],
         onSuccess: () => {
             setAvatar(preview)

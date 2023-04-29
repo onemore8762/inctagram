@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const API_URL = 'https://inctagram.vercel.app/'
+export const API_URL = 'http://92.255.109.36:3000'
 
 interface RefreshTokenResponse {
     accessToken: string
