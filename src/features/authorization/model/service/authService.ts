@@ -1,6 +1,7 @@
 import { type AxiosError, type AxiosResponse } from 'axios'
 
 import {
+    type PasswordRecoveryModel,
     type UserCreatePasswordModel, type UserAuthModel,
     type UserLoginModel, type UserRegistrationModel, type UseResendLinkModel
 } from '../types/UserAuthSchema'
@@ -30,12 +31,14 @@ export const AuthService = {
         return $api.post('auth/confirm-email', { code })
     },
     createPassword (params: UserCreatePasswordModel) {
-        console.log(params)
         return $api.post('/auth/new-password', params).catch((e: AxiosError<{ message: string }>) => {
             console.log(e.response?.data.message)
         })
     },
     resendEmail (params: UseResendLinkModel) {
         return $api.post('/auth/registration-email-resending', params)
+    },
+    passwordRecovery (params: PasswordRecoveryModel) {
+        return $api.post('auth/password-recovery', params)
     }
 }

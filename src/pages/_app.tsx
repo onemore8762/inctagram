@@ -9,7 +9,6 @@ import { type NextPage } from 'next'
 import { QueryClient } from '@tanstack/query-core'
 import { useLoader } from 'app/hooks/use-loader'
 import 'app/styles/nprogress.scss'
-import { AuthRedirect } from 'features/authorization'
 
 export type NextPageWithLayout<P = Record<string, unknown>> = NextPage<P> & {
     getLayout?: (page: ReactElement) => ReactElement
@@ -29,12 +28,11 @@ function App ({ Component, pageProps }: AppPropsWithLayout) {
         <QueryClientProvider client={queryClient}>
             <ThemeProvider>
                 {getLayout(
-                    <AuthRedirect>
+                    <>
                         <AdminMenu/>
                         <Hydrate state={pageProps.dehydrateState}>
                             <Component {...pageProps} />
-                        </Hydrate>
-                    </AuthRedirect>
+                        </Hydrate></>
                 )}
             </ThemeProvider>
         </QueryClientProvider>
