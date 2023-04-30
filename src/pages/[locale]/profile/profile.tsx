@@ -1,15 +1,9 @@
 import React from 'react'
 import { getLayoutWithSidebar } from '../../../layouts/Layout/LayoutWithSidebar/LayoutWithSidebar'
-import { useProfileData } from '../../../app/hooks/useProfileData'
+import { ProfilePage } from '../../../features/profile/ui/profilePage/ProfilePage'
 
 export default function Profile () {
-    const { userData } = useProfileData()
-    console.log(userData)
-    return (
-        <div>
-            Profile
-        </div>
-    )
+    return <ProfilePage/>
 }
 
 Profile.getLayout = getLayoutWithSidebar

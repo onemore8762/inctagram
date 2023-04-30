@@ -12,4 +12,5 @@ export const profileService = {
     getProfileData (userId: string) {
         return $api.get<ProfileDataModel>(`/users/${userId}/profile`)
     }
+
 }
