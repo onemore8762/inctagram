@@ -36,3 +36,13 @@ export interface PasswordRecoveryModel {
     email: string
     frontendLink: string
 }
+
+export interface ProfileDataModel {
+    userName: string
+    name: string
+    surName: string
+    dateOfBirthday: string
+    city: string
+    aboutMe: string
+    avatarUrl: string
+}
