@@ -39,23 +39,40 @@ export const AvatarModal: FC<confirmModalProps> = ({ className, setAvatar }) => 
             onOpen(res.message, 'danger', 'left')
         }
     })
+    function dataURLtoFile (dataurl: string, filename: string) {
+        const arr = dataurl.split(',')
+        // @ts-ignore
+        const mime = arr[0].match(/:(.*?);/)[1]
+        const bstr = atob(arr[1])
+        let n = bstr.length
+        const u8arr = new Uint8Array(n)
+
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n)
+        }
+
+        return new File([u8arr], filename, { type: mime })
+    }
     const onClose = () => {
         setPreview(undefined)
     }
     const onCrop = (view: string) => {
         setPreview(view)
+        console.log(view)
+        const file = dataURLtoFile(view, 'hello.txt')
+        setImage(file)
     }
+
     const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
-            const file = e.target.files[0]
-            setImage(file)
-            fileReader.readAsDataURL(file)
+            image && fileReader.readAsDataURL(image)
         }
     }
     const submit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const formData = new FormData()
         image && formData.append('file', image)
+        console.log(image)
         uploadAvatar(formData)
         setImage(undefined)
     }
