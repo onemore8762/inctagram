@@ -1,5 +1,21 @@
-.list {
+
+
+.device {
     &:not(:last-child) {
-        margin-bottom: 20px;
+        margin-bottom: 18px;
     }
+
+    .button {
+        display: block;
+        margin-left: auto;
+    }
+}
+
+.title {
+    font: var( --font-regular-700);
+
+    &:not(:last-child) {
+        margin-bottom: 18px;
+    }
+
 }

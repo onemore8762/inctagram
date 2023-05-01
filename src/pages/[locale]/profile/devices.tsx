@@ -2,7 +2,7 @@ import { getLayoutWithSidebar } from 'layouts/Layout/LayoutWithSidebar/LayoutWit
 import { DeviceList } from 'features/devices'
 
 export default function Devices () {
-    return <><DeviceList/></>
+    return <DeviceList/>
 }
 
 Devices.getLayout = getLayoutWithSidebar

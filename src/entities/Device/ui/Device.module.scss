@@ -7,11 +7,49 @@
     outline: 1px solid var(--dark-300-color);
     border-radius: 2px;
 
-    @include flex;
+    @include flex($justify: space-between);
 
     column-gap: 12px;
 
+    &:first-child {
+        margin-bottom: 24px;
+    }
+
     &:not(:last-child) {
         margin-bottom: 12px;
+    }
+
+    .inner {
+        @include flex;
+
+        column-gap: 12px;
+    }
+
+    .title {
+        font: var(--font-regular-700);
+
+        &:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+
+    .ip {
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+
+    .current {
+        color: var(--primary-500-color);
+    }
+
+    .button {
+        @include flex($align: center);
+
+        column-gap: 12px;
+
+        &:hover {
+            color: var(--danger-500-color);
+        }
     }
 }

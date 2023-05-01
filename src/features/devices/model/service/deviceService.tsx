@@ -5,10 +5,10 @@ export const deviceService = {
     getDevices () {
         return $api.get<DeviceScheme[]>('security/devices').then(data => data)
     },
-    deleteAllDevices () {
+    terminateAllDevices () {
         return $api.delete('security/devices')
     },
-    deleteDevice (deviceId: string) {
+    terminateDevice (deviceId: string) {
         return $api.delete(`security/devices/${deviceId}`)
     }
 }

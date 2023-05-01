@@ -1,30 +1,37 @@
-import { useQuery } from '@tanstack/react-query'
-import { deviceService } from '../../model/service/deviceService'
 import { Device } from 'entities/Device'
 import cls from './DeviceList.module.scss'
 import { Button } from 'shared/ui/Button/Button'
+import { useDevices } from '../../model/hooks/useDevices'
+import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
+import { useTerminateDevice } from '../../model/hooks/useTerminateDevice'
+import { useTerminateAllDevices } from '../../model/hooks/useTerminateAllDevices'
 
 export const DeviceList = () => {
-    const { isLoading, data: devices } = useQuery(['devices'], {
-        queryFn: deviceService.getDevices,
-        retry: false
-    })
+    const { isLoading, data: devices, isError } = useDevices()
+    const { onAllTerminate, isDevicesLoading } = useTerminateAllDevices()
+    const { onTerminate, isDeviceLoading } = useTerminateDevice()
 
-    const deviceItems = devices?.data.map(device => {
-        return <Device onRemove={() => {}} key={device.deviceId} device={device}/>
-    })
+    if (isLoading || isError) {
+        return <PageLoader/>
+    }
+    const currentDevice = devices.data.find(device => device.title === navigator.userAgent)
 
-    const currentDevice = devices?.data.find(device => device.title === navigator.userAgent)
+    const deviceItems = devices.data.map(device => device.title !== navigator.userAgent
+        ? <Device key={device.deviceId} isLoading={isDeviceLoading} onRemove={onTerminate(device.deviceId)}
+                  device={device}/>
+        : null)
 
     return <>
-        <div style={{ marginBottom: 30 }}>
-            <h2>This Device</h2>
-            {currentDevice && <Device device={currentDevice}/>}
+        <div className={cls.device}>
+            <h2 className={cls.title}>This Device</h2>
+            <ul>{currentDevice && <Device isCurrentDevice device={currentDevice}/>}</ul>
+            <Button className={cls.button} type={'button'}
+                    disabled={isDevicesLoading} theme={'outline'} onClick={onAllTerminate}>
+                Terminate all other session</Button>
         </div>
-        <Button onClick={() => {}} type={'button'} theme={'outline'}>Terminate all other session</Button>
         <div>
-            <h2>Active sessions</h2>
-            <ul>{deviceItems}</ul>
+            <h2 className={cls.title}>Active sessions</h2>
+            {deviceItems.length === 1 ? <p>No active sessions</p> : <ul>{deviceItems}</ul>}
         </div>
     </>
 }
