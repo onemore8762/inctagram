@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { useConfirmModal } from '../../../authorization'
+import { useState } from 'react'
 import { AvatarModal } from '../avatarModal/AvatarModal'
 import cls from './UploadAvatar.module.scss'
-import { Avatar } from '../../../../shared/ui/Avatar/Avatar'
-import { Button } from '../../../../shared/ui/Button/Button'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
+import { Button } from 'shared/ui/Button/Button'
+import { useConfirmModal } from 'features/authorization'
 
 export const UploadAvatar = () => {
     const [avatar, setAvatar] = useState<string>()

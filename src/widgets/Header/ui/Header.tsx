@@ -2,7 +2,6 @@ import clsx from 'clsx'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { Container } from 'shared/ui/Container/Container'
 import { Button } from 'shared/ui/Button/Button'
-import React from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { AuthService } from 'features/authorization'
 import cls from './Header.module.scss'
@@ -17,7 +16,7 @@ export const Header = (props: HeaderProps) => {
     const { isAuth } = useAuth()
     const queryClient = useQueryClient()
 
-    const { mutate: logout, isLoading, isError } = useMutation({
+    const { mutate: logout, isLoading } = useMutation({
         mutationFn: AuthService.logout,
         onSuccess: async () => {
             await queryClient.invalidateQueries(['me'])

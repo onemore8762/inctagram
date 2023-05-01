@@ -1,6 +1,5 @@
-import React from 'react'
-import { getLayoutWithSidebar } from '../../../layouts/Layout/LayoutWithSidebar/LayoutWithSidebar'
-import { ProfilePage } from '../../../features/profile/ui/profilePage/ProfilePage'
+import { getLayoutWithSidebar } from 'layouts/Layout/LayoutWithSidebar/LayoutWithSidebar'
+import { ProfilePage } from 'features/profile/ui/profilePage/ProfilePage'
 
 export default function Profile () {
     return <ProfilePage/>
