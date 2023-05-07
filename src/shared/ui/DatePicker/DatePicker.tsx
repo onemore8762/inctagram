@@ -50,15 +50,14 @@ export const DatePicker = ({ value, onChange }: DatePickerProps) => {
                 ...rest
             }) => (
                 <CustomHeader
-                date={date}
-                decreaseMonth={decreaseMonth}
-                increaseMonth={increaseMonth}
-                changeYear={changeYear}
-                years={years}
-                months={months}
-                changeMonth={changeMonth}
-                {...rest}
-                />
+                        date={date}
+                        decreaseMonth={decreaseMonth}
+                        increaseMonth={increaseMonth}
+                        changeYear={changeYear}
+                        years={years}
+                        months={months}
+                        changeMonth={changeMonth}
+                        {...rest} />
             )}
             selected={startDate} onChange={onDateChange}
             calendarClassName={cls.day}

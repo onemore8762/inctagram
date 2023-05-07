@@ -11,6 +11,8 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     error?: boolean
     errorText?: string
     className?: string
+    label?: string
+    labelClassName?: string
     disabled?: boolean
     children?: ReactNode
 }
@@ -24,6 +26,9 @@ export const Input = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) 
         error,
         errorText,
         placeholder,
+        label,
+        labelClassName,
+        id,
         type = 'text',
         ...otherProps
     } = props
@@ -48,6 +53,7 @@ export const Input = memo(forwardRef<HTMLInputElement, InputProps>((props, ref) 
 
     return (
         <div className={clsx(cls.field, className)}>
+            {label && <label htmlFor={id} className={labelClassName}>{label}</label>}
             <div className={clsx(cls.wrapper, mod, cls[variant])}>
                 <input
                     ref={ref}

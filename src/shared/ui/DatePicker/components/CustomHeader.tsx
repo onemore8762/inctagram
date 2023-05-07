@@ -1,6 +1,6 @@
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
 
-import { format, getMonth } from 'date-fns'
+import { format } from 'date-fns'
 import { type ReactDatePickerCustomHeaderProps } from 'react-datepicker'
 import cls from './CustomHeader.module.scss'
 export const capitalizeFirstLetter = (text: string) => {
@@ -11,16 +11,23 @@ interface CustomHeaderType {
     years: number[]
     months: string[]
 }
-export const CustomHeader = ({
-    date,
-    decreaseMonth,
-    increaseMonth,
-    changeMonth,
-    changeYear,
-    years,
-    months,
-    ...rest
-}: ReactDatePickerCustomHeaderProps & CustomHeaderType) => {
+export const CustomHeader = (props: Pick<ReactDatePickerCustomHeaderProps,
+'date' |
+'decreaseMonth' |
+'increaseMonth' |
+'changeMonth' |
+'changeYear'
+> & CustomHeaderType) => {
+    const {
+        date,
+        decreaseMonth,
+        increaseMonth,
+        changeMonth,
+        changeYear,
+        years,
+        months,
+        ...rest
+    } = props
     const { theme } = useTheme()
     const fill = theme === Theme.LIGHT ? '#000000' : '#ffffff'
 

@@ -7,6 +7,9 @@
     transition: fill 0.5s;
 }
 
+// .react-datepicker__day.react-datepicker__day--today {
+//     border: 2px solid green !important;
+// }
 
 .calendar_icon_group{
     width: 230px;
@@ -62,8 +65,6 @@
         width: 75%;
     }
 
- 
-
     .day{
         color: var(--light-100-color);
         background-color: var(--dark-500-color);
@@ -73,7 +74,6 @@
             border: 2 px solid var(--primary-900-color);
             border-radius: 50%;
         }
-        
     
     }
 
@@ -103,4 +103,3 @@
    
 
 }
-

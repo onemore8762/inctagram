@@ -1,39 +1,44 @@
 import cls from './Textarea.module.scss'
 import clsx from 'clsx'
-import React, { type ChangeEvent, useState } from 'react'
+import React, { memo, forwardRef } from 'react'
+import { type ChangeHandler } from 'react-hook-form'
 
 interface TextareaProps {
     className?: string
     name?: string
     id?: string
+    label?: string
+    labelClassName?: string
+    textareaClassName?: string
     placeholder?: string
-    onChange?: (value: string) => void
+    onChange: ChangeHandler
 }
 
-export const Textarea = (props: TextareaProps) => {
-    const [text, setText] = useState('')
+export const Textarea = memo(forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => {
     const {
         className,
         name,
         id,
         placeholder,
+        label,
+        labelClassName,
+        textareaClassName,
         onChange,
         ...otherProps
     } = props
 
-    const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        setText(event.target.value)
-    }
-
     return (
-        <textarea
-                className={clsx(cls.Textarea, [className])}
+        <div className={className}>
+            <label htmlFor={id} className={labelClassName}>{label}</label>
+            <textarea
+                className={clsx(cls.Textarea, [textareaClassName])}
                 name={name}
                 id={id}
-                value={text}
+                ref={ref}
                 placeholder={placeholder}
-                onChange={handleChange}
+                onChange={onChange}
                 {...otherProps}
-        />
+            />
+        </div>
     )
-}
+}))

@@ -28,7 +28,7 @@ export const AvatarModal: FC<confirmModalProps> = ({ className, setAvatar }) => 
     const [preview, setPreview] = useState<string>()
     const onOpen = useSnackbar((state) => state.onOpen)
     const onCloseHandler = () => { setIsOpen(false) }
-    const fileReader = new FileReader()
+
     const { mutate: uploadAvatar } = useMutation(profileService.uploadAvatar, {
         mutationKey: ['uploadAvatar'],
         onSuccess: () => {
@@ -58,12 +58,13 @@ export const AvatarModal: FC<confirmModalProps> = ({ className, setAvatar }) => 
     }
     const onCrop = (view: string) => {
         setPreview(view)
-        console.log(view)
         const file = dataURLtoFile(view, 'hello.txt')
         setImage(file)
     }
 
     const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const fileReader = new FileReader()
+
         if (e.target.files) {
             image && fileReader.readAsDataURL(image)
         }
@@ -72,7 +73,6 @@ export const AvatarModal: FC<confirmModalProps> = ({ className, setAvatar }) => 
         e.preventDefault()
         const formData = new FormData()
         image && formData.append('file', image)
-        console.log(image)
         uploadAvatar(formData)
         setImage(undefined)
     }
