@@ -8,16 +8,16 @@ import { AuthRedirect } from 'features/authorization'
 export const LayoutWithSidebar: NextPage<PropsWithChildren> = ({ children }) => {
     return (
         <Layout>
-            {/* <AuthRedirect> */}
-            <div className={cls.wrapper}>
-                <Sidebar/>
-                <Suspense fallback={<div>Loading...</div>}>
-                    <div className={cls.children}>
-                        {children}
-                    </div>
-                </Suspense>
-            </div>
-            {/* </AuthRedirect> */}
+            <AuthRedirect>
+                <div className={cls.wrapper}>
+                    <Sidebar/>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <div className={cls.children}>
+                            {children}
+                        </div>
+                    </Suspense>
+                </div>
+            </AuthRedirect>
         </Layout>
     )
 }
