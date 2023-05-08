@@ -15,5 +15,5 @@ const Template: ComponentStory<typeof Textarea> = (args) => <Textarea {...args} 
 export const DefaultTextarea = Template.bind({})
 DefaultTextarea.args = {
     placeholder: 'Text-area',
-    onChange: () => {}
+    onChange: () => new Promise((resolve) => { resolve(true) })
 }
