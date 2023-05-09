@@ -10,11 +10,11 @@ import { Textarea } from 'shared/ui/Textarea/Textarea'
 import { DatePicker } from 'shared/ui/DatePicker/DatePicker'
 import { Button } from 'shared/ui/Button/Button'
 
-import { AvatarModal } from '../avatarModal/AvatarModal'
+import { AvatarModal } from '../AvatarModal/AvatarModal'
 
-import cls from './UploadAvatar.module.scss'
+import cls from './UpdateProfilePage.module.scss'
 
-export const UploadAvatar = () => {
+export const UpdateProfilePage = () => {
     const [avatar, setAvatar] = useState<string>()
     const { setIsOpen } = useConfirmModal()
     const {

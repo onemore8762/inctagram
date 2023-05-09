@@ -1,1 +1,1 @@
-export { DeviceList } from './ui/DeviceList/DeviceList'
+export { DeviceList } from './components/DeviceList/DeviceList'

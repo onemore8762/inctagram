@@ -16,7 +16,7 @@ import { useSnackbar } from '../../../../widgets/SnackBar/model/store/snackbarSt
 import { profileService } from '../../model/service/profileService'
 
 const AvatarDynamicImport =
-    dynamic(() => import('../uploadAvatar/AvatarDynamicImport'), { ssr: false })
+    dynamic(() => import('./AvatarDynamicImport'), { ssr: false })
 interface confirmModalProps {
     className?: string
     setAvatar: Dispatch<SetStateAction<string | undefined>>
