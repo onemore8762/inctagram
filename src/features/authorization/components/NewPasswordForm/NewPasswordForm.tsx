@@ -1,6 +1,6 @@
 import { type FC } from 'react'
 import clsx from 'clsx'
-import cls from 'features/authorization/ui/NewPasswordForm/NewPasswordForm.module.scss'
+import cls from './NewPasswordForm.module.scss'
 import { useForm } from 'react-hook-form'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 

@@ -1,5 +1,5 @@
-import { NewPasswordForm } from './NewPasswordForm'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { NewPasswordForm } from './NewPasswordForm'
 
 export default {
     title: 'shared/NewPasswordForm',
