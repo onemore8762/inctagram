@@ -1,8 +1,8 @@
-import cls from './Textarea.module.scss'
-import clsx from 'clsx'
 import React, { memo, forwardRef } from 'react'
 import { type ChangeHandler } from 'react-hook-form'
+import clsx from 'clsx'
 
+import cls from './Textarea.module.scss'
 interface TextareaProps {
     className?: string
     name?: string
@@ -10,6 +10,7 @@ interface TextareaProps {
     label?: string
     labelClassName?: string
     textareaClassName?: string
+    errorText?: string
     placeholder?: string
     onChange: ChangeHandler
 }
@@ -23,6 +24,7 @@ export const Textarea = memo(forwardRef<HTMLTextAreaElement, TextareaProps>((pro
         label,
         labelClassName,
         textareaClassName,
+        errorText,
         onChange,
         ...otherProps
     } = props
@@ -31,7 +33,7 @@ export const Textarea = memo(forwardRef<HTMLTextAreaElement, TextareaProps>((pro
         <div className={className}>
             <label htmlFor={id} className={labelClassName}>{label}</label>
             <textarea
-                className={clsx(cls.Textarea, [textareaClassName])}
+                className={clsx(cls.textarea, [textareaClassName])}
                 name={name}
                 id={id}
                 ref={ref}
@@ -39,6 +41,7 @@ export const Textarea = memo(forwardRef<HTMLTextAreaElement, TextareaProps>((pro
                 onChange={onChange}
                 {...otherProps}
             />
+            {!!errorText && <span className={clsx(cls.errorText)}>{errorText}</span>}
         </div>
     )
 }))

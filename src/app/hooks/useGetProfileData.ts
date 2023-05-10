@@ -6,7 +6,7 @@ import { useSnackbar } from '../../widgets/SnackBar/model/store/snackbarStore'
 import { type ProfileDataModel } from '../../features/authorization/model/types/UserAuthSchema'
 import { useState } from 'react'
 
-export const useProfileData = () => {
+export const useGetProfileData = () => {
     const [userData, setUserData] = useState<ProfileDataModel>()
     const { userId } = useAuth()
     const onOpen = useSnackbar((state) => state.onOpen)
