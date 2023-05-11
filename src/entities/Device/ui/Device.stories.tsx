@@ -1,5 +1,5 @@
-import { Device } from './Device'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
+import { Device } from './Device'
 
 export default {
     title: 'entities/Device',

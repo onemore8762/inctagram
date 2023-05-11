@@ -5,7 +5,8 @@ module.exports = {
     },
     extends: [
         'plugin:react/recommended',
-        'standard-with-typescript'
+        'standard-with-typescript',
+        '@feature-sliced'
     ],
     overrides: [
     ],
@@ -13,6 +14,12 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
         parser: '@typescript-eslint/parser',
+        settings: {
+            "import/resolver": {
+              "typescript": {
+                "alwaysTryTypes": true
+              }
+            }},
         project: './tsconfig.json',
         tsconfigRootDir: __dirname,
         ecmaFeatures: {

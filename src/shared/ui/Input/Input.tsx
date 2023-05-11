@@ -1,8 +1,8 @@
-import { forwardRef, type InputHTMLAttributes, memo, type ReactNode, useState } from 'react'
-import cls from './Input.module.scss'
 import clsx from 'clsx'
-import { Eye } from 'shared/ui/Eye/Eye'
+import { forwardRef, type InputHTMLAttributes, memo, type ReactNode, useState } from 'react'
 import Search from 'shared/assets/icons/general/search.svg'
+import { Eye } from 'shared/ui/Eye/Eye'
+import cls from './Input.module.scss'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     type?: 'email' | 'password' | 'text' | 'search'/* text or password */

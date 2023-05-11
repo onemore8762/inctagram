@@ -1,6 +1,6 @@
+import clsx from 'clsx'
 import React, { type FC } from 'react'
 import cls from './Loader.module.scss'
-import clsx from 'clsx'
 
 interface LoaderProps {
     className?: string

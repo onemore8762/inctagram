@@ -1,10 +1,10 @@
-import CongratulationsImg from 'shared/assets/images/congratulations.png'
-import { useTranslation } from 'next-i18next'
-import { makeStaticProps, getStaticPaths } from 'shared/lib/i18n/getStatic'
-import { Info } from 'entities/Info'
 import { getAuthLayout } from 'layouts/Layout/AuthLayout/AuthLayout'
-import { routerPush } from 'shared/lib/routerPush/routerPush'
+import { useTranslation } from 'next-i18next'
+import { Info } from 'entities/Info'
+import CongratulationsImg from 'shared/assets/images/congratulations.png'
 import { AppRoutes } from 'shared/config/routeConfig/path'
+import { makeStaticProps, getStaticPaths } from 'shared/lib/i18n/getStatic'
+import { routerPush } from 'shared/lib/routerPush/routerPush'
 
 const getStaticProps = makeStaticProps(['common'])
 export { getStaticPaths, getStaticProps }

@@ -1,6 +1,6 @@
+import clsx from 'clsx'
 import React, { type ButtonHTMLAttributes, memo, type ReactNode } from 'react'
 import cls from './Button.module.scss'
-import clsx from 'clsx'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string

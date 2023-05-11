@@ -1,6 +1,6 @@
+import { clsx } from 'clsx'
 import { type FC, type PropsWithChildren } from 'react'
 import cls from './Container.module.scss'
-import { clsx } from 'clsx'
 
 interface ContainerProps {
     className?: string

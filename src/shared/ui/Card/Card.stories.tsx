@@ -1,7 +1,7 @@
-import React from 'react'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import { Card } from 'shared/ui/Card/Card'
+import React from 'react'
 import congratulationsImg from 'shared/assets/images/congratulations.png'
+import { Card } from 'shared/ui/Card/Card'
 
 export default {
     title: 'shared/Card',

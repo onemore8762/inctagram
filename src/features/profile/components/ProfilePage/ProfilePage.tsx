@@ -1,8 +1,8 @@
 import React from 'react'
-import { Avatar } from '../../../../shared/ui/Avatar/Avatar'
 import { useProfileData } from '../../../../app/hooks/useProfileData'
-import cls from './ProfilePage.module.scss'
+import { Avatar } from '../../../../shared/ui/Avatar/Avatar'
 import { Card } from '../../../../shared/ui/Card/Card'
+import cls from './ProfilePage.module.scss'
 
 export const ProfilePage = () => {
     const { userData, response } = useProfileData()

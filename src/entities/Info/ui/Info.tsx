@@ -1,8 +1,8 @@
-import { Button } from 'shared/ui/Button/Button'
-import Image, { type StaticImageData } from 'next/image'
-import cls from './Info.module.scss'
 import clsx from 'clsx'
+import Image, { type StaticImageData } from 'next/image'
 import React from 'react'
+import { Button } from 'shared/ui/Button/Button'
+import cls from './Info.module.scss'
 
 interface InfoPageProps {
     title: string

@@ -1,11 +1,11 @@
 import { act, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { LoginForm } from './LoginForm'
-import { AuthService } from '../../model/service/authService'
 import { renderWithQueryClient } from '../../../../../config/jest/renderWithQueryClient'
-import { routerPush } from '../../../../shared/lib/routerPush/routerPush'
 import { AppRoutes } from '../../../../shared/config/routeConfig/path'
+import { routerPush } from '../../../../shared/lib/routerPush/routerPush'
+import { AuthService } from '../../model/service/authService'
 import { type UserLoginModel } from '../../model/types/UserAuthSchema'
+import { LoginForm } from './LoginForm'
 
 jest.mock('next/router', () => require('../../../../../config/jest/__mocks__/next_router'))
 jest.mock('../../model/service/authService', () => ({

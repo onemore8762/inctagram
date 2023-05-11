@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
 import { useMutation } from '@tanstack/react-query'
 import { type AxiosError } from 'axios'
+import React, { useState } from 'react'
 
-import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
-import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
-import { Input } from 'shared/ui/Input/Input'
-import { Button } from 'shared/ui/Button/Button'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { AuthService, useConfirmModal } from 'features/authorization'
+import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
+import { SelectSetEmail, useAuth } from 'entities/User'
 import { AppRoutes } from 'shared/config/routeConfig/path'
 import { createNewPasswordLink } from 'shared/constants/create-new-password'
 
-import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
-import { AuthService, useConfirmModal } from 'features/authorization'
-import { SelectSetEmail, useAuth } from 'entities/User'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { Button } from 'shared/ui/Button/Button'
+import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
+import { Input } from 'shared/ui/Input/Input'
+import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
 
 import cls from './PasswordRecoveryForm.module.scss'
 

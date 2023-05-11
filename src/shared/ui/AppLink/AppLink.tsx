@@ -1,8 +1,8 @@
-import cls from './AppLink.module.scss'
 import clsx from 'clsx'
 import Link from 'next/link'
-import React, { type ReactNode } from 'react'
 import { useRouter } from 'next/router'
+import React, { type ReactNode } from 'react'
+import cls from './AppLink.module.scss'
 
 interface AppLinkProps {
     className?: string

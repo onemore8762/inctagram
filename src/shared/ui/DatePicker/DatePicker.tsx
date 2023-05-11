@@ -1,13 +1,13 @@
-import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import clsx from 'clsx'
 import { getYear } from 'date-fns'
 import { range } from 'lodash'
 import { useState } from 'react'
 import LibDatePicker from 'react-datepicker'
+import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import 'react-datepicker/dist/react-datepicker.css'
 import IconCalendar from 'shared/assets/icons/light/calendar.svg'
-import cls from './DatePicker.module.scss'
 import { CustomHeader } from './components/CustomHeader'
+import cls from './DatePicker.module.scss'
 
 interface DatePickerProps {
     value?: string

@@ -1,5 +1,5 @@
-import { type FC } from 'react'
 import clsx from 'clsx'
+import { type FC } from 'react'
 
 type TitleTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 

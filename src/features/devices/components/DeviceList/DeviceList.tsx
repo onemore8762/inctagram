@@ -1,10 +1,10 @@
 import { Device } from 'entities/Device'
-import cls from './DeviceList.module.scss'
 import { Button } from 'shared/ui/Button/Button'
-import { useDevices } from '../../model/hooks/useDevices'
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
-import { useTerminateDevice } from '../../model/hooks/useTerminateDevice'
+import { useDevices } from '../../model/hooks/useDevices'
 import { useTerminateAllDevices } from '../../model/hooks/useTerminateAllDevices'
+import { useTerminateDevice } from '../../model/hooks/useTerminateDevice'
+import cls from './DeviceList.module.scss'
 
 export const DeviceList = () => {
     const { isLoading, data: devices, isError } = useDevices()

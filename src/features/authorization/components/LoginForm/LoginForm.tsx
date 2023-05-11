@@ -1,17 +1,17 @@
-import { type FC } from 'react'
-import cls from './LoginForm.module.scss'
 
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { type AxiosError } from 'axios'
+import { type FC } from 'react'
+import { AuthService } from 'features/authorization'
+import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
+import { AppRoutes } from 'shared/config/routeConfig/path'
+import { routerPush } from 'shared/lib/routerPush/routerPush'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { Button } from 'shared/ui/Button/Button'
 import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
 import { Input } from 'shared/ui/Input/Input'
-import { Button } from 'shared/ui/Button/Button'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { AuthService } from 'features/authorization'
-import { AppRoutes } from 'shared/config/routeConfig/path'
-import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
-import { routerPush } from 'shared/lib/routerPush/routerPush'
-import { type AxiosError } from 'axios'
 import { SocialIcons } from 'shared/ui/SocialIcons/SocialIcons'
+import cls from './LoginForm.module.scss'
 
 export const LoginForm: FC = () => {
     const { register, handleSubmit, validErrors: { passwordError, loginError } } =

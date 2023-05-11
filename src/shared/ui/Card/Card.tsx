@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import Image, { type ImageProps } from 'next/image'
 import clsx from 'clsx'
+import Image, { type ImageProps } from 'next/image'
+import React, { useState } from 'react'
 import { Skeleton } from '../Skeleton/Skeleton'
 
 import cls from './Card.module.scss'

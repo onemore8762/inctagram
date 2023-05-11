@@ -1,11 +1,11 @@
-import React from 'react'
 import { act, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { RegisterForm } from './RegisterForm'
-import { AuthService } from '../../model/service/authService'
-import { renderWithQueryClient } from '../../../../../config/jest/renderWithQueryClient'
-import { type UserRegistrationModel } from '../../model/types/UserAuthSchema'
+import React from 'react'
 import { confirmEmailLink } from 'shared/constants/confirm-email'
+import { renderWithQueryClient } from '../../../../../config/jest/renderWithQueryClient'
+import { AuthService } from '../../model/service/authService'
+import { type UserRegistrationModel } from '../../model/types/UserAuthSchema'
+import { RegisterForm } from './RegisterForm'
 
 jest.mock('next/router', () => require('../../../../../config/jest/__mocks__/next_router'))
 jest.mock('shared/lib/routerPush/routerPush', () => ({

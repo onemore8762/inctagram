@@ -1,7 +1,7 @@
-import cls from './Textarea.module.scss'
 import clsx from 'clsx'
 import React, { memo, forwardRef } from 'react'
 import { type ChangeHandler } from 'react-hook-form'
+import cls from './Textarea.module.scss'
 
 interface TextareaProps {
     className?: string
