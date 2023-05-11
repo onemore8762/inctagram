@@ -1,19 +1,19 @@
 
+import { useMutation } from '@tanstack/react-query'
+import { type AxiosError } from 'axios'
+import clsx from 'clsx'
+import dynamic from 'next/dynamic'
 import React, {
     type ChangeEvent, type FC, useState, type FormEvent,
     type Dispatch, type SetStateAction
 } from 'react'
-import { useConfirmModal } from '../../../authorization'
-import { useMutation } from '@tanstack/react-query'
-import { Modal } from '../../../../shared/ui/Modal/Modal'
-import cls from './AvatarModal.module.scss'
-import { Button } from '../../../../shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
-import clsx from 'clsx'
-import dynamic from 'next/dynamic'
-import { type AxiosError } from 'axios'
+import { Button } from '../../../../shared/ui/Button/Button'
+import { Modal } from '../../../../shared/ui/Modal/Modal'
 import { useSnackbar } from '../../../../widgets/SnackBar/model/store/snackbarStore'
+import { useConfirmModal } from '../../../authorization'
 import { profileService } from '../../model/service/profileService'
+import cls from './AvatarModal.module.scss'
 
 const AvatarDynamicImport =
     dynamic(() => import('./AvatarDynamicImport'), { ssr: false })

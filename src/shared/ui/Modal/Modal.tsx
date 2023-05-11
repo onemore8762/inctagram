@@ -1,6 +1,6 @@
-import { Portal } from 'shared/ui/Portal/Portal'
 import { type ReactNode } from 'react'
 import { ModalLayout } from 'shared/ui/ModalLayout/ModalLayout'
+import { Portal } from 'shared/ui/Portal/Portal'
 
 interface ModalProps {
     title?: string

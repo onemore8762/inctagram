@@ -1,8 +1,8 @@
-import React, { type SelectHTMLAttributes, useState } from 'react'
 import clsx from 'clsx'
-import cls from './Select.module.scss'
+import React, { type SelectHTMLAttributes, useState } from 'react'
 import ArrowDown from 'shared/assets/icons/general/arrow-Down.svg'
 import ArrowUp from 'shared/assets/icons/general/arrow-Up.svg'
+import cls from './Select.module.scss'
 
 interface SelectProps extends SelectHTMLAttributes<HTMLInputElement> {
     options: string[]

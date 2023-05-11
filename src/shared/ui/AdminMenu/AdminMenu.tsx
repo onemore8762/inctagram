@@ -1,10 +1,10 @@
-import React from 'react'
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher'
-import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
-import cls from './AdminMenu.module.scss'
-import { Button } from 'shared/ui/Button/Button'
-import { useSnackbar } from 'widgets/SnackBar/model/store/snackbarStore'
 import axios from 'axios'
+import React from 'react'
+import { useSnackbar } from 'widgets/SnackBar/model/store/snackbarStore'
+import { Button } from 'shared/ui/Button/Button'
+import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher'
+import cls from './AdminMenu.module.scss'
 
 const AdminMenu = () => {
     const onOpen = useSnackbar(state => state.onOpen)

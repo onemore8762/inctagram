@@ -1,10 +1,10 @@
+import clsx from 'clsx'
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import clsx from 'clsx'
-import { Modal } from 'shared/ui/Modal/Modal'
-import { useConfirmModal } from '../../model/store/modalStore'
 import { SelectEmail, useAuth } from 'entities/User'
 import { Button } from 'shared/ui/Button/Button'
+import { Modal } from 'shared/ui/Modal/Modal'
+import { useConfirmModal } from '../../model/store/modalStore'
 import cls from './ConfirmModal.module.scss'
 interface confirmModalProps {
     className?: string

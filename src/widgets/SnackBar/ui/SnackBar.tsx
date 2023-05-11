@@ -1,9 +1,9 @@
-import cls from './SnackBar.module.scss'
-import { useSnackbar } from 'widgets/SnackBar/model/store/snackbarStore'
-import { useEffect, useState } from 'react'
-import { Button } from 'shared/ui/Button/Button'
 import clsx from 'clsx'
+import { useEffect, useState } from 'react'
+import { useSnackbar } from 'widgets/SnackBar/model/store/snackbarStore'
+import { Button } from 'shared/ui/Button/Button'
 import { Portal } from 'shared/ui/Portal/Portal'
+import cls from './SnackBar.module.scss'
 
 interface SnackBarProps {
     className?: string

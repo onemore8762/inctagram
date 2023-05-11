@@ -1,12 +1,12 @@
-import clsx from 'clsx'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
-import { Container } from 'shared/ui/Container/Container'
-import { Button } from 'shared/ui/Button/Button'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import clsx from 'clsx'
 import { AuthService } from 'features/authorization'
-import cls from './Header.module.scss'
-import IconLogOut from 'shared/assets/icons/general/log-out.svg'
 import { useAuth } from 'entities/User'
+import IconLogOut from 'shared/assets/icons/general/log-out.svg'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { Button } from 'shared/ui/Button/Button'
+import { Container } from 'shared/ui/Container/Container'
+import cls from './Header.module.scss'
 interface HeaderProps {
     className?: string
 }

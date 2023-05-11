@@ -1,12 +1,12 @@
 'use client'
-import { getAuthLayout } from 'layouts/Layout/AuthLayout/AuthLayout'
-import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
 import { useMutation } from '@tanstack/react-query'
-import { AuthService } from 'features/authorization'
-import { routerPush } from 'shared/lib/routerPush/routerPush'
-import { AppRoutes } from 'shared/config/routeConfig/path'
-import { useEffect } from 'react'
+import { getAuthLayout } from 'layouts/Layout/AuthLayout/AuthLayout'
 import { type NextPageContext } from 'next'
+import { useEffect } from 'react'
+import { AuthService } from 'features/authorization'
+import { AppRoutes } from 'shared/config/routeConfig/path'
+import { routerPush } from 'shared/lib/routerPush/routerPush'
+import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
 
 export default function ConfirmEmail ({ myQuery }: Record<any, any>) {
     const { code } = myQuery

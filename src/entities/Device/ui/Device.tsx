@@ -1,11 +1,11 @@
-import { type FC, memo } from 'react'
-import cls from './Device.module.scss'
 import clsx from 'clsx'
-import { Icons } from 'shared/assets/icons/browsers'
-import { Button } from 'shared/ui/Button/Button'
-import { fnBrowserDetect } from 'shared/lib/browser-detect'
+import { type FC, memo } from 'react'
 import { type DeviceScheme } from 'entities/Device/types/DeviceScheme'
+import { Icons } from 'shared/assets/icons/browsers'
 import IconLogOut from 'shared/assets/icons/general/log-out.svg'
+import { fnBrowserDetect } from 'shared/lib/browser-detect'
+import { Button } from 'shared/ui/Button/Button'
+import cls from './Device.module.scss'
 
 interface PropsType {
     onRemove?: () => void

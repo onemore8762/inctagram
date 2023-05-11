@@ -5,10 +5,10 @@ import { useConfirmModal } from 'features/authorization'
 import { type IFormValidate, useValidationForm } from 'features/profile/model/hooks/useValidationForm'
 
 import { Avatar } from 'shared/ui/Avatar/Avatar'
+import { Button } from 'shared/ui/Button/Button'
+import { DatePicker } from 'shared/ui/DatePicker/DatePicker'
 import { Input } from 'shared/ui/Input/Input'
 import { Textarea } from 'shared/ui/Textarea/Textarea'
-import { DatePicker } from 'shared/ui/DatePicker/DatePicker'
-import { Button } from 'shared/ui/Button/Button'
 
 import { AvatarModal } from '../AvatarModal/AvatarModal'
 

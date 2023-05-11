@@ -1,6 +1,6 @@
-import cls from './Skeleton.module.scss'
-import { type CSSProperties } from 'react'
 import clsx from 'clsx'
+import { type CSSProperties } from 'react'
+import cls from './Skeleton.module.scss'
 
 interface SkeletonProps {
     className?: string

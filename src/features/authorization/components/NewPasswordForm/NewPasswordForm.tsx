@@ -1,17 +1,17 @@
-import { type FC } from 'react'
-import clsx from 'clsx'
-import cls from './NewPasswordForm.module.scss'
-import { useForm } from 'react-hook-form'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import clsx from 'clsx'
 
 import { useRouter } from 'next/router'
+import { type FC } from 'react'
+import { useForm } from 'react-hook-form'
 import { AuthService } from 'features/authorization/model/service/authService'
 import { AppRoutes } from 'shared/config/routeConfig/path'
 import { routerPush } from 'shared/lib/routerPush/routerPush'
 import { Button } from 'shared/ui/Button/Button'
 import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
-import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
 import { Input } from 'shared/ui/Input/Input'
+import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
+import cls from './NewPasswordForm.module.scss'
 
 interface NewPasswordValidation {
     password: string

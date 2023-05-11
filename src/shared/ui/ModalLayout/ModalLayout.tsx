@@ -1,7 +1,7 @@
-import { type FC, type PropsWithChildren, useEffect } from 'react'
-import cls from './ModalLayout.module.scss'
-import CloseIcon from 'shared/assets/icons/outline/cross.svg'
 import clsx from 'clsx'
+import { type FC, type PropsWithChildren, useEffect } from 'react'
+import CloseIcon from 'shared/assets/icons/outline/cross.svg'
+import cls from './ModalLayout.module.scss'
 
 interface ModalLayoutProps {
     title?: string

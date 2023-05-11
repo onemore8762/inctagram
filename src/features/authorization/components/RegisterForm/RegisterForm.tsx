@@ -1,23 +1,23 @@
-import cls from './RegisterForm.module.scss'
-import { Input } from 'shared/ui/Input/Input'
-import { Button } from 'shared/ui/Button/Button'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
-import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
 import { useMutation } from '@tanstack/react-query'
+import { type AxiosError } from 'axios'
+import clsx from 'clsx'
 import { type FC, memo, useCallback, useMemo } from 'react'
 import { AuthService, useConfirmModal } from 'features/authorization'
-import { type AxiosError } from 'axios'
+import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
 import {
     type UserRegistrationError,
     type UserRegistrationModel
 } from 'features/authorization/model/types/UserAuthSchema'
 import { SelectEmail, SelectSetEmail, useAuth } from 'entities/User'
 import { AppRoutes } from 'shared/config/routeConfig/path'
-import { routerPush } from 'shared/lib/routerPush/routerPush'
-import { useValidationForm } from 'features/authorization/model/hooks/useValidationForm'
-import clsx from 'clsx'
-import { SocialIcons } from 'shared/ui/SocialIcons/SocialIcons'
 import { confirmEmailLink } from 'shared/constants/confirm-email'
+import { routerPush } from 'shared/lib/routerPush/routerPush'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { Button } from 'shared/ui/Button/Button'
+import { FormWrapper } from 'shared/ui/FormWrapper/FormWrapper'
+import { Input } from 'shared/ui/Input/Input'
+import { SocialIcons } from 'shared/ui/SocialIcons/SocialIcons'
+import cls from './RegisterForm.module.scss'
 
 interface RegisterValidation {
     login: string

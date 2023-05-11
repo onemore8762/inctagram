@@ -1,8 +1,8 @@
-import cls from './Avatar.module.scss'
-import { type CSSProperties, useMemo } from 'react'
 import clsx from 'clsx'
 import { type StaticImageData } from 'next/image'
+import { type CSSProperties, useMemo } from 'react'
 import IconImg from 'shared/assets/icons/light/image.svg'
+import cls from './Avatar.module.scss'
 interface AvatarProps {
     className?: string
     src?: string | StaticImageData

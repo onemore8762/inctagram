@@ -1,17 +1,17 @@
 
-import VerificationImg from 'shared/assets/images/verification.png'
-import { useTranslation } from 'next-i18next'
-import { makeStaticProps, getStaticPaths } from 'shared/lib/i18n/getStatic'
-import { Info } from 'entities/Info'
-import { getAuthLayout } from 'layouts/Layout/AuthLayout/AuthLayout'
-import { SelectSetEmail, useAuth } from 'entities/User'
-import { AuthService, ConfirmModal, useConfirmModal } from 'features/authorization'
-import { routerPush } from 'shared/lib/routerPush/routerPush'
-import { AppRoutes } from 'shared/config/routeConfig/path'
 import { useMutation } from '@tanstack/react-query'
-import { confirmEmailLink } from 'shared/constants/confirm-email'
-import { useSnackbar } from 'widgets/SnackBar/model/store/snackbarStore'
+import { getAuthLayout } from 'layouts/Layout/AuthLayout/AuthLayout'
+import { useTranslation } from 'next-i18next'
 import { useEffect, useState } from 'react'
+import { useSnackbar } from 'widgets/SnackBar/model/store/snackbarStore'
+import { AuthService, ConfirmModal, useConfirmModal } from 'features/authorization'
+import { Info } from 'entities/Info'
+import { SelectSetEmail, useAuth } from 'entities/User'
+import VerificationImg from 'shared/assets/images/verification.png'
+import { AppRoutes } from 'shared/config/routeConfig/path'
+import { confirmEmailLink } from 'shared/constants/confirm-email'
+import { makeStaticProps, getStaticPaths } from 'shared/lib/i18n/getStatic'
+import { routerPush } from 'shared/lib/routerPush/routerPush'
 
 const getStaticProps = makeStaticProps(['common'])
 export { getStaticPaths, getStaticProps }
