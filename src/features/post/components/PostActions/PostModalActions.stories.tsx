@@ -1,5 +1,4 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import React, { useState } from 'react'
 import { PostModalActions } from './PostModalActions'
 
 export default {

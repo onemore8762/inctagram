@@ -1,1 +1,1 @@
-export { PostModalActions } from './components/PostModalActions/PostModalActions'
+export { PostModalActions } from './components/PostModalActions/PostActions'

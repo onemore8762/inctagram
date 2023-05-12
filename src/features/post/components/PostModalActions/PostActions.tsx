@@ -1,33 +1,39 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
 import clsx from 'clsx'
 import React from 'react'
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import { useAddToFavouritesPost } from 'features/post/model/hooks/useAddToFavouritesPorst'
+import { useCommentPost } from 'features/post/model/hooks/useCommentPost'
 import { useLikePost } from 'features/post/model/hooks/useLikePost'
 import { useSharePost } from 'features/post/model/hooks/useSharePost'
-import { PostService } from 'features/post/model/service/postService'
 import IconShareOutline from 'shared/assets/icons/general/paper-plane.svg'
 import IconFavouritesOutline from 'shared/assets/icons/light/bookmark.svg'
 import IconLike from 'shared/assets/icons/light/heart.svg'
+import IconComment from 'shared/assets/icons/light/message-circle.svg'
 import IconFavourites from 'shared/assets/icons/outline/bookmark-outline.svg'
 import IconLikeOutline from 'shared/assets/icons/outline/heart-outline.svg'
+import IconCommentOutline from 'shared/assets/icons/outline/message-circle-outline.svg'
 import { ActionIcon } from 'shared/ui/ActionIcon/ActionIcon'
-import cls from './PostModalActions.module.scss'
+import cls from './PostActions.module.scss'
 
-/* interface PostModalActionsProps {
-
+/* interface PostActionsProps {
+TODO: сюда передавать post.id
 } */
 
-export const PostModalActions = (/* {}: PostModalActionsProps */) => {
+export const PostActions = (/* {}: PostActionsProps */) => {
     const { theme } = useTheme()
 
     const fill = theme === Theme.LIGHT ? '#000000' : '#ffffff'
     const { like } = useLikePost()
     const { share } = useSharePost()
     const { addToFavourites } = useAddToFavouritesPost()
+    const { comment } = useCommentPost()
 
     const onLikeIconClick = async () => {
         // like()
+        return new Promise<void>((resolve) => { resolve() })
+    }
+    const onCommentIconClick = () => {
+        // comment()
         return new Promise<void>((resolve) => { resolve() })
     }
     const onShareIconClick = () => {
@@ -45,7 +51,9 @@ export const PostModalActions = (/* {}: PostModalActionsProps */) => {
             <ActionIcon filledIcon={<IconLike fill={fill}/>}
                         outlineIcon={<IconLikeOutline fill={fill}/>} onClick={onLikeIconClick} />
             <ActionIcon filledIcon={<IconShareOutline fill={fill}/>}
-                        outlineIcon={<IconShareOutline fill={fill}/>} onClick={onShareIconClick} />
+                        outlineIcon={<IconShareOutline fill={fill}/>} onClick={onCommentIconClick} />
+            <ActionIcon filledIcon={<IconComment fill={fill}/>}
+                        outlineIcon={<IconCommentOutline fill={fill}/>} onClick={onShareIconClick} />
         </div>
 
         <ActionIcon filledIcon={<IconFavouritesOutline fill={fill}/>}
