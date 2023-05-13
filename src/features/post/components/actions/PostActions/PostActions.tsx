@@ -5,6 +5,7 @@ import { useAddToFavouritesPost } from 'features/post/model/hooks/useAddToFavour
 import { useCommentPost } from 'features/post/model/hooks/useCommentPost'
 import { useLikePost } from 'features/post/model/hooks/useLikePost'
 import { useSharePost } from 'features/post/model/hooks/useSharePost'
+import { ActionIcon } from 'features/post/ui/ActionIcon/ActionIcon'
 import IconShareOutline from 'shared/assets/icons/general/paper-plane.svg'
 import IconFavouritesOutline from 'shared/assets/icons/light/bookmark.svg'
 import IconLike from 'shared/assets/icons/light/heart.svg'
@@ -12,20 +13,19 @@ import IconComment from 'shared/assets/icons/light/message-circle.svg'
 import IconFavourites from 'shared/assets/icons/outline/bookmark-outline.svg'
 import IconLikeOutline from 'shared/assets/icons/outline/heart-outline.svg'
 import IconCommentOutline from 'shared/assets/icons/outline/message-circle-outline.svg'
-import { ActionIcon } from 'shared/ui/ActionIcon/ActionIcon'
 import cls from './PostActions.module.scss'
 
-/* interface PostActionsProps {
-TODO: сюда передавать post.id
-} */
+interface PostActionsProps {
+    postId: string
+}
 
-export const PostActions = (/* {}: PostActionsProps */) => {
+export const PostActions = ({ postId }: PostActionsProps) => {
     const { theme } = useTheme()
 
     const fill = theme === Theme.LIGHT ? '#000000' : '#ffffff'
     const { like } = useLikePost()
     const { share } = useSharePost()
-    const { addToFavourites } = useAddToFavouritesPost()
+    const { addToFavourites } = useAddToFavouritesPost(postId)
     const { comment } = useCommentPost()
 
     const onLikeIconClick = async () => {
@@ -37,13 +37,12 @@ export const PostActions = (/* {}: PostActionsProps */) => {
         return new Promise<void>((resolve) => { resolve() })
     }
     const onShareIconClick = () => {
-        // share()
+    // share()
         return new Promise<void>((resolve) => { resolve() })
     }
 
     const onFavouritesIconClick = () => {
-        // addToFavourites()
-        return new Promise<void>((resolve) => { resolve() })
+        addToFavourites()
     }
 
     return (<div className={clsx(cls.container)}>

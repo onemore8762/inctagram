@@ -1,17 +1,17 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import React from 'react'
-import { PostActions } from './PostActions'
+import { MyPostDropdown } from './MyPostDropdown'
 
 export default {
     title: 'features/PostModalActions',
-    component: PostActions,
+    component: MyPostDropdown,
     argTypes: {
 
     }
-} as ComponentMeta<typeof PostActions>
+} as ComponentMeta<typeof MyPostDropdown>
 
-const Template: ComponentStory<typeof PostActions> = () => {
-    return <div style={{ width: '479px' }}><PostActions /></div>
+const Template: ComponentStory<typeof MyPostDropdown> = () => {
+    return <MyPostDropdown onEditPostModal={() => {}} postId='1'/>
 }
 
 export const DefaultPostModalActions = Template.bind({})

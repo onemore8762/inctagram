@@ -15,6 +15,9 @@ export const profileService = {
 
     updateProfileData (body: ProfileDataModel) {
         return $api.put<ProfileDataModel>('/users/profile', body)
+    },
+    subscribeOrUnsubscribe (userId: string) {
+        return $api.patch<ProfileDataModel>(`/users/${userId}/subscribe`)
     }
 
 }
