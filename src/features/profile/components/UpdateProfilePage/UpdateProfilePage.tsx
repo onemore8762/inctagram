@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Controller } from 'react-hook-form'
 
+import { useGetProfileData } from 'app/hooks/useGetProfileData'
+import { useUpdateProfileData } from 'app/hooks/useUpdateProfileData'
 import { useConfirmModal } from 'features/authorization'
 import { type IFormValidate, useValidationForm } from 'features/profile/model/hooks/useValidationForm'
 
@@ -17,16 +19,22 @@ import cls from './UpdateProfilePage.module.scss'
 export const UpdateProfilePage = () => {
     const [avatar, setAvatar] = useState<string>()
     const { setIsOpen } = useConfirmModal()
+    const { userData } = useGetProfileData()
+    const { mutate } = useUpdateProfileData()
+
     const {
         register,
         control,
         handleSubmit,
+        reset,
         validErrors: {
             userNameError,
-            firstNameError,
-            lastNameError
+            nameError,
+            surNameError,
+            cityError,
+            aboutMeError
         }
-    } = useValidationForm(['userName', 'firstName', 'lastName'])
+    } = useValidationForm(['userName', 'name', 'surName', 'city', 'aboutMe'], userData)
 
     const handlerPick = () => {
         setIsOpen(true)
@@ -37,7 +45,13 @@ export const UpdateProfilePage = () => {
     }
 
     const onSubmit = (data: IFormValidate) => {
+        mutate(data)
     }
+
+    useEffect(() => {
+        reset(userData)
+        setAvatar(userData?.avatarUrl?.replace('FILES_URL=', ''))
+    }, [userData, reset])
 
     return <form onSubmit={handleSubmit(onSubmit)}>
         <AvatarModal setAvatar={setAvatar} />
@@ -47,12 +61,11 @@ export const UpdateProfilePage = () => {
                     {avatar
                         ? <div className={cls.avatar}>
                             <Avatar size={192} src={avatar} />
-                            <button className={cls.imageButton} onClick={clickHandler} type={'button'}></button>
+                            <button className={cls.imageButton} onClick={clickHandler} type="button"></button>
                         </div>
                         : <Avatar size={192} src={avatar} />}
-
                 </div>
-                <Button theme={'outline'} onClick={handlerPick}>Add a profile photo</Button>
+                <Button theme={'outline'} type="button" onClick={handlerPick}>Add a profile photo</Button>
             </div>
             <div className={cls.formsContainer}>
                 <Input
@@ -67,29 +80,29 @@ export const UpdateProfilePage = () => {
                 />
 
                 <Input
-                    {...register('firstName')}
-                    id="firstName"
+                    {...register('name')}
+                    id="name"
                     type={'text'}
                     label="First Name"
-                    error={!!firstNameError}
-                    errorText={firstNameError}
+                    error={!!nameError}
+                    errorText={nameError}
                     className={cls.wrapper}
                     labelClassName={cls.label}
                 />
 
                 <Input
-                    {...register('lastName')}
-                    id="lastName"
+                    {...register('surName')}
+                    id="surName"
                     type={'text'}
                     label="Last Name"
-                    error={!!lastNameError}
-                    errorText={lastNameError}
+                    error={!!surNameError}
+                    errorText={surNameError}
                     className={cls.wrapper}
                     labelClassName={cls.label}
                 />
 
                 <Controller control={control}
-                            name="dateOfBirth" render={({
+                            name="dateOfBirthday" render={({
                                 field: { onChange, value }
                             }) => <div className={cls.wrapper}>
                                 <label className={cls.label}>Date of birthday</label>
@@ -103,6 +116,8 @@ export const UpdateProfilePage = () => {
                     label="City"
                     className={cls.wrapper}
                     labelClassName={cls.label}
+                    error={!!cityError}
+                    errorText={cityError}
                 />
 
                 <Textarea
@@ -111,7 +126,8 @@ export const UpdateProfilePage = () => {
                     label="About me"
                     labelClassName={cls.label}
                     textareaClassName={cls.textarea}
-                    className={cls.wrapper} />
+                    className={cls.wrapper}
+                    errorText={aboutMeError} />
             </div>
         </div>
         <hr className={cls.line} />

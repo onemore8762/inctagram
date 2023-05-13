@@ -4,7 +4,7 @@ import { type AxiosError } from 'axios'
 import clsx from 'clsx'
 import dynamic from 'next/dynamic'
 import React, {
-    type ChangeEvent, type FC, useState, type FormEvent,
+    type ChangeEvent, type FC, useState, type MouseEvent,
     type Dispatch, type SetStateAction
 } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -69,13 +69,14 @@ export const AvatarModal: FC<confirmModalProps> = ({ className, setAvatar }) => 
             image && fileReader.readAsDataURL(image)
         }
     }
-    const submit = (e: FormEvent<HTMLFormElement>) => {
+    const save = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         const formData = new FormData()
         image && formData.append('file', image)
         uploadAvatar(formData)
         setImage(undefined)
     }
+
     return (
         <Modal
             isOpen={isOpen}
@@ -84,18 +85,16 @@ export const AvatarModal: FC<confirmModalProps> = ({ className, setAvatar }) => 
             className={clsx(cls.Modal, {}, [className])}
         >
             <div className={cls.content}>
-                <form onSubmit={submit}>
-                    <div className={cls.flex}>
-                        <AvatarDynamicImport
+                <div className={cls.flex}>
+                    <AvatarDynamicImport
                             width={300}
                             height={300}
                             onBeforeFileLoad={handlerChange}
                             onClose={onClose}
                             onCrop={onCrop}
-                        />
-                        <Button className={cls.button} type={'submit'} disabled={!image}>Save</Button>
-                    </div>
-                </form>
+                    />
+                    <Button className={cls.button} type={'button'} onClick={save} disabled={!image}>Save</Button>
+                </div>
             </div>
         </Modal>
     )

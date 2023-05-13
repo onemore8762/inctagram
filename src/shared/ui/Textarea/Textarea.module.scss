@@ -1,4 +1,4 @@
-.Textarea {
+.textarea {
     min-width: 100%;
     min-height: 70px;
     padding: 10px;
@@ -11,4 +11,9 @@
     resize: vertical;
     background: var(--dark-color);
     color: var(--light-900-color);
+}
+
+.errorText {
+    font-size: 14px;
+    color: var(--danger-500-color);
 }

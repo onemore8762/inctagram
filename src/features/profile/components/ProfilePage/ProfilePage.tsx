@@ -1,11 +1,12 @@
 import React from 'react'
-import { useProfileData } from '../../../../app/hooks/useProfileData'
-import { Avatar } from '../../../../shared/ui/Avatar/Avatar'
-import { Card } from '../../../../shared/ui/Card/Card'
+import { useGetProfileData } from 'app/hooks/useGetProfileData'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
+import { Card } from 'shared/ui/Card/Card'
+
 import cls from './ProfilePage.module.scss'
 
 export const ProfilePage = () => {
-    const { userData, response } = useProfileData()
+    const { userData, response } = useGetProfileData()
     return (
         <div className={cls.container}>
             <div className={cls.flex}>
@@ -33,7 +34,7 @@ export const ProfilePage = () => {
             </div>
             <div className={cls.cardsList}>
                 <div className={cls.card}>
-                    <Card src={''} alt={''}/>
+                    <Card src={''} alt={''} />
                 </div>
             </div>
         </div>
