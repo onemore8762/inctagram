@@ -11,6 +11,10 @@ export const profileService = {
     },
     getProfileData (userId: string) {
         return $api.get<ProfileDataModel>(`/users/${userId}/profile`)
+    },
+
+    updateProfileData (body: ProfileDataModel) {
+        return $api.put<ProfileDataModel>('/users/profile', body)
     }
 
 }
