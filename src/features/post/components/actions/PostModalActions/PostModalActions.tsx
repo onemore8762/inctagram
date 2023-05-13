@@ -3,25 +3,26 @@ import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import { useAddToFavouritesPost } from 'features/post/model/hooks/useAddToFavouritesPorst'
 import { useLikePost } from 'features/post/model/hooks/useLikePost'
 import { useSharePost } from 'features/post/model/hooks/useSharePost'
+import { ActionIcon } from 'features/post/ui/ActionIcon/ActionIcon'
 import IconShareOutline from 'shared/assets/icons/general/paper-plane.svg'
 import IconFavouritesOutline from 'shared/assets/icons/light/bookmark.svg'
 import IconLike from 'shared/assets/icons/light/heart.svg'
 import IconFavourites from 'shared/assets/icons/outline/bookmark-outline.svg'
 import IconLikeOutline from 'shared/assets/icons/outline/heart-outline.svg'
-import { ActionIcon } from 'shared/ui/ActionIcon/ActionIcon'
 import cls from './PostModalActions.module.scss'
 
-/* interface PostModalActionsProps {
-TODO: сюда передавать post.id
-} */
+interface PostModalActionsProps {
 
-export const PostModalActions = (/* {}: PostModalActionsProps */) => {
+    postId: string
+}
+
+export const PostModalActions = ({ postId, ...restProps }: PostModalActionsProps) => {
     const { theme } = useTheme()
 
     const fill = theme === Theme.LIGHT ? '#000000' : '#ffffff'
     const { like } = useLikePost()
     const { share } = useSharePost()
-    const { addToFavourites } = useAddToFavouritesPost()
+    const { addToFavourites } = useAddToFavouritesPost(postId)
 
     const onLikeIconClick = async () => {
         // like()
@@ -33,8 +34,7 @@ export const PostModalActions = (/* {}: PostModalActionsProps */) => {
     }
 
     const onFavouritesIconClick = () => {
-        // addToFavourites()
-        return new Promise<void>((resolve) => { resolve() })
+        addToFavourites()
     }
 
     return (<div className={clsx(cls.container)}>

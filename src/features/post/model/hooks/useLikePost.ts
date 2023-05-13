@@ -8,7 +8,7 @@ export const useLikePost = () => {
         mutationFn: PostService.like,
         onSuccess: async () => {
             // TODO: сделать перезапрос на getPost & улучшить код (см. доп задачи Jira)
-            await queryClient.invalidateQueries(['post']).then((res) => { })
+            // await queryClient.invalidateQueries(['post']).then((res) => { })
         }
     })
     return { like }

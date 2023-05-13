@@ -11,6 +11,9 @@ export const profileService = {
     },
     getProfileData (userId: string) {
         return $api.get<ProfileDataModel>(`/users/${userId}/profile`)
+    },
+    subscribeOrUnsubscribe (userId: string) {
+        return $api.patch<ProfileDataModel>(`/users/${userId}/subscribe`)
     }
 
 }

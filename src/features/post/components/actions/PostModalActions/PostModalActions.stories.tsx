@@ -10,7 +10,7 @@ export default {
 } as ComponentMeta<typeof PostModalActions>
 
 const Template: ComponentStory<typeof PostModalActions> = () => {
-    return <div style={{ width: '479px' }}><PostModalActions /></div>
+    return <PostModalActions postId='1'/>
 }
 
 export const DefaultPostModalActions = Template.bind({})
