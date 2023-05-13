@@ -1,5 +1,5 @@
-import { type AxiosError } from 'axios'
 import { useMutation } from '@tanstack/react-query'
+import { type AxiosError } from 'axios'
 import { useSnackbar } from 'widgets/SnackBar/model/store/snackbarStore'
 import { profileService } from 'features/profile/model/service/profileService'
 

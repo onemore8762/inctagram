@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Controller } from 'react-hook-form'
 
+import { useGetProfileData } from 'app/hooks/useGetProfileData'
+import { useUpdateProfileData } from 'app/hooks/useUpdateProfileData'
 import { useConfirmModal } from 'features/authorization'
 import { type IFormValidate, useValidationForm } from 'features/profile/model/hooks/useValidationForm'
 
@@ -9,9 +11,6 @@ import { Button } from 'shared/ui/Button/Button'
 import { DatePicker } from 'shared/ui/DatePicker/DatePicker'
 import { Input } from 'shared/ui/Input/Input'
 import { Textarea } from 'shared/ui/Textarea/Textarea'
-
-import { useGetProfileData } from 'app/hooks/useGetProfileData'
-import { useUpdateProfileData } from 'app/hooks/useUpdateProfileData'
 
 import { AvatarModal } from '../AvatarModal/AvatarModal'
 
