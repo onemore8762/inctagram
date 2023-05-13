@@ -6,12 +6,13 @@ import { useSnackbar } from '../../widgets/SnackBar/model/store/snackbarStore'
 import { type ProfileDataModel } from '../../features/authorization/model/types/UserAuthSchema'
 import { useState } from 'react'
 
-export const useGetProfileData = () => {
+export const useGetProfileData = (params?: any) => {
     const [userData, setUserData] = useState<ProfileDataModel>()
     const { userId } = useAuth()
     const onOpen = useSnackbar((state) => state.onOpen)
-    const { data: response, isLoading } = useQuery(['getProfileData', userId],
+    const { data: response, isLoading, refetch } = useQuery(['getProfileData', userId],
         () => profileService.getProfileData(userId), {
+            ...params,
             onSuccess: ({ data }) => {
                 setUserData(data)
             },
@@ -20,5 +21,5 @@ export const useGetProfileData = () => {
             }
         }
     )
-    return { userData, isLoading, response }
+    return { userData, isLoading, response, refetch }
 }

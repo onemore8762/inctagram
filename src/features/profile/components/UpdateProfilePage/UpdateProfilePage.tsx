@@ -10,6 +10,7 @@ import { Textarea } from 'shared/ui/Textarea/Textarea'
 import { DatePicker } from 'shared/ui/DatePicker/DatePicker'
 import { Button } from 'shared/ui/Button/Button'
 
+import { useGetProfileData } from 'app/hooks/useGetProfileData'
 import { useUpdateProfileData } from 'app/hooks/useUpdateProfileData'
 
 import { AvatarModal } from '../AvatarModal/AvatarModal'
@@ -19,7 +20,8 @@ import cls from './UpdateProfilePage.module.scss'
 export const UpdateProfilePage = () => {
     const [avatar, setAvatar] = useState<string>()
     const { setIsOpen } = useConfirmModal()
-    const { mutate, userData, error } = useUpdateProfileData()
+    const { userData } = useGetProfileData()
+    const { mutate } = useUpdateProfileData()
 
     const {
         register,
@@ -49,9 +51,9 @@ export const UpdateProfilePage = () => {
 
     useEffect(() => {
         reset(userData)
+        setAvatar(userData?.avatarUrl?.replace('FILES_URL=', ''))
     }, [userData, reset])
 
-    console.log({ userData })
     return <form onSubmit={handleSubmit(onSubmit)}>
         <AvatarModal setAvatar={setAvatar} />
         <div className={cls.infoContainer}>
@@ -60,11 +62,11 @@ export const UpdateProfilePage = () => {
                     {avatar
                         ? <div className={cls.avatar}>
                             <Avatar size={192} src={avatar} />
-                            <button className={cls.imageButton} onClick={clickHandler} type={'button'}></button>
+                            <button className={cls.imageButton} onClick={clickHandler} type="button"></button>
                         </div>
                         : <Avatar size={192} src={avatar} />}
                 </div>
-                <Button theme={'outline'} onClick={handlerPick}>Add a profile photo</Button>
+                <Button theme={'outline'} type="button" onClick={handlerPick}>Add a profile photo</Button>
             </div>
             <div className={cls.formsContainer}>
                 <Input

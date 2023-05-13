@@ -1,6 +1,6 @@
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import clsx from 'clsx'
-import { getYear } from 'date-fns'
+import { format, getYear, parseISO } from 'date-fns'
 import { range } from 'lodash'
 import { useState } from 'react'
 import LibDatePicker from 'react-datepicker'
@@ -35,7 +35,7 @@ export const DatePicker = ({ value, onChange }: DatePickerProps) => {
     const [startDate, setStartDate] = useState(dateFromProps || new Date())
     const onDateChange = (date: Date) => {
         setStartDate(date)
-        onChange?.(date.toISOString())
+        onChange?.(format(date, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"))
     }
 
     return (
