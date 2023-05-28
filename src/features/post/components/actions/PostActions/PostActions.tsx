@@ -26,14 +26,14 @@ export const PostActions = ({ postId }: PostActionsProps) => {
     const { like } = useLikePost()
     const { share } = useSharePost()
     const { addToFavourites } = useAddToFavouritesPost(postId)
-    const { comment } = useCommentPost()
+    const { addComment } = useCommentPost()
 
     const onLikeIconClick = async () => {
         // like()
         return new Promise<void>((resolve) => { resolve() })
     }
     const onCommentIconClick = () => {
-        // comment()
+        // addComment()
         return new Promise<void>((resolve) => { resolve() })
     }
     const onShareIconClick = () => {
