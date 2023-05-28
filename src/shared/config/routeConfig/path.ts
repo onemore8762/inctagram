@@ -7,8 +7,10 @@ export const AppRoutes = {
         CONGRATULATIONS: '/auth/congratulations',
         VERIFICATION: '/auth/verification'
     },
-    PROFILE: '/profile',
-    CREATE_PROFILE: '/profile/create-profile',
+    PROFILE: {
+        MYPROFILE: '/profile/myprofile',
+        UPDATEPROFILE: '/profile/create-profile'
+    },
     HOME: '/home',
     CREATE: '/create',
     STATISTICS: '/statistics',

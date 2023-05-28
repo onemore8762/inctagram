@@ -1,9 +1,10 @@
 import React from 'react'
+import { AddCommentBox } from 'features/post/ui/addComment/AddCommentBox'
 
 const Home = () => {
     return (
         <div>
-            Home
+            <AddCommentBox postId='1'/>
         </div>
     )
 }

@@ -1,8 +1,5 @@
-import { type AxiosError, type AxiosResponse } from 'axios'
-import { comment } from 'postcss'
-
 import { $api } from 'shared/api/api'
-import { type Post } from '../types/PostSchema'
+import { type Comment } from './../types/CommentSchema'
 
 // TODO: доделать API
 // TODO: сделать enum для API routes
@@ -10,8 +7,8 @@ export const PostService = {
     like () {
         return $api.get<any>('/path')
     },
-    comment () {
-        return $api.get<any>('/path')
+    comment (postId: string, comment: Pick<Comment, 'content'>) {
+        return $api.post<Comment>(`/posts/${postId}/comments`, comment)
     },
     share () {
         return $api.get<any>('/path')

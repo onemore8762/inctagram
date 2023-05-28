@@ -1,7 +1,5 @@
-import { type AxiosError, type AxiosResponse } from 'axios'
-import { comment } from 'postcss'
-
 import { $api } from 'shared/api/api'
+import { type Comment } from '../types/CommentSchema'
 import { type Post } from '../types/PostSchema'
 
 export const MyPostService = {
@@ -11,5 +9,4 @@ export const MyPostService = {
     delete (postId: string) {
         return $api.delete(`/posts/${postId}`)
     }
-
 }

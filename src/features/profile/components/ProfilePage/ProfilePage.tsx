@@ -6,7 +6,8 @@ import { Card } from 'shared/ui/Card/Card'
 import cls from './ProfilePage.module.scss'
 
 export const ProfilePage = () => {
-    const { userData, response } = useGetProfileData()
+    const { response } = useGetProfileData()
+    const userData = response?.data
     return (
         <div className={cls.container}>
             <div className={cls.flex}>
