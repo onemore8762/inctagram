@@ -24,7 +24,7 @@ export const LoginForm: FC = () => {
         retry: false,
         onSuccess: async () => {
             await queryClient.invalidateQueries(['me']).then(() => {
-                routerPush(AppRoutes.CREATE_PROFILE)
+                routerPush(AppRoutes.PROFILE.UPDATEPROFILE)
             })
         }
     })

@@ -61,11 +61,11 @@ export const Sidebar = (props: SidebarProps) => {
                     </span>
                 </AppLink>
                 <AppLink
-                    href={AppRoutes.PROFILE}
-                    active={currentPath === AppRoutes.PROFILE}
-                    className={clsx(cls.item, { [cls.active]: currentPath === AppRoutes.PROFILE })}
+                    href={`${AppRoutes.PROFILE.MYPROFILE}`}
+                    active={currentPath === AppRoutes.PROFILE.MYPROFILE}
+                    className={clsx(cls.item, { [cls.active]: currentPath === AppRoutes.PROFILE.MYPROFILE })}
                 >
-                    {currentPath === AppRoutes.PROFILE
+                    {currentPath === AppRoutes.PROFILE.MYPROFILE
                         ? <Profile className={cls.icon}/>
                         : <ProfileOutline className={cls.icon} fill={fill}/>
                     }

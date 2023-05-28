@@ -37,7 +37,7 @@ describe('LoginForm', () => {
                 loginOrEmail: 'testuser',
                 password: 'testpasswordQ1q**'
             } as UserLoginModel)
-            expect(routerPush).toHaveBeenCalledWith(AppRoutes.CREATE_PROFILE)
+            expect(routerPush).toHaveBeenCalledWith(AppRoutes.PROFILE.UPDATEPROFILE)
         })
     })
 

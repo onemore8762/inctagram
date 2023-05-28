@@ -19,7 +19,9 @@ import cls from './UpdateProfilePage.module.scss'
 export const UpdateProfilePage = () => {
     const [avatar, setAvatar] = useState<string>()
     const { setIsOpen } = useConfirmModal()
-    const { userData } = useGetProfileData()
+    const { response } = useGetProfileData()
+    const userData = response?.data
+    console.log(userData)
     const { mutate } = useUpdateProfileData()
 
     const {
