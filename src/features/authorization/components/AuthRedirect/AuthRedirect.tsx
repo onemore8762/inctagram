@@ -30,7 +30,7 @@ export const AuthRedirect = ({ children }: PropsWithChildren) => {
     }
 
     if (!isAuth && isError && !pathname.includes('auth')) routerPush(AppRoutes.AUTH.LOGIN)
-    else if (pathname.includes('auth') && isAuth) routerPush(AppRoutes.CREATE_PROFILE)
+    else if (pathname.includes('auth') && isAuth) routerPush(AppRoutes.PROFILE.UPDATEPROFILE)
 
     return <>{children}</>
 }
