@@ -1,7 +1,11 @@
+@import "app/styles/mixins/mixins";
+
 .container {
     max-width: 1600px;
+    padding: 36px 0;
     margin: 0 auto;
-    padding: 36px 24px;
+    height: 100%;
+    width: 100%;
 
     .flex {
         display: flex;
@@ -43,7 +47,15 @@
     }
 }
 
+.infoButton{
+    @include flex($justify: space-between, $align: flex-start);
 
+    width: 100%;
+}
+
+.button{
+    white-space: nowrap;
+}
 
 .info div:not(:last-child) {
     margin-right: 72px;

@@ -21,7 +21,6 @@ export const UpdateProfilePage = () => {
     const { setIsOpen } = useConfirmModal()
     const { response } = useGetProfileData()
     const userData = response?.data
-    console.log(userData)
     const { mutate } = useUpdateProfileData()
 
     const {
