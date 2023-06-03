@@ -16,8 +16,6 @@ export const Card: React.FC<PropsType> = (props) => {
     const {
         src,
         alt,
-        width,
-        height,
         sizes = '100vw',
         skeletonWidth,
         skeletonHeight = 'inherit',
@@ -43,9 +41,6 @@ export const Card: React.FC<PropsType> = (props) => {
                     src={onErrorSrc || src}
                     fill
                     sizes={sizes}
-                    width={width}
-                    height={height}
-                    className={cls.image}
                     onError={handleOnError}
                     onLoadingComplete={onImageLoadingComplete}
             />

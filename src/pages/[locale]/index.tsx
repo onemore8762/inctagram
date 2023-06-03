@@ -1,7 +1,7 @@
 import { getLayoutWithSidebar } from 'layouts/Layout/LayoutWithSidebar/LayoutWithSidebar'
 import Head from 'next/head'
 import { AppRoutes } from 'shared/config/routeConfig/path'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { AppLink } from 'shared/ui'
 
 export default function Home () {
     return (
