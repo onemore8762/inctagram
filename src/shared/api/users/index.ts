@@ -1,8 +1,5 @@
-import { type AxiosError, type AxiosResponse } from 'axios'
-import { comment } from 'postcss'
-import { type Post } from 'shared/types/post'
-
 import { $api } from 'shared/api/api'
+import { type Post } from 'shared/types/post'
 
 // TODO: доделать API
 // TODO: сделать enum для API routes

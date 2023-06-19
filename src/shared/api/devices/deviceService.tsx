@@ -1,5 +1,5 @@
-import { type DeviceScheme } from 'shared/types/device'
 import { $api } from 'shared/api/api'
+import { type DeviceScheme } from 'shared/types/device'
 
 export const deviceService = {
     getDevices () {

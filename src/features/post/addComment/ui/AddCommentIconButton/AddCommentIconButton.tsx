@@ -8,10 +8,10 @@ export const AddCommentIconButton = () => {
     const { theme } = useTheme()
 
     const fill = theme === Theme.LIGHT ? '#000000' : '#ffffff'
-    const { comment } = useCommentPost()
+    const { addComment } = useCommentPost()
 
     const onCommentIconClick = () => {
-        // comment()
+        // addComment()
         return new Promise<void>((resolve) => { resolve() })
     }
 

@@ -1,14 +1,14 @@
 import { act, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { AuthService } from 'shared/api/auth/authService'
+import { AppRoutes } from 'shared/config/routeConfig/path'
+import { routerPush } from 'shared/lib/routerPush/routerPush'
+import { type UserLoginModel } from 'shared/types/auth'
 import { renderWithQueryClient } from '../../../../../../../config/jest/renderWithQueryClient'
-import { AuthService } from '../../../../../../shared/api/auth/authService'
-import { AppRoutes } from '../../../../../../shared/config/routeConfig/path'
-import { routerPush } from '../../../../../../shared/lib/routerPush/routerPush'
-import { type UserLoginModel } from '../../../../../../shared/types/auth'
 import { LoginForm } from './LoginForm'
 
-jest.mock('next/router', () => require('../../../../../config/jest/__mocks__/next_router'))
-jest.mock('../../model/service/authService', () => ({
+jest.mock('next/router', () => require('../../../../../../../config/jest/__mocks__/next_router'))
+jest.mock('shared/api/auth/authService', () => ({
     AuthService: {
         login: jest.fn()
     }
@@ -37,7 +37,7 @@ describe('LoginForm', () => {
                 loginOrEmail: 'testuser',
                 password: 'testpasswordQ1q**'
             } as UserLoginModel)
-            expect(routerPush).toHaveBeenCalledWith(AppRoutes.CREATE_PROFILE)
+            expect(routerPush).toHaveBeenCalledWith(AppRoutes.PROFILE_SETTINGS.GENERAL_INFORMATION)
         })
     })
 
