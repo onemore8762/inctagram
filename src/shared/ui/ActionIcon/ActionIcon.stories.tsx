@@ -1,5 +1,5 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
-import React, { useState } from 'react'
+import React from 'react'
 import IconHeartMock from 'shared/assets/icons/light/heart.svg'
 import IconHeartMockOutline from 'shared/assets/icons/outline/heart-outline.svg'
 import { ActionIcon } from './ActionIcon'

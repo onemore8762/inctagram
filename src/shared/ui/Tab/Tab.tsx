@@ -1,7 +1,5 @@
 import clsx from 'clsx'
-import React, { memo, forwardRef } from 'react'
-import { type ChangeHandler } from 'react-hook-form'
-import { useTheme } from 'app/providers/ThemeProvider'
+import React from 'react'
 import cls from './Tab.module.scss'
 
 interface TabProps {
