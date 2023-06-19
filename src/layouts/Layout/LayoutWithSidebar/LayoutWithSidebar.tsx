@@ -1,7 +1,7 @@
 import { type NextPage } from 'next'
 import { type PropsWithChildren, type ReactElement, Suspense } from 'react'
 import { Sidebar } from 'widgets/Sidebar'
-import { AuthRedirect } from 'features/authorization'
+import { AuthRedirect } from 'features/auth'
 import { Layout } from '../Layout'
 import cls from './LayoutWithSidebar.module.scss'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { AddCommentBox } from 'features/post/ui/addComment/AddCommentBox'
+import { AddCommentBox } from 'features/post'
 
 const Home = () => {
     return (

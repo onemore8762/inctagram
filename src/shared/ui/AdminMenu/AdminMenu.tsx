@@ -6,7 +6,7 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher'
 import cls from './AdminMenu.module.scss'
 
-const AdminMenu = () => {
+export const AdminMenu = () => {
     const onOpen = useSnackbar(state => state.onOpen)
     return (
         <div className={cls.AdminMenu}>
@@ -27,5 +27,3 @@ const AdminMenu = () => {
         </div>
     )
 }
-
-export default AdminMenu

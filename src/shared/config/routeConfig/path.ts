@@ -8,8 +8,10 @@ export const AppRoutes = {
         VERIFICATION: '/auth/verification'
     },
     PROFILE: {
-        MYPROFILE: '/profile/myprofile',
-        UPDATEPROFILE: '/profile/create-profile'
+        MY_PROFILE: '/profile/myprofile'
+    },
+    PROFILE_SETTINGS: {
+        GENERAL_INFORMATION: '/profile-settings/general-information'
     },
     HOME: '/home',
     CREATE: '/create',

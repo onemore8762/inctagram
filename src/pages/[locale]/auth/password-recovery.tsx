@@ -1,4 +1,4 @@
-import { PasswordRecoveryForm, ConfirmModal } from 'features/authorization'
+import { PasswordRecoveryForm, ConfirmModal } from 'features/auth'
 
 export default function PasswordRecovery () {
     return (

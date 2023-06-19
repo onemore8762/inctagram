@@ -1,2 +1,1 @@
-export { ProfilePage } from './components/ProfilePage/ProfilePage'
-export { UpdateProfilePage } from './components/UpdateProfilePage/UpdateProfilePage'
+export { ProfilePage } from './ui/ProfilePage/ProfilePage'

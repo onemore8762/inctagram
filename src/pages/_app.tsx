@@ -5,12 +5,13 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { type NextPage } from 'next'
 import { appWithTranslation } from 'next-i18next'
 import { type ReactElement, useState } from 'react'
-import { useLoader } from 'app/hooks/use-loader'
 import { ThemeProvider } from 'app/providers/ThemeProvider'
 import type { AppProps } from 'next/app'
 import { noRefetch } from 'shared/config/tanstackQuery/noRefetch'
-import AdminMenu from 'shared/ui/AdminMenu/AdminMenu'
+import { useLoader } from 'shared/hooks/useLoader'
+import { AdminMenu } from 'shared/ui'
 import 'app/styles/nprogress.scss'
+
 export type NextPageWithLayout<P = Record<string, unknown>> = NextPage<P> & {
     getLayout?: (page: ReactElement) => ReactElement
 }
