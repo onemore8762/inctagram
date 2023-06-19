@@ -5,7 +5,6 @@ import { useAuth } from 'features/auth/model'
 import { SelectEmail, SelectSetEmail } from 'features/auth/model/selectors'
 import { AuthService } from 'shared/api/auth/authService'
 import { AppRoutes } from 'shared/config/routeConfig/path'
-import { confirmEmailLink } from 'shared/constants/confirm-email'
 import { useModal } from 'shared/hooks/useModal'
 import { routerPush } from 'shared/lib/routerPush/routerPush'
 import {
