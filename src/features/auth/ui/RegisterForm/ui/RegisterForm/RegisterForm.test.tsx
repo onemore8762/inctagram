@@ -1,17 +1,17 @@
 import { act, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
+import { AuthService } from 'shared/api/auth/authService'
 import { confirmEmailLink } from 'shared/constants/confirm-email'
+import { type UserRegistrationModel } from 'shared/types/auth'
 import { renderWithQueryClient } from '../../../../../../../config/jest/renderWithQueryClient'
-import { AuthService } from '../../../../../../shared/api/auth/authService'
-import { type UserRegistrationModel } from '../../../../../../shared/types/auth'
 import { RegisterForm } from './RegisterForm'
 
-jest.mock('next/router', () => require('../../../../../config/jest/__mocks__/next_router'))
+jest.mock('next/router', () => require('../../../../../../../config/jest/__mocks__/next_router'))
 jest.mock('shared/lib/routerPush/routerPush', () => ({
     routerPush: jest.fn()
 }))
-jest.mock('../../model/service/authService', () => ({
+jest.mock('shared/api/auth/authService', () => ({
     AuthService: {
         registration: jest.fn()
     }
