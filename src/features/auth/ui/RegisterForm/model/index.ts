@@ -14,7 +14,7 @@ import {
 } from 'shared/types/auth'
 
 interface RegisterValidation {
-    login: string
+    userName: string
     email: string
     password: string
     confPassword?: string
@@ -38,7 +38,7 @@ export const useRegistration = () => {
 
     const onSubmit = useCallback((data: RegisterValidation): void => {
         const { confPassword, ...registerData } = data
-        registration({ ...registerData, frontendLink: confirmEmailLink })
+        registration({ ...registerData })
         setEmail(data.email)
     }, [error])
 

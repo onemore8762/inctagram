@@ -2,17 +2,20 @@
 import { type FC } from 'react'
 import { useValidationForm } from 'features/auth/lib/useValidationForm'
 import { AppRoutes } from 'shared/config/routeConfig/path'
+import { type UserLoginModel } from 'shared/types/auth'
 import { AppLink, Button, FormWrapper, Input, SocialIcons } from 'shared/ui'
 import { useLogin } from '../../model'
 import cls from './LoginForm.module.scss'
 
 export const LoginForm: FC = () => {
-    const { register, handleSubmit, validErrors: { passwordError, loginError } } =
-      useValidationForm(['login', 'password'])
+    const { register, handleSubmit, validErrors: { passwordError, emailError } } =
+      useValidationForm(['email', 'password'])
 
     const { login, isLoading, error } = useLogin()
-    const onSubmit = (data: { login: string, password: string }): void => {
-        login({ password: data.password, loginOrEmail: data.login })
+    const onSubmit = (data: UserLoginModel, event: any): void => {
+        console.log({ event })
+        event.preventDefault()
+        login(data)
     }
 
     return (
@@ -20,11 +23,11 @@ export const LoginForm: FC = () => {
             <h2 className={cls.title}>Sign In</h2>
             <SocialIcons/>
             <Input
-                {...register('login')}
+                {...register('email')}
                 type={'text'}
-                placeholder={'Email or Login'}
-                error={!!loginError}
-                errorText={loginError}
+                placeholder={'Email'}
+                error={!!emailError}
+                errorText={emailError}
                 className={cls.input}/>
             <Input
                 {...register('password')}
@@ -39,7 +42,6 @@ export const LoginForm: FC = () => {
                     className={cls.button}>Sign In</Button>
             <p className={cls.text}>Don’t have an account?</p>
             <AppLink active className={'active'} href={AppRoutes.AUTH.REGISTRATION}>Sign Up</AppLink>
-
         </FormWrapper>
     )
 }

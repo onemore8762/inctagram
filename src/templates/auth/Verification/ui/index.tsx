@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { ConfirmModal } from 'features/auth'
 import VerificationImg from 'shared/assets/images/verification.png'
-import { Info } from 'shared/ui/Info'
+import { Info } from 'shared/ui'
 import { useResendEmailMutation } from '../model'
 
 export const EmailVerification = () => {

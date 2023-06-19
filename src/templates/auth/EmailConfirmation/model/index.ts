@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { useEffect } from 'react'
-import { AuthService } from 'features/auth'
+import { AuthService } from 'shared/api/auth/authService'
 import { AppRoutes } from 'shared/config/routeConfig/path'
 import { routerPush } from 'shared/lib/routerPush/routerPush'
 

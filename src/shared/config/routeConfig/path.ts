@@ -5,7 +5,8 @@ export const AppRoutes = {
         NEW_PASSWORD: '/auth/create-new-password',
         FORGOT_PASSWORD: '/auth/forgot-password',
         CONGRATULATIONS: '/auth/congratulations',
-        VERIFICATION: '/auth/verification'
+        VERIFICATION: '/auth/verification',
+        REGISTRATION_CONFIRMATION: '/auth/registration-confirmation'
     },
     PROFILE: {
         MY_PROFILE: '/profile/myprofile'

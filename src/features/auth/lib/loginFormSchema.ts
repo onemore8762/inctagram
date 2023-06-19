@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-export type ValidateUnion = 'login' | 'email' | 'password' | 'confPassword'
+export type ValidateUnion = 'userName' | 'email' | 'password' | 'confPassword' | 'recaptcha'
 
 const passwordRegExp = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])/g
 
@@ -10,7 +10,7 @@ const passwordValidMassage =
 export const createValidationSchema = (arr: ValidateUnion[]): any => {
     const validationObject = arr.reduce((accum: any, type) => {
         switch (type) {
-        case 'login': {
+        case 'userName': {
             accum[type] = yup.string().min(6, `${type} must be at least 6 characters`).required('Field is required!')
             return accum
         }
@@ -26,6 +26,10 @@ export const createValidationSchema = (arr: ValidateUnion[]): any => {
                 })
                 .min(8, `${type} must be at least 8 characters`)
                 .required('Field is required!')
+            return accum
+        }
+        case 'recaptcha': {
+            accum[type] = yup.string().required('Please verify that you are not a robot.')
             return accum
         }
         default: {
