@@ -57,7 +57,7 @@ describe('RegisterForm', () => {
 
         // Check if the validation errors are displayed
         await waitFor(() => {
-            expect(screen.getByText('login must be at least 6 characters')).toBeInTheDocument()
+            expect(screen.getByText('userName must be at least 6 characters')).toBeInTheDocument()
             expect(screen.getByText('Field is required!')).toBeInTheDocument()
             expect(screen.getByText('Password should include one uppercase letter, ' +
                 'one lowercase letter, one number and one special character'))
