@@ -10,8 +10,8 @@ import { useRegistration } from '../../model'
 import cls from './RegisterForm.module.scss'
 
 export const RegisterForm: FC = memo(() => {
-    const { register, handleSubmit, validErrors: { passwordError, emailError, confPasswordError, loginError } } =
-      useValidationForm(['email', 'password', 'login', 'confPassword'])
+    const { register, handleSubmit, validErrors: { passwordError, emailError, confPasswordError, userNameError } } =
+      useValidationForm(['email', 'password', 'userName', 'confPassword'])
     const { isLoading, onSubmit, responseError } = useRegistration()
 
     return (
@@ -19,11 +19,11 @@ export const RegisterForm: FC = memo(() => {
             <h2 className={cls.title}>Sign Up</h2>
             <SocialIcons/>
             <Input
-                {...register('login')}
+                {...register('userName')}
                 type={'text'}
                 placeholder={'Login'}
-                error={!!loginError}
-                errorText={loginError || responseError?.login}
+                error={!!userNameError}
+                errorText={userNameError || responseError?.login}
                 className={cls.input}/>
             <Input
                 {...register('email')}

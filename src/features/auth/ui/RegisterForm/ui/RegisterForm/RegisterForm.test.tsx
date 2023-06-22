@@ -2,7 +2,6 @@ import { act, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { AuthService } from 'shared/api/auth/authService'
-import { confirmEmailLink } from 'shared/constants/confirm-email'
 import { type UserRegistrationModel } from 'shared/types/auth'
 import { renderWithQueryClient } from '../../../../../../../config/jest/renderWithQueryClient'
 import { RegisterForm } from './RegisterForm'
@@ -41,10 +40,9 @@ describe('RegisterForm', () => {
 
         await waitFor(() => {
             expect(AuthService.registration).toHaveBeenCalledWith({
-                login: 'testuser',
+                userName: 'testuser',
                 email: 'test@example.com',
-                password: 'testpasswordQ1q**',
-                frontendLink: confirmEmailLink
+                password: 'testpasswordQ1q**'
             } as UserRegistrationModel)
         })
     })
@@ -59,7 +57,7 @@ describe('RegisterForm', () => {
 
         // Check if the validation errors are displayed
         await waitFor(() => {
-            expect(screen.getByText('login must be at least 6 characters')).toBeInTheDocument()
+            expect(screen.getByText('userName must be at least 6 characters')).toBeInTheDocument()
             expect(screen.getByText('Field is required!')).toBeInTheDocument()
             expect(screen.getByText('Password should include one uppercase letter, ' +
                 'one lowercase letter, one number and one special character'))

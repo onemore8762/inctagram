@@ -5,7 +5,6 @@ import { useAuth } from 'features/auth/model'
 import { SelectEmail, SelectSetEmail } from 'features/auth/model/selectors'
 import { AuthService } from 'shared/api/auth/authService'
 import { AppRoutes } from 'shared/config/routeConfig/path'
-import { confirmEmailLink } from 'shared/constants/confirm-email'
 import { useModal } from 'shared/hooks/useModal'
 import { routerPush } from 'shared/lib/routerPush/routerPush'
 import {
@@ -14,7 +13,7 @@ import {
 } from 'shared/types/auth'
 
 interface RegisterValidation {
-    login: string
+    userName: string
     email: string
     password: string
     confPassword?: string
@@ -38,7 +37,7 @@ export const useRegistration = () => {
 
     const onSubmit = useCallback((data: RegisterValidation): void => {
         const { confPassword, ...registerData } = data
-        registration({ ...registerData, frontendLink: confirmEmailLink })
+        registration({ ...registerData })
         setEmail(data.email)
     }, [error])
 

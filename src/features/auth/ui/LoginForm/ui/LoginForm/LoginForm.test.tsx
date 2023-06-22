@@ -26,7 +26,7 @@ describe('LoginForm', () => {
         renderWithQueryClient(<LoginForm />)
 
         await act(async () => {
-            await userEvent.type(screen.getByPlaceholderText('Email or Login'), 'testuser')
+            await userEvent.type(screen.getByPlaceholderText('Email'), 'testuser@example.com')
             await userEvent.type(screen.getByPlaceholderText('Password'), 'testpasswordQ1q**')
 
             await userEvent.click(screen.getByTestId('sign-in-submit'))
@@ -34,7 +34,7 @@ describe('LoginForm', () => {
 
         await waitFor(() => {
             expect(AuthService.login).toHaveBeenCalledWith({
-                loginOrEmail: 'testuser',
+                email: 'testuser@example.com',
                 password: 'testpasswordQ1q**'
             } as UserLoginModel)
             expect(routerPush).toHaveBeenCalledWith(AppRoutes.PROFILE_SETTINGS.GENERAL_INFORMATION)
@@ -52,7 +52,7 @@ describe('LoginForm', () => {
         renderWithQueryClient(<LoginForm />)
 
         await act(async () => {
-            await userEvent.type(screen.getByPlaceholderText('Email or Login'), 'testuser')
+            await userEvent.type(screen.getByPlaceholderText('Email'), 'testuser@example.com')
             await userEvent.type(screen.getByPlaceholderText('Password'), 'testpasswordQ1q**')
             await userEvent.click(screen.getByTestId('sign-in-submit'))
         })

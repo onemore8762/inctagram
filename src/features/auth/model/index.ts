@@ -4,14 +4,14 @@ import { immer } from 'zustand/middleware/immer'
 export interface useAuthStateType {
     email: string
     isAuth: boolean
-    userId: string
-    setUserId: (userId: string) => void
+    userId: number
+    setUserId: (userId: number) => void
     setEmail: (email: string) => void
     setAuth: (isAuth: boolean) => void
 }
 export const useAuth = create(immer<useAuthStateType>((set) => ({
     email: '',
-    userId: '',
+    userId: 0,
     isAuth: false,
     setEmail: (email: string) => {
         set(state => {
@@ -23,7 +23,7 @@ export const useAuth = create(immer<useAuthStateType>((set) => ({
             state.isAuth = isAuth
         })
     },
-    setUserId: (userId: string) => {
+    setUserId: (userId: number) => {
         set(state => {
             state.userId = userId
         })

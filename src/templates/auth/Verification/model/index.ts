@@ -30,7 +30,7 @@ export const useResendEmailMutation = () => {
     const verifyEmailHandler = () => {
         if (emailInLocalStorage) {
             setEmail(emailInLocalStorage)
-            resendEmail({ frontendLink: confirmEmailLink, email: emailInLocalStorage })
+            resendEmail({ email: emailInLocalStorage })
         }
     }
 

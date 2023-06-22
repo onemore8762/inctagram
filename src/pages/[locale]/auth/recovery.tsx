@@ -1,5 +1,5 @@
 import { NewPasswordForm } from 'features/auth'
 
-export default function NewPassword () {
+export default function Recovery () {
     return <NewPasswordForm/>
 }

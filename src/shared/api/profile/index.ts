@@ -9,13 +9,15 @@ export const profileService = {
             }
         })
     },
-    getProfileData (userId: string) {
-        return $api.get<ProfileDataModel>(`/users/${userId}/profile`)
+
+    getProfileData () {
+        return $api.get<ProfileDataModel>('/users/profile')
     },
 
     updateProfileData (body: ProfileDataModel) {
         return $api.put<ProfileDataModel>('/users/profile', body)
     },
+
     subscribeOrUnsubscribe (userId: string) {
         return $api.patch<ProfileDataModel>(`/users/${userId}/subscribe`)
     }

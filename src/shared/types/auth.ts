@@ -1,19 +1,22 @@
+export interface RefreshTokenResponse {
+    accessToken: string
+}
+
 export interface UserAuthModel {
     email: string
-    login: string
-    userId: string
+    userName: string
+    userId: number
 }
 
 export interface UserLoginModel {
-    loginOrEmail: string
+    email: string
     password: string
 }
 
 export interface UserRegistrationModel {
-    login: string
+    userName: string
     email: string
     password: string
-    frontendLink: string
 }
 export interface UserRegistrationError {
     errorsMessages: Array<{
@@ -29,12 +32,11 @@ export interface UserCreatePasswordModel {
 
 export interface UseResendLinkModel {
     email: string
-    frontendLink: string
 }
 
 export interface PasswordRecoveryModel {
     email: string
-    frontendLink: string
+    recaptcha: string
 }
 
 export interface ProfileDataModel {

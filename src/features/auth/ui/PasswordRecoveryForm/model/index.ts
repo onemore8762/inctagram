@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useAuth } from 'features/auth/model'
 import { SelectSetEmail } from 'features/auth/model/selectors'
 import { AuthService } from 'shared/api/auth/authService'
-import { createNewPasswordLink } from 'shared/constants/create-new-password'
 import { useModal } from 'shared/hooks/useModal'
 import { type PasswordRecoveryValidation } from '../ui/PasswordRecoveryForm/PasswordRecoveryForm'
 
@@ -23,9 +22,7 @@ export const useRecoverPassword = () => {
     })
 
     const onSubmit = (data: PasswordRecoveryValidation) => {
-        const payload = { ...data, frontendLink: createNewPasswordLink }
-
-        passwordRecovery(payload)
+        passwordRecovery(data)
         setEmail(data.email)
     }
 

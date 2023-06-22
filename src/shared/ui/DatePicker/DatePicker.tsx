@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { format, getYear, parseISO } from 'date-fns'
+import { format, getYear } from 'date-fns'
 import { range } from 'lodash'
 import { useState } from 'react'
 import LibDatePicker from 'react-datepicker'
